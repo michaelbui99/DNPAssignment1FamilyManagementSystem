@@ -11,11 +11,28 @@
   font-size: 1.1rem;
 }
 
+.bg-light-gray {
+  background-color: #EBECF5 !important;
+}
+
+.color-black {
+  color: black !important;
+}
+
 .oi {
   width: 2rem;
   font-size: 1.1rem;
   vertical-align: text-top;
   top: -2px;
+}
+
+li:first-of-type {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+}
+li:first-of-type span {
+  display: table;
+  margin: 0 auto;
 }
 
 .nav-item {
@@ -36,6 +53,7 @@
   display: flex;
   align-items: center;
   line-height: 3rem;
+  transition: all 0.3s ease-in-out;
 }
 .nav-item ::deep a:hover {
   background-color: #4f505c;

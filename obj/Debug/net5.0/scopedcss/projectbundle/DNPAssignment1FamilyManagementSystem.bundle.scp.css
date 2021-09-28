@@ -1,5 +1,82 @@
 @import '';
 
+/* _content/DNPAssignment1FamilyManagementSystem/Pages/Login.razor.rz.scp.css */
+.login-container[b-32nbc844i2] {
+  display: flex;
+  flex-direction: row;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.login-container .left-section[b-32nbc844i2] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 100vh;
+  background-color: #2B2D42;
+}
+.login-container .left-section img[b-32nbc844i2] {
+  max-width: 400px;
+  max-height: 350px;
+  margin-bottom: 2rem;
+}
+.login-container .left-section h4[b-32nbc844i2] {
+  font-weight: bold;
+  color: white;
+}
+.login-container .left-section p[b-32nbc844i2] {
+  color: white;
+}
+.login-container .right-section[b-32nbc844i2] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50vw;
+  height: 100vh;
+}
+.login-container .right-section h3[b-32nbc844i2] {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.login-container .right-section label[b-32nbc844i2] {
+  font-weight: 600;
+  display: block;
+}
+.login-container .right-section input[b-32nbc844i2] {
+  border-radius: 20px;
+  border: none;
+  width: 20rem;
+  height: 2.5rem;
+  padding-left: 1rem;
+}
+.login-container .right-section input:last-of-type[b-32nbc844i2] {
+  margin-bottom: 1rem;
+}
+.login-container .right-section button[b-32nbc844i2] {
+  background-color: #150bd4;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+.login-container .right-section button:hover[b-32nbc844i2] {
+  opacity: 0.7;
+}
+.login-container .right-section p span[b-32nbc844i2] {
+  cursor: pointer;
+  color: #292D85;
+  transition: all 0.1s ease-in-out;
+}
+.login-container .right-section p span:hover[b-32nbc844i2] {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=Login.razor.css.map */
 /* _content/DNPAssignment1FamilyManagementSystem/Shared/MainLayout.razor.rz.scp.css */
 .page[b-1rnjhvnu8e] {
   position: relative;
@@ -17,7 +94,7 @@
 }
 
 .top-row[b-1rnjhvnu8e] {
-  background-color: #f7f7f7;
+  background-color: #EBECF5;
   border-bottom: 1px solid #d6d5d5;
   justify-content: flex-end;
   height: 3.5rem;
@@ -65,11 +142,6 @@
     top: 0;
     z-index: 1;
   }
-
-  .main > div[b-1rnjhvnu8e] {
-    padding-left: 2rem !important;
-    padding-right: 1.5rem !important;
-  }
 }
 
 /*# sourceMappingURL=MainLayout.razor.css.map */
@@ -87,11 +159,28 @@
   font-size: 1.1rem;
 }
 
+.bg-light-gray[b-3zi0flubk9] {
+  background-color: #EBECF5 !important;
+}
+
+.color-black[b-3zi0flubk9] {
+  color: black !important;
+}
+
 .oi[b-3zi0flubk9] {
   width: 2rem;
   font-size: 1.1rem;
   vertical-align: text-top;
   top: -2px;
+}
+
+li:first-of-type[b-3zi0flubk9] {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+}
+li:first-of-type span[b-3zi0flubk9] {
+  display: table;
+  margin: 0 auto;
 }
 
 .nav-item[b-3zi0flubk9] {
@@ -112,6 +201,7 @@
   display: flex;
   align-items: center;
   line-height: 3rem;
+  transition: all 0.3s ease-in-out;
 }
 .nav-item[b-3zi0flubk9]  a:hover {
   background-color: #4f505c;

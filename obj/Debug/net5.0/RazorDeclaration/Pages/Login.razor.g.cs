@@ -82,6 +82,13 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\Pages\Login.razor"
+using DNPAssignment1FamilyManagementSystem.Authentication;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Login")]
     public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +97,30 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 43 "C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\Pages\Login.razor"
+       
+    private string _username;
+    private string _password;
+    
+    [CascadingParameter] protected Task<AuthenticationState> AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        //Redirects the user to index if user is already logged in.
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

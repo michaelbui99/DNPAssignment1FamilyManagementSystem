@@ -59,3 +59,4 @@ C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssign
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.genruntimeconfig.cache
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.CopyComplete
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\bin\Debug\net5.0\Users.json
+C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\Login.razor.rz.scp.css

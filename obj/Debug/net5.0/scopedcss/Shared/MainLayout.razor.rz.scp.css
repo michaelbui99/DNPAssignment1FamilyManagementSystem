@@ -14,7 +14,7 @@
 }
 
 .top-row[b-1rnjhvnu8e] {
-  background-color: #f7f7f7;
+  background-color: #EBECF5;
   border-bottom: 1px solid #d6d5d5;
   justify-content: flex-end;
   height: 3.5rem;
@@ -61,11 +61,6 @@
     position: sticky;
     top: 0;
     z-index: 1;
-  }
-
-  .main > div[b-1rnjhvnu8e] {
-    padding-left: 2rem !important;
-    padding-right: 1.5rem !important;
   }
 }
 

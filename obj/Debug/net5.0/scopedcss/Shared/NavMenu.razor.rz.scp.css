@@ -11,11 +11,28 @@
   font-size: 1.1rem;
 }
 
+.bg-light-gray[b-3zi0flubk9] {
+  background-color: #EBECF5 !important;
+}
+
+.color-black[b-3zi0flubk9] {
+  color: black !important;
+}
+
 .oi[b-3zi0flubk9] {
   width: 2rem;
   font-size: 1.1rem;
   vertical-align: text-top;
   top: -2px;
+}
+
+li:first-of-type[b-3zi0flubk9] {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+}
+li:first-of-type span[b-3zi0flubk9] {
+  display: table;
+  margin: 0 auto;
 }
 
 .nav-item[b-3zi0flubk9] {
@@ -36,6 +53,7 @@
   display: flex;
   align-items: center;
   line-height: 3rem;
+  transition: all 0.3s ease-in-out;
 }
 .nav-item[b-3zi0flubk9]  a:hover {
   background-color: #4f505c;

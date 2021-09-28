@@ -90,7 +90,7 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\Shared\NavMenu.razor"
+#line 32 "C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
