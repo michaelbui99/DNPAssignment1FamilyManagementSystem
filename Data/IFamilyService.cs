@@ -8,5 +8,6 @@ namespace DNPAssignment1FamilyManagementSystem.Data
         IList<Family> GetFamilies();
         void CreateFamily(Family family);
         void DeleteFamily(string streetName, int houseNumber);
+        Family Get(string streetName, int houseNumber); 
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DNPAssignment1FamilyManagementSystem.Data;
 using FileData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -28,7 +29,8 @@ namespace DNPAssignment1FamilyManagementSystem
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<FileContext>();
+            services.AddScoped<FileContext>();
+            services.AddSingleton<IFamilyService, FileFamilyService>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

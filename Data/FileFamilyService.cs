@@ -52,5 +52,17 @@ namespace DNPAssignment1FamilyManagementSystem.Data
 
             _fileContext.Families.Remove(familyToRemove); 
         }
+
+        public Family Get(string streetName, int houseNumber)
+        {
+            Family familyToReturn = _fileContext.Families.FirstOrDefault(f => f.StreetName
+                == streetName && f.HouseNumber == houseNumber);
+            if (familyToReturn is null)
+            {
+                throw new Exception("Family not found"); 
+            }
+
+            return familyToReturn; 
+        }
     }
 }
