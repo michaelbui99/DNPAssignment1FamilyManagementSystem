@@ -30,7 +30,8 @@ namespace DNPAssignment1FamilyManagementSystem
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<FileContext>();
-            services.AddSingleton<IFamilyService, FileFamilyService>(); 
+            services.AddSingleton<IFamilyService, FileFamilyService>();
+            services.AddSingleton<IUserService, FileUserService>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
