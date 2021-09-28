@@ -52,6 +52,23 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             return userToReturn; 
         }
 
+        public User ValidateUser(string username, string password)
+        {
+            User userToValidate = Users.FirstOrDefault(u => u.Username == username);
+
+            if (userToValidate is null)
+            {
+                throw new Exception("User not Found"); 
+            }
+
+            if (userToValidate.Password != password)
+            {
+                throw new Exception("Incorrect Password"); 
+            }
+
+            return userToValidate; 
+        }
+
         private void WriteUsersToFile()
         {
             string usersAsJson = JsonSerializer.Serialize(Users);

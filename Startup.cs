@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DNPAssignment1FamilyManagementSystem.Authentication;
 using DNPAssignment1FamilyManagementSystem.Data;
 using FileData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -30,8 +32,9 @@ namespace DNPAssignment1FamilyManagementSystem
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<FileContext>();
-            services.AddSingleton<IFamilyService, FileFamilyService>();
-            services.AddSingleton<IUserService, FileUserService>(); 
+            services.AddScoped<IFamilyService, FileFamilyService>();
+            services.AddScoped<IUserService, FileUserService>();
+            services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
