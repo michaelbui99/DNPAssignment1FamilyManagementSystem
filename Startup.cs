@@ -29,7 +29,7 @@ namespace DNPAssignment1FamilyManagementSystem
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<FileContext>();
+            services.AddSingleton<FileContext>();
             services.AddSingleton<IFamilyService, FileFamilyService>(); 
         }
 
