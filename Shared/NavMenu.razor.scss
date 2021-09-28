@@ -1,10 +1,11 @@
+@import "../wwwroot/css/variables"; 
 .navbar-toggler {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
 .top-row {
   height: 3.5rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0,0,0,0.4);
 }
 
 .navbar-brand {
@@ -21,31 +22,38 @@
 .nav-item {
   font-size: 0.9rem;
   padding-bottom: 0.5rem;
-}
-.nav-item:first-of-type {
-  padding-top: 1rem;
-}
-.nav-item:last-of-type {
-  padding-bottom: 1rem;
+  
+  &:first-of-type{
+    padding-top: 1rem;
+  }
+  
+  &:last-of-type{
+    padding-bottom: 1rem;
+  }
 }
 
+
 .nav-item ::deep a {
-  color: #1b1a25;
+  color: $black;
   border-radius: 4px;
   height: 3rem;
   display: flex;
   align-items: center;
   line-height: 3rem;
-}
-.nav-item ::deep a:hover {
-  background-color: #4f505c;
-  color: #EBECF5;
+  
+  &:hover {
+    background-color: $darkGray;
+    color: $lightGray; 
+  }
 }
 
 .nav-item ::deep a.active {
-  background-color: rgba(255, 255, 255, 0.25);
-  color: #1b1a25;
+  background-color: rgba(255,255,255,0.25);
+  color: $black;
+  
+  
 }
+
 
 @media (min-width: 641px) {
   .navbar-toggler {
@@ -57,5 +65,3 @@
     display: block;
   }
 }
-
-/*# sourceMappingURL=NavMenu.razor.css.map */
