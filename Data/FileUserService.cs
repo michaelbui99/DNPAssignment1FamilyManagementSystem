@@ -17,11 +17,17 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             if (!File.Exists(_usersFile))
             {
                 Users = new List<User>();
-                File.Create(_usersFile); 
+                FileStream fileStream = File.Create(_usersFile);
+                fileStream.Close();
             }
             else
             {
                 string usersAsJson = File.ReadAllText(_usersFile);
+                if (usersAsJson.Length == 0)
+                {
+                    Users = new List<User>();
+                    return; 
+                }
                 Users = JsonSerializer.Deserialize<List<User>>(usersAsJson); 
             }
         }

@@ -90,6 +90,27 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 8 "C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\Pages\Index.razor"
+      
+
+    [CascadingParameter] protected Task<AuthenticationState> AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo("/Login");
+        }
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

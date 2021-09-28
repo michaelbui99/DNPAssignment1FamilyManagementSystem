@@ -22,6 +22,7 @@ C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssign
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\Families.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\Login.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -34,6 +35,7 @@ C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssign
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\App.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\Families.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
+C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\Login.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs
@@ -56,3 +58,4 @@ C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssign
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.pdb
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.genruntimeconfig.cache
 C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.CopyComplete
+C:\Users\Micha\RiderProjects\DNP1\DNPAssignment1FamilyManagementSystem\DNPAssignment1FamilyManagementSystem\bin\Debug\net5.0\Users.json
