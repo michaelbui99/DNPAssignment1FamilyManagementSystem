@@ -105,7 +105,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 78 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _families;
 

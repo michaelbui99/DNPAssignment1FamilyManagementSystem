@@ -16,17 +16,16 @@
   content: "\f002";
   font: normal normal normal 14px/1 FontAwesome;
 }
-.families-container table tbody tr {
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
 .families-container table tbody tr td {
   border: none;
 }
-.families-container table tbody tr:hover {
-  background-color: #4f505c;
-  opacity: 0.7;
-  color: white;
+.families-container table tbody tr td .content-container {
+  width: 100%;
+  height: 100%;
+  background-color: #EBECF5;
+}
+.families-container table tbody tr td .content-container .adults-container p {
+  color: black;
 }
 
 /*# sourceMappingURL=Families.razor.css.map */

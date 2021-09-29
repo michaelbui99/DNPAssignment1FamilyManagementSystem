@@ -82,7 +82,14 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class CollapsableTableRow : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\ExpandableFamilyTableRow.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class ExpandableFamilyTableRow : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,26 +97,14 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\CollapsableTableRow.razor"
+#line 16 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\ExpandableFamilyTableRow.razor"
        
     private string iconClass = "oi oi-collapse-down";
     private bool _isCollapsed = true;
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
-    public string StreetName { get; set; }
-
-    [Parameter]
-    public int HouseNumber { get; set; }
-
-    [Parameter]
-    public int AdultCount { get; set; }
-
-    [Parameter]
-    public int ChildrenCount { get; set; }
-
-    [Parameter]
-    public int PetCount { get; set; }
+    public Family Family { get; set; }
 
     public void ExpandView()
     {

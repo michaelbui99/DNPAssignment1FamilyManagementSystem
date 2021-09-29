@@ -8,46 +8,67 @@
         <div class="families-container">
             <div class="families-container__header">
                 <h3>Families</h3>
-                    
+
                 <div class="icon-wrapper">
                     <i class="fas fa-search"></i>
                 </div>
-                    <input type="text" placeholder="Search">
-           
+                <input type="text" placeholder="Search">
+
             </div>
-                    @if (_families is null)
+            @if (_families is null)
+            {
+                <p>
+                    <em>Loading...</em>
+                </p>
+            }
+            else if (!_families.Any())
+            {
+                <p>
+                    <em>No Families has been created yet.</em>
+                </p>
+            }
+            else
+            {
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Street Name</th>
+                        <th>House No</th>
+                        <th>Member Count</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var f in _families)
                     {
-                        <p>
-                            <em>Loading...</em>
-                        </p>
-                    }
-                    else if (!_families.Any())
-                    {
-                        <p>
-                            <em>No Families has been created yet.</em>
-                        </p>
-                    }
-                    else
-                    {
-                        <table class="table">
-                            <thead>
+                        <ExpandableFamilyTableRow Family="f">
                             <tr>
-                                <th></th>
-                                <th>Street Name</th>
-                                <th>House No</th>
-                                <th>Member Count</th>
+                                <td colspan="4">
+                                    <div class="content-container">
+                                        <div class="adults-container">
+                                            <h4>Adults:</h4>
+                                            @foreach (var a in f.Adults)
+                                            {
+                                                <p>Name: @a.FirstName @a.LastName</p>
+                                                <p>Age: @a.Age</p>
+                                                <p>Job: @a.JobTitle.JobTitle</p>
+                                                <p>Salary: @a.JobTitle.Salary</p>
+                                                <p>Weight: @a.Weight</p>
+                                                <p>Height: @a.Height</p>
+                                                <p>Sex: @a.Sex</p>
+                                                <p>Hair color: @a.HairColor</p>
+                                                <p>Eye color: @a.EyeColor</p>
+                                                <br/>
+                                            }
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            @foreach (var f in _families)
-                            {
-                                <CollapsableFamilyTableRow Family="f">
-                                    <p>Hello</p>
-                                </CollapsableFamilyTableRow>
-                            }
-                            </tbody>
-                        </table>
+                        </ExpandableFamilyTableRow>
                     }
+                    </tbody>
+                </table>
+            }
 
         </div>
     </Authorized>

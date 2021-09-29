@@ -1,14 +1,14 @@
-tr {
+tr[b-wfra8awobk] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-tr td {
+tr td[b-wfra8awobk] {
   border: none;
 }
-tr:hover {
+tr:hover[b-wfra8awobk] {
   background-color: #4f505c;
   opacity: 0.7;
   color: white;
 }
 
-/*# sourceMappingURL=CollapsableFamilyTableRow.razor.css.map */
+/*# sourceMappingURL=ExpandableFamilyTableRow.razor.css.map */

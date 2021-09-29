@@ -124,6 +124,6 @@ C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.CopyComplete
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\Index.razor.rz.scp.css
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\Families.razor.rz.scp.css
-C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\CollapsableTableRow.razor.g.cs
-C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\CollapsableTableRow.razor.g.cs
-C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\CollapsableTableRow.razor.rz.scp.css
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\ExpandableFamilyTableRow.razor.g.cs
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\ExpandableFamilyTableRow.razor.g.cs
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\ExpandableFamilyTableRow.razor.rz.scp.css
