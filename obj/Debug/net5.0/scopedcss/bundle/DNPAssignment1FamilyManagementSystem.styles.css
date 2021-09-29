@@ -1,3 +1,18 @@
+/* _content/DNPAssignment1FamilyManagementSystem/Pages/CollapsableTableRow.razor.rz.scp.css */
+tr[b-l5qawqpfeg] {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+tr td[b-l5qawqpfeg] {
+  border: none;
+}
+tr:hover[b-l5qawqpfeg] {
+  background-color: #4f505c;
+  opacity: 0.7;
+  color: white;
+}
+
+/*# sourceMappingURL=CollapsableTableRow.razor.css.map */
 /* _content/DNPAssignment1FamilyManagementSystem/Pages/Families.razor.rz.scp.css */
 .families-container__header[b-2chmzdkc7s] {
   display: flex;
@@ -8,10 +23,10 @@
   margin-right: 1rem;
 }
 .families-container__header input[b-2chmzdkc7s] {
-  border-radius: 10px;
+  border-radius: 5px;
   height: 75%;
   border: none;
-  background-color: #BABCC5;
+  background-color: white;
 }
 .families-container__header input[b-2chmzdkc7s]::before {
   content: "\f002";

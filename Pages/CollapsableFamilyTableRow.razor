@@ -1,10 +1,11 @@
-﻿<tr @onclick="@ExpandView">
+﻿@using Models
+<tr @onclick="@ExpandView">
     <td>
         <span class="@iconClass"></span>
     </td>
-    <td>@StreetName</td>
-    <td>@HouseNumber</td>
-    <td>@AdultCount Adults; @ChildrenCount Children; @PetCount Pets</td>
+    <td>@Family.StreetName</td>
+    <td>@Family.HouseNumber</td>
+    <td>@Family.Adults.Count Adults; @Family.Children.Count Children; @Family.Pets.Count Pets</td>
     
     @if (_isCollapsed == false)
     {
@@ -18,19 +19,7 @@
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
-    public string StreetName { get; set; }
-
-    [Parameter]
-    public int HouseNumber { get; set; }
-
-    [Parameter]
-    public int AdultCount { get; set; }
-
-    [Parameter]
-    public int ChildrenCount { get; set; }
-
-    [Parameter]
-    public int PetCount { get; set; }
+    public Family Family { get; set; }
 
     public void ExpandView()
     {

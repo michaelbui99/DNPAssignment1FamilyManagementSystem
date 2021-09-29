@@ -41,9 +41,9 @@
                             <tbody>
                             @foreach (var f in _families)
                             {
-                                <CollapsableTableRow StreetName="@f.StreetName" HouseNumber="@f.HouseNumber" AdultCount="@f.Adults.Count" ChildrenCount="@f.Children.Count" PetCount="@f.Pets.Count">
+                                <CollapsableFamilyTableRow Family="f">
                                     <p>Hello</p>
-                                </CollapsableTableRow>
+                                </CollapsableFamilyTableRow>
                             }
                             </tbody>
                         </table>
