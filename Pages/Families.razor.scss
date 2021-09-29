@@ -2,12 +2,39 @@
 
 .families-container {
 
+  &__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    h3 {
+      margin-right: 1rem;
+    }
+    
+  
+     input {
+       border-radius: 5px;
+       height: 75%;
+       border: none;
+       background-color:white;
+       
+       &::before {
+         content: "\f002";
+         font: normal normal normal 14px/1  FontAwesome;
+       }
+     }
+   
+  }
   
   table {
     tbody {
       tr {
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+        
+        td {
+          border: none
+        }
 
         &:hover {
           background-color: $darkGray;

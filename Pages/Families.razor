@@ -6,7 +6,15 @@
 <AuthorizeView>
     <Authorized>
         <div class="families-container">
-            <h3>Families</h3>
+            <div class="families-container__header">
+                <h3>Families</h3>
+                    
+                <div class="icon-wrapper">
+                    <i class="fas fa-search"></i>
+                </div>
+                    <input type="text" placeholder="Search">
+           
+            </div>
                     @if (_families is null)
                     {
                         <p>
@@ -33,12 +41,9 @@
                             <tbody>
                             @foreach (var f in _families)
                             {
-                                <tr>
-                                    <td><span class="oi oi-collapse-down"></span></td>
-                                    <td>@f.StreetName</td>
-                                    <td>@f.HouseNumber</td>
-                                    <td>@f.Adults.Count Adults; @f.Children.Count Children; @f.Pets.Count Pets</td>
-                                </tr>
+                                <CollapsableTableRow StreetName="@f.StreetName" HouseNumber="@f.HouseNumber" AdultCount="@f.Adults.Count" ChildrenCount="@f.Children.Count" PetCount="@f.Pets.Count">
+                                    <p>Hello</p>
+                                </CollapsableTableRow>
                             }
                             </tbody>
                         </table>

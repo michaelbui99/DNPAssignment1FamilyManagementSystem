@@ -1,6 +1,27 @@
+.families-container__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.families-container__header h3 {
+  margin-right: 1rem;
+}
+.families-container__header input {
+  border-radius: 5px;
+  height: 75%;
+  border: none;
+  background-color: white;
+}
+.families-container__header input::before {
+  content: "\f002";
+  font: normal normal normal 14px/1 FontAwesome;
+}
 .families-container table tbody tr {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+.families-container table tbody tr td {
+  border: none;
 }
 .families-container table tbody tr:hover {
   background-color: #4f505c;

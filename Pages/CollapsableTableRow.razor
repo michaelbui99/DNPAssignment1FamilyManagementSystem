@@ -1,0 +1,48 @@
+﻿<tr @onclick="">
+    <td>
+        <span class="@iconClass"></span>
+    </td>
+    <td>@StreetName</td>
+    <td>@HouseNumber</td>
+    <td>@AdultCount Adults; @ChildrenCount Children; @PetCount Pets</td>
+    
+    @if (_isCollapsed == false)
+    {
+        @ChildContent
+    }
+</tr>
+
+@code {
+    private string iconClass = "oi oi-collapse-down";
+    private bool _isCollapsed = true;
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public string StreetName { get; set; }
+
+    [Parameter]
+    public int HouseNumber { get; set; }
+
+    [Parameter]
+    public int AdultCount { get; set; }
+
+    [Parameter]
+    public int ChildrenCount { get; set; }
+
+    [Parameter]
+    public int PetCount { get; set; }
+
+    public void ExpandView()
+    {
+        if (_isCollapsed)
+        {
+            _isCollapsed = false;
+            iconClass = "oi oi-collapse-up";
+        }
+        else
+        {
+            _isCollapsed = true;
+            iconClass = "oi oi-collapse-down"; 
+        }
+    }
+}

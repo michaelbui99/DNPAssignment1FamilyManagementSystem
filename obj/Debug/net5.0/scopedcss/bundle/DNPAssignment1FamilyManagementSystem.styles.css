@@ -1,12 +1,30 @@
 /* _content/DNPAssignment1FamilyManagementSystem/Pages/Families.razor.rz.scp.css */
-table[b-2chmzdkc7s] {
-  overflow: scroll;
+.families-container__header[b-2chmzdkc7s] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-table tbody tr[b-2chmzdkc7s] {
+.families-container__header h3[b-2chmzdkc7s] {
+  margin-right: 1rem;
+}
+.families-container__header input[b-2chmzdkc7s] {
+  border-radius: 10px;
+  height: 75%;
+  border: none;
+  background-color: #BABCC5;
+}
+.families-container__header input[b-2chmzdkc7s]::before {
+  content: "\f002";
+  font: normal normal normal 14px/1 FontAwesome;
+}
+.families-container table tbody tr[b-2chmzdkc7s] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-table tbody tr:hover[b-2chmzdkc7s] {
+.families-container table tbody tr td[b-2chmzdkc7s] {
+  border: none;
+}
+.families-container table tbody tr:hover[b-2chmzdkc7s] {
   background-color: #4f505c;
   opacity: 0.7;
   color: white;
