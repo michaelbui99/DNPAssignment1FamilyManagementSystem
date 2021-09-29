@@ -1,13 +1,19 @@
 @page "/"
 @inject NavigationManager NavigationManager
 
-<h1>Hello, world!</h1>
+<div class="index-container">
+    <h1>Welcome @_username</h1>
+    <p>Start managing families by using the side navigation bar</p>
+    <i class="fas fa-arrow-left"></i>
+</div>
 
-Welcome to your new app.
 
 @code{
 
-    [CascadingParameter] protected Task<AuthenticationState> AuthStat { get; set; }
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+
+    string _username;
 
     protected async override Task OnInitializedAsync()
     {
@@ -16,6 +22,10 @@ Welcome to your new app.
         if (!user.Identity.IsAuthenticated)
         {
             NavigationManager.NavigateTo("/Login");
+        }
+        else
+        {
+            _username = user.Identity.Name;
         }
     }
 

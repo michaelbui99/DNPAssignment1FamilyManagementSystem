@@ -1,0 +1,34 @@
+﻿@import "../wwwroot/css/variables";
+@import "../wwwroot/css/animations";
+
+.index-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  
+  h1 {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  p {
+    opacity: 0;
+   animation-name: fade-in;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+  i {
+    opacity: 0;
+    animation-name: fade-in, left-right-translate;
+    animation-duration: 1s, 1s;
+    animation-iteration-count: 1, infinite;
+    animation-delay: 2s, 2.3s;
+    animation-fill-mode: forwards;
+  }
+}

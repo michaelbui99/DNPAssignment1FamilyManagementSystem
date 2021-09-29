@@ -122,3 +122,4 @@ C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.pdb
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.genruntimeconfig.cache
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.CopyComplete
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\Index.razor.rz.scp.css

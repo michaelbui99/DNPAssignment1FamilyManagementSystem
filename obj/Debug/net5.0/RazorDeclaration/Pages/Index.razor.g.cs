@@ -91,10 +91,13 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Index.razor"
+#line 11 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Index.razor"
       
 
-    [CascadingParameter] protected Task<AuthenticationState> AuthStat { get; set; }
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+
+    string _username;
 
     protected async override Task OnInitializedAsync()
     {
@@ -103,6 +106,10 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         if (!user.Identity.IsAuthenticated)
         {
             NavigationManager.NavigateTo("/Login");
+        }
+        else
+        {
+            _username = user.Identity.Name;
         }
     }
 
