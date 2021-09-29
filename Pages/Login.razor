@@ -5,18 +5,15 @@
 
 <AuthorizeView>
     <NotAuthorized>
-        
-        
-        
         <div class="login-container">
-            
+
             <div class="left-section">
                 <img src="images/Asset 860.png" alt="">
                 <h4>
                     Family Management System
                 </h4>
                 <p>Keep track of all your families</p>
-                
+
             </div>
             <div class="right-section">
                 <h3>Login</h3>
@@ -29,10 +26,10 @@
                     <label>Password</label>
                     <input type="password" placeholder="Password" @bind-value="_password">
                 </div>
-
-                <button>Login</button>
-                <p>
-                    Not registered yet? <span id="create-account-cta"> Create an account</span>
+                <p id="error-label">@_errorMessage</p>
+                <button @onclick="PerformLogin">Login</button>
+                <p class="create-acc-p">
+                    Not registered yet? <span id="create-account-cta" @onclick="OnCreateAccount"> Create an account</span>
                 </p>
             </div>
         </div>
@@ -43,12 +40,14 @@
 @code {
     private string _username;
     private string _password;
-    
-    [CascadingParameter] protected Task<AuthenticationState> AuthStat { get; set; }
+    private string _errorMessage;
+
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
-        //Redirects the user to index if user is already logged in.
+    //Redirects the user to index if user is already logged in.
         base.OnInitialized();
         var user = (await AuthStat).User;
         if (user.Identity.IsAuthenticated)
@@ -56,4 +55,43 @@
             NavigationManager.NavigateTo("/");
         }
     }
+
+    public void PerformLogin()
+    {
+        _errorMessage = "";
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
+            _username = "";
+            _password = "";
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            _errorMessage = e.Message; 
+        }
+    }
+
+    public void PerformLogout()
+    {
+        _errorMessage = "";
+        _username = "";
+        _password = "";
+
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("Login");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.ToString());
+        }
+    }
+
+    public void OnCreateAccount()
+    {
+        
+    }
+
 }

@@ -28,7 +28,13 @@ namespace DNPAssignment1FamilyManagementSystem.Data
                     Users = new List<User>();
                     return; 
                 }
-                Users = JsonSerializer.Deserialize<List<User>>(usersAsJson); 
+                Users = JsonSerializer.Deserialize<List<User>>(usersAsJson);
+               //Debugging 
+                Console.WriteLine("Users has been Deserialized");
+                foreach (var user in Users)
+                {
+                    Console.WriteLine(user);
+                }
             }
         }
 

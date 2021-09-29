@@ -64,13 +64,16 @@
 .login-container .right-section button:hover[b-32nbc844i2] {
   opacity: 0.7;
 }
-.login-container .right-section p span[b-32nbc844i2] {
+.login-container .right-section p.create-acc-p span[b-32nbc844i2] {
   cursor: pointer;
   color: #292D85;
   transition: all 0.1s ease-in-out;
 }
-.login-container .right-section p span:hover[b-32nbc844i2] {
+.login-container .right-section p.create-acc-p span:hover[b-32nbc844i2] {
   font-weight: bold;
+}
+.login-container .right-section #error-label[b-32nbc844i2] {
+  color: red;
 }
 
 /*# sourceMappingURL=Login.razor.css.map */
