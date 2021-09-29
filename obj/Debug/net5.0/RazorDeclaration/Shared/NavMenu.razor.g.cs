@@ -97,7 +97,7 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Shared\NavMenu.razor"
+#line 42 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

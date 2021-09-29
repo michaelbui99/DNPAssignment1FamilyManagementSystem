@@ -1,0 +1,11 @@
+.families-container table tbody tr {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.families-container table tbody tr:hover {
+  background-color: #4f505c;
+  opacity: 0.7;
+  color: white;
+}
+
+/*# sourceMappingURL=Families.razor.css.map */

@@ -1,0 +1,20 @@
+﻿@import "../wwwroot/css/variables";
+
+.families-container {
+
+  
+  table {
+    tbody {
+      tr {
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background-color: $darkGray;
+          opacity: 0.7;
+          color: white;
+        }
+      }
+    }
+  }
+}

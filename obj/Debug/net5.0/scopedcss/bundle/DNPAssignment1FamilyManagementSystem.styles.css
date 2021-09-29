@@ -1,3 +1,18 @@
+/* _content/DNPAssignment1FamilyManagementSystem/Pages/Families.razor.rz.scp.css */
+table[b-2chmzdkc7s] {
+  overflow: scroll;
+}
+table tbody tr[b-2chmzdkc7s] {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+table tbody tr:hover[b-2chmzdkc7s] {
+  background-color: #4f505c;
+  opacity: 0.7;
+  color: white;
+}
+
+/*# sourceMappingURL=Families.razor.css.map */
 /* _content/DNPAssignment1FamilyManagementSystem/Pages/Index.razor.rz.scp.css */
 @keyframes fade-in-b-csq2d353os {
   from {

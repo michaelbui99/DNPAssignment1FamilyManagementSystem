@@ -1,6 +1,72 @@
 ﻿@page "/Families"
-<h3>Families</h3>
+@using DNPAssignment1FamilyManagementSystem.Data
+@using Models
+@inject NavigationManager NavigationManager
+@inject IFamilyService FamilyService
+<AuthorizeView>
+    <Authorized>
+        <div class="families-container">
+            <h3>Families</h3>
+                    @if (_families is null)
+                    {
+                        <p>
+                            <em>Loading...</em>
+                        </p>
+                    }
+                    else if (!_families.Any())
+                    {
+                        <p>
+                            <em>No Families has been created yet.</em>
+                        </p>
+                    }
+                    else
+                    {
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Street Name</th>
+                                <th>House No</th>
+                                <th>Member Count</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var f in _families)
+                            {
+                                <tr>
+                                    <td><span class="oi oi-collapse-down"></span></td>
+                                    <td>@f.StreetName</td>
+                                    <td>@f.HouseNumber</td>
+                                    <td>@f.Adults.Count Adults; @f.Children.Count Children; @f.Pets.Count Pets</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+
+        </div>
+    </Authorized>
+</AuthorizeView>
 
 @code {
-    
+    private IList<Family> _families;
+
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo("/Login");
+        }
+        else
+        {
+            _families = FamilyService.GetFamilies();
+        }
+    }
+
 }
