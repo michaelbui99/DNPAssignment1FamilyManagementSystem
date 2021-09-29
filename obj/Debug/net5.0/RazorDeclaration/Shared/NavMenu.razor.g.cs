@@ -82,6 +82,13 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Shared\NavMenu.razor"
+using DNPAssignment1FamilyManagementSystem.Authentication;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,7 +97,7 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 32 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Shared\NavMenu.razor"
+#line 36 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
@@ -101,10 +108,18 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         collapseNavMenu = !collapseNavMenu;
     }
 
+    public void PerformLogout()
+    {
+        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+        NavigationManager.NavigateTo("/Login");
+    }
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

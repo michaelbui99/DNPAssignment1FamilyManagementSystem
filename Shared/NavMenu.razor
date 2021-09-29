@@ -1,33 +1,37 @@
-﻿<div class="top-row pl-4 navbar navbar-dark bg-light-gray">
-    <a class="navbar-brand color-black" href="">Family Management</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+﻿@using DNPAssignment1FamilyManagementSystem.Authentication
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-icon">
-            <span class="fas fa-user" aria-hidden="true"></span>    
-        </li>
-        
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <AuthorizeView>
-            <NotAuthorized>
+<AuthorizeView>
+    <Authorized>
+        <div class="top-row pl-4 navbar navbar-dark bg-light-gray">
+            <a class="navbar-brand color-black" href="">Family Management</a>
+            <button class="navbar-toggler" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+            <ul class="nav flex-column">
+                <li class="nav-icon">
+                    <span class="fas fa-user" aria-hidden="true"></span>
+                </li>
+
                 <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="login">
-                        <span class="oi oi-lock-unlocked" aria-hidden="true"></span> Login
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Home
                     </NavLink>
                 </li>
-            </NotAuthorized>
-            
-        </AuthorizeView>
-    </ul>
-</div>
+
+                <li class="nav-item px-3" @onclick="PerformLogout">
+                    <NavLink class="nav-link">
+                        <i class="fas  fa-sign-out-alt"></i> Sign out
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
+    </Authorized>
+</AuthorizeView>
 
 @code {
     private bool collapseNavMenu = true;
@@ -37,6 +41,12 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    public void PerformLogout()
+    {
+        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+        NavigationManager.NavigateTo("/Login");
     }
 
 }
