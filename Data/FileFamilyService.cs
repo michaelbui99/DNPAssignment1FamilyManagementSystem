@@ -51,6 +51,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             }
 
             _fileContext.Families.Remove(familyToRemove); 
+            _fileContext.SaveChanges();
         }
 
         public Family Get(string streetName, int houseNumber)

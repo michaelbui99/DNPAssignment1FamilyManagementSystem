@@ -1,17 +1,27 @@
 ﻿@using Models
-<tr @onclick="@ExpandView">
+@using DNPAssignment1FamilyManagementSystem.Data
+@inject IFamilyService FamilyService
+
+@if (Family != null)
+{
+    <tr @onclick="@ExpandView">
     <td>
         <span class="@iconClass"></span>
     </td>
     <td>@Family.StreetName</td>
     <td>@Family.HouseNumber</td>
     <td>@Family.Adults.Count Adults; @Family.Children.Count Children; @Family.Pets.Count Pets</td>
-    
+    <td>
+        <button @onclick="() => { FamilyService.DeleteFamily(Family.StreetName, Family.HouseNumber); Family = null; StateHasChanged();}">
+            <i class="fas fa-trash"></i>
+        </button>
+    </td>
 </tr>
     @if (_isCollapsed == false)
     {
         @ChildContent
     }
+}
 
 @code {
     private string iconClass = "oi oi-collapse-down";

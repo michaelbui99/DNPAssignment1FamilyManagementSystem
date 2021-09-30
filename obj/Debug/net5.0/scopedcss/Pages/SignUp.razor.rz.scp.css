@@ -55,5 +55,8 @@
 .sign-up-container .right-section p.p-go-to-login span:hover[b-qa34p65ncq] {
   font-weight: bold;
 }
+.sign-up-container .error-label[b-qa34p65ncq] {
+  color: red;
+}
 
 /*# sourceMappingURL=SignUp.razor.css.map */

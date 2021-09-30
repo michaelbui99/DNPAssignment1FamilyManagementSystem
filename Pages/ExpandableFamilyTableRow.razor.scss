@@ -5,7 +5,17 @@ tr {
   transition: all 0.3s ease-in-out;
 
   td {
-    border: none
+    border: none;
+    button {
+      border: none;
+      transition: all 0.3s ease-in-out;
+      
+      &:hover {
+        opacity: 0.7;
+        background-color: red;
+        color:white;
+      }
+    }
   }
 
   &:hover {

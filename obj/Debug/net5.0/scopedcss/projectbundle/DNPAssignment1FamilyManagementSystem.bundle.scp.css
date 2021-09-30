@@ -8,6 +8,15 @@ tr[b-wfra8awobk] {
 tr td[b-wfra8awobk] {
   border: none;
 }
+tr td button[b-wfra8awobk] {
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+tr td button:hover[b-wfra8awobk] {
+  opacity: 0.7;
+  background-color: red;
+  color: white;
+}
 tr:hover[b-wfra8awobk] {
   background-color: #4f505c;
   opacity: 0.7;
@@ -233,6 +242,9 @@ tr:hover[b-wfra8awobk] {
 }
 .sign-up-container .right-section p.p-go-to-login span:hover[b-qa34p65ncq] {
   font-weight: bold;
+}
+.sign-up-container .error-label[b-qa34p65ncq] {
+  color: red;
 }
 
 /*# sourceMappingURL=SignUp.razor.css.map */

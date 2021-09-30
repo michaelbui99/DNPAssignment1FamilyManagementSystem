@@ -89,6 +89,13 @@ using Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\ExpandableFamilyTableRow.razor"
+using DNPAssignment1FamilyManagementSystem.Data;
+
+#line default
+#line hidden
+#nullable disable
     public partial class ExpandableFamilyTableRow : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -97,7 +104,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 16 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\ExpandableFamilyTableRow.razor"
+#line 26 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\ExpandableFamilyTableRow.razor"
        
     private string iconClass = "oi oi-collapse-down";
     private bool _isCollapsed = true;
@@ -123,6 +130,7 @@ using Models;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
     }
 }
 #pragma warning restore 1591
