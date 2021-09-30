@@ -107,7 +107,10 @@ using Models;
 #nullable restore
 #line 72 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
        
-    private IList<Family> _families;
+    private IList<Family> _familiesToShow;
+    private IList<Family> _allFamilies;
+
+    private string _filterAdultByName;
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -123,7 +126,44 @@ using Models;
         }
         else
         {
-            _families = FamilyService.GetFamilies();
+            _allFamilies = FamilyService.GetFamilies();
+            _familiesToShow = _allFamilies;
+        }
+    }
+
+    private void FilterAdultsByName(ChangeEventArgs args)
+    {
+        _filterAdultByName = null;
+        _filterAdultByName = args.Value.ToString();
+        Console.WriteLine(_filterAdultByName);
+
+
+        if (_filterAdultByName != null)
+        {
+            List<Family> familiesWithAdultsWithNameMatch = new List<Family>();
+
+            foreach (var family in _allFamilies)
+            {
+                bool adultWithNameMatchFound = false;
+                foreach (var adult in family.Adults)
+                {
+                    if ($"{adult.FirstName} {adult.LastName}".Contains(_filterAdultByName))
+                    {
+                        adultWithNameMatchFound = true;
+                        break; 
+                    }
+                }
+                if (adultWithNameMatchFound)
+                {
+                    familiesWithAdultsWithNameMatch.Add(family);
+                }
+            }
+
+            _familiesToShow = familiesWithAdultsWithNameMatch; 
+        }
+        else
+        {
+            _familiesToShow = _allFamilies;
         }
     }
 

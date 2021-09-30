@@ -12,16 +12,16 @@
                 <div class="icon-wrapper">
                     <i class="fas fa-search"></i>
                 </div>
-                <input type="text" placeholder="Search by name">
+                <input type="text" placeholder="Search by name" @oninput="(args) => FilterAdultsByName(args)">
 
             </div>
-            @if (_families is null)
+            @if (_familiesToShow is null)
             {
                 <p>
                     <em>Loading...</em>
                 </p>
             }
-            else if (!_families.Any())
+            else if (!_familiesToShow.Any())
             {
                 <p>
                     <em>No Families has been created yet.</em>
@@ -40,7 +40,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach (var f in _families)
+                    @foreach (var f in _familiesToShow)
                     {
                         <ExpandableFamilyTableRow Family="f">
                             <tr>
@@ -70,7 +70,10 @@
 </AuthorizeView>
 
 @code {
-    private IList<Family> _families;
+    private IList<Family> _familiesToShow;
+    private IList<Family> _allFamilies;
+
+    private string _filterAdultByName;
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -86,7 +89,42 @@
         }
         else
         {
-            _families = FamilyService.GetFamilies();
+            _allFamilies = FamilyService.GetFamilies();
+            _familiesToShow = _allFamilies;
+        }
+    }
+
+    private void FilterAdultsByName(ChangeEventArgs args)
+    {
+        _filterAdultByName = null;
+        _filterAdultByName = args.Value.ToString();
+
+        if (_filterAdultByName != null)
+        {
+            List<Family> familiesWithAdultsWithNameMatch = new List<Family>();
+
+            foreach (var family in _allFamilies)
+            {
+                bool adultWithNameMatchFound = false;
+                foreach (var adult in family.Adults)
+                {
+                    if ($"{adult.FirstName} {adult.LastName}".ToLower().Contains(_filterAdultByName.ToLower()))
+                    {
+                        adultWithNameMatchFound = true;
+                        break; 
+                    }
+                }
+                if (adultWithNameMatchFound)
+                {
+                    familiesWithAdultsWithNameMatch.Add(family);
+                }
+            }
+
+            _familiesToShow = familiesWithAdultsWithNameMatch; 
+        }
+        else
+        {
+            _familiesToShow = _allFamilies;
         }
     }
 
