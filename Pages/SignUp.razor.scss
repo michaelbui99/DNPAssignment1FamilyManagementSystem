@@ -1,0 +1,60 @@
+﻿@import "../wwwroot/css/variables";
+@import "../wwwroot/css/mixins";
+
+.sign-up-container {
+  display: flex;
+  background-color: $lightGray;
+
+  .left-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
+    img {
+      height: 50%;
+      width: 50%;
+    }
+  }
+
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 100vh;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        @include login-input
+      }
+    }
+
+
+    button {
+     @include login-button;
+    }
+    
+    p.p-go-to-login {
+        span {
+          cursor: pointer;
+          color: #292D85;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            font-weight: bold;
+          }
+        }
+    }
+    
+  }
+
+  .error-label {
+    color: red; 
+  }
+  
+}

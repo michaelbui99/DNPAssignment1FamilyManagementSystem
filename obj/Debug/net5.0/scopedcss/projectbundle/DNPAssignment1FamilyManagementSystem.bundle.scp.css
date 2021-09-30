@@ -81,16 +81,16 @@ tr:hover[b-wfra8awobk] {
 .index-container p[b-csq2d353os] {
   opacity: 0;
   animation-name: fade-in-b-csq2d353os;
-  animation-duration: 0.5s;
-  animation-delay: 0.5s;
+  animation-duration: 1s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 .index-container i[b-csq2d353os] {
   opacity: 0;
   animation-name: fade-in-b-csq2d353os, left-right-translate-b-csq2d353os;
-  animation-duration: 0.5s, 1s;
+  animation-duration: 1s, 1s;
   animation-iteration-count: 1, infinite;
-  animation-delay: 1s, 1.3s;
+  animation-delay: 2s, 2.3s;
   animation-fill-mode: forwards;
 }
 
@@ -107,9 +107,9 @@ tr:hover[b-wfra8awobk] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 40vw;
   height: 100vh;
-  background-color: #2B2D42;
+  background-color: #4f505c;
 }
 .login-container .left-section img[b-32nbc844i2] {
   max-width: 400px;
@@ -128,8 +128,9 @@ tr:hover[b-wfra8awobk] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 50vw;
+  width: 60vw;
   height: 100vh;
+  background-color: #EBECF5;
 }
 .login-container .right-section h3[b-32nbc844i2] {
   font-weight: bold;
@@ -140,7 +141,7 @@ tr:hover[b-wfra8awobk] {
   display: block;
 }
 .login-container .right-section input[b-32nbc844i2] {
-  border-radius: 20px;
+  border-radius: 5px;
   border: none;
   width: 20rem;
   height: 2.5rem;
@@ -153,7 +154,7 @@ tr:hover[b-wfra8awobk] {
   background-color: #150bd4;
   width: 20rem;
   height: 2.5rem;
-  border-radius: 20px;
+  border-radius: 5px;
   border: none;
   color: white;
   transition: all 0.3s ease-in-out;
@@ -165,7 +166,7 @@ tr:hover[b-wfra8awobk] {
 .login-container .right-section p.create-acc-p span[b-32nbc844i2] {
   cursor: pointer;
   color: #292D85;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .login-container .right-section p.create-acc-p span:hover[b-32nbc844i2] {
   font-weight: bold;
@@ -175,6 +176,66 @@ tr:hover[b-wfra8awobk] {
 }
 
 /*# sourceMappingURL=Login.razor.css.map */
+/* _content/DNPAssignment1FamilyManagementSystem/Pages/SignUp.razor.rz.scp.css */
+.sign-up-container[b-qa34p65ncq] {
+  display: flex;
+  background-color: #EBECF5;
+}
+.sign-up-container .left-section[b-qa34p65ncq] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 100vh;
+}
+.sign-up-container .left-section img[b-qa34p65ncq] {
+  height: 50%;
+  width: 50%;
+}
+.sign-up-container .right-section[b-qa34p65ncq] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 100vh;
+}
+.sign-up-container .right-section .form-group[b-qa34p65ncq] {
+  display: flex;
+  flex-direction: column;
+}
+.sign-up-container .right-section .form-group input[b-qa34p65ncq] {
+  border-radius: 5px;
+  border: none;
+  width: 20rem;
+  height: 2.5rem;
+}
+.sign-up-container .right-section .form-group input:last-of-type[b-qa34p65ncq] {
+  margin-bottom: 1rem;
+}
+.sign-up-container .right-section button[b-qa34p65ncq] {
+  background-color: #150bd4;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+.sign-up-container .right-section button:hover[b-qa34p65ncq] {
+  opacity: 0.7;
+}
+.sign-up-container .right-section p.p-go-to-login span[b-qa34p65ncq] {
+  cursor: pointer;
+  color: #292D85;
+  transition: all 0.2s ease-in-out;
+}
+.sign-up-container .right-section p.p-go-to-login span:hover[b-qa34p65ncq] {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=SignUp.razor.css.map */
 /* _content/DNPAssignment1FamilyManagementSystem/Shared/MainLayout.razor.rz.scp.css */
 .page[b-1rnjhvnu8e] {
   position: relative;

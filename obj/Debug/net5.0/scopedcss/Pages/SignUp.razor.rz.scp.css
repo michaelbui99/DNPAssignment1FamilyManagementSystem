@@ -1,0 +1,59 @@
+.sign-up-container[b-qa34p65ncq] {
+  display: flex;
+  background-color: #EBECF5;
+}
+.sign-up-container .left-section[b-qa34p65ncq] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 100vh;
+}
+.sign-up-container .left-section img[b-qa34p65ncq] {
+  height: 50%;
+  width: 50%;
+}
+.sign-up-container .right-section[b-qa34p65ncq] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 100vh;
+}
+.sign-up-container .right-section .form-group[b-qa34p65ncq] {
+  display: flex;
+  flex-direction: column;
+}
+.sign-up-container .right-section .form-group input[b-qa34p65ncq] {
+  border-radius: 5px;
+  border: none;
+  width: 20rem;
+  height: 2.5rem;
+}
+.sign-up-container .right-section .form-group input:last-of-type[b-qa34p65ncq] {
+  margin-bottom: 1rem;
+}
+.sign-up-container .right-section button[b-qa34p65ncq] {
+  background-color: #150bd4;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+.sign-up-container .right-section button:hover[b-qa34p65ncq] {
+  opacity: 0.7;
+}
+.sign-up-container .right-section p.p-go-to-login span[b-qa34p65ncq] {
+  cursor: pointer;
+  color: #292D85;
+  transition: all 0.2s ease-in-out;
+}
+.sign-up-container .right-section p.p-go-to-login span:hover[b-qa34p65ncq] {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=SignUp.razor.css.map */

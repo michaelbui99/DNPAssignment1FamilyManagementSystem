@@ -133,27 +133,10 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
             _errorMessage = e.Message; 
         }
     }
-
-    public void PerformLogout()
-    {
-        _errorMessage = "";
-        _username = "";
-        _password = "";
-
-        try
-        {
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
-            NavigationManager.NavigateTo("Login");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.ToString());
-        }
-    }
-
+    
     public void OnCreateAccount()
     {
-        
+        NavigationManager.NavigateTo("/SignUp");
     }
 
 

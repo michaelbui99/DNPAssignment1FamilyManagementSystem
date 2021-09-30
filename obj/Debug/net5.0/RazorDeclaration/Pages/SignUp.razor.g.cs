@@ -83,21 +83,35 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\SignUp.razor"
 using DNPAssignment1FamilyManagementSystem.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 3 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\SignUp.razor"
 using Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Families")]
-    public partial class Families : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 4 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\SignUp.razor"
+using DNPAssignment1FamilyManagementSystem.Authentication;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\SignUp.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/SignUp")]
+    public partial class SignUp : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,34 +119,77 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 77 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 49 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\SignUp.razor"
        
-    private IList<Family> _families;
+    private string _errorText;
+    private string _passwordConfirmation; 
+    private User _newUser = new User();
+    private ICollection<ValidationResult> validationResults = new List<ValidationResult>();
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
 
-
-    protected override async Task OnInitializedAsync()
+    protected async override Task OnInitializedAsync()
     {
+    //Redirects the user to index if user is already logged in.
         base.OnInitialized();
         var user = (await AuthStat).User;
-        if (!user.Identity.IsAuthenticated)
+        if (user.Identity.IsAuthenticated)
         {
-            NavigationManager.NavigateTo("/Login");
-        }
-        else
-        {
-            _families = FamilyService.GetFamilies();
+            NavigationManager.NavigateTo("/");
         }
     }
+
+    private void CreateUser()
+    {
+
+        validationResults.Clear();
+        ValidationContext validationContext = new ValidationContext(_newUser);
+        bool userIsValid = Validator.TryValidateObject(_newUser, validationContext, validationResults, true);
+        foreach (var validationResult in validationResults)
+        {
+    //Debugging
+            Console.WriteLine(validationResult);
+        }
+
+        if (!PasswordConfirmationMatches())
+        {
+            _errorText = "Passwords does not match";
+            return; 
+        }
+        
+        if (userIsValid)
+        {
+            try
+            {
+                //Throws exception if user already exists.
+                UserService.Create(_newUser);
+            }
+            catch (Exception e)
+            {
+                _errorText = e.Message;
+                return;
+            }
+            //User is logged on upon successful account creation
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_newUser.Username, _newUser.Password);
+            NavigationManager.NavigateTo("/");
+        }
+    }
+
+    private bool PasswordConfirmationMatches()
+    {
+        return _passwordConfirmation == _newUser.Password;
+    }
+    
+
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUserService UserService { get; set; }
     }
 }
 #pragma warning restore 1591

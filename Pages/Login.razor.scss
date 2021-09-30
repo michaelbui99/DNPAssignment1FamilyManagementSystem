@@ -10,9 +10,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50vw;
+    width: 40vw;
     height: 100vh;
-    background-color:  #2B2D42;
+    background-color:  $darkGray;
     img {
       max-width: 400px;
       max-height: 350px;
@@ -34,8 +34,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50vw;
+    width: 60vw;
     height: 100vh;
+    background-color: $lightGray;
 
     
     h3 {
@@ -51,7 +52,7 @@
     }
 
     input {
-      border-radius: 20px;
+      border-radius: 5px;
       border: none;
       width: 20rem;
       height: 2.5rem;
@@ -66,7 +67,7 @@
       background-color: $saturatedBlue;
       width: 20rem;
       height: 2.5rem;
-      border-radius: 20px;
+      border-radius: 5px;
       border: none;
       color: white;
       transition: all 0.3s ease-in-out;
@@ -81,7 +82,7 @@
       span {
         cursor: pointer;
         color: #292D85;
-        transition: all 0.1s ease-in-out;
+        transition: all 0.2s ease-in-out;
         
         &:hover {
           font-weight: bold;
