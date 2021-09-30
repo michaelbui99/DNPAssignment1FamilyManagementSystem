@@ -1,0 +1,15 @@
+﻿@using Models
+<p>Name: @Person.FirstName @Person.LastName</p>
+<p>Age: @Person.Age</p>
+<p>Sex: @Person.Sex</p>
+<p>Height: @Person.Height</p>
+<p>Weight: @Person.Weight</p>
+<p>EyeColor: @Person.EyeColor</p>
+<p>HairColor: @Person.HairColor</p>
+
+@code {
+
+    [Parameter]
+    public Person Person { get; set; }
+
+}

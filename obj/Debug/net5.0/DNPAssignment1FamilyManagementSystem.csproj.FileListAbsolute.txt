@@ -130,3 +130,5 @@ C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\SignUp.razor.g.cs
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\SignUp.razor.g.cs
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\SignUp.razor.rz.scp.css
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\PersonInfomation.razor.g.cs
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\PersonInfomation.razor.g.cs

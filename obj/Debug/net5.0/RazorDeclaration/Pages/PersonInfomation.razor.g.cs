@@ -83,21 +83,13 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
-using DNPAssignment1FamilyManagementSystem.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 1 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\PersonInfomation.razor"
 using Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Families")]
-    public partial class Families : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class PersonInfomation : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,34 +97,16 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 72 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 10 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\PersonInfomation.razor"
        
-    private IList<Family> _families;
 
-    [CascadingParameter]
-    protected Task<AuthenticationState> AuthStat { get; set; }
-
-
-    protected override async Task OnInitializedAsync()
-    {
-        base.OnInitialized();
-        var user = (await AuthStat).User;
-        if (!user.Identity.IsAuthenticated)
-        {
-            NavigationManager.NavigateTo("/Login");
-        }
-        else
-        {
-            _families = FamilyService.GetFamilies();
-        }
-    }
+    [Parameter]
+    public Person Person { get; set; }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -50,15 +50,9 @@
                                             <h4>Adults:</h4>
                                             @foreach (var a in f.Adults)
                                             {
-                                                <p>Name: @a.FirstName @a.LastName</p>
-                                                <p>Age: @a.Age</p>
+                                                <PersonInfomation Person=@a/>
                                                 <p>Job: @a.JobTitle.JobTitle</p>
                                                 <p>Salary: @a.JobTitle.Salary</p>
-                                                <p>Weight: @a.Weight</p>
-                                                <p>Height: @a.Height</p>
-                                                <p>Sex: @a.Sex</p>
-                                                <p>Hair color: @a.HairColor</p>
-                                                <p>Eye color: @a.EyeColor</p>
                                                 <br/>
                                             }
                                         </div>
