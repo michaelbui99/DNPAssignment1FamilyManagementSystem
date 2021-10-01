@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace DNPAssignment1FamilyManagementSystem.Pages
+namespace DNPAssignment1FamilyManagementSystem.Components
 {
     #line hidden
     using System;
@@ -83,28 +83,20 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
-using DNPAssignment1FamilyManagementSystem.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
-using DNPAssignment1FamilyManagementSystem.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 1 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
 using Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Families")]
-    public partial class Families : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
+using DNPAssignment1FamilyManagementSystem.Data;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class ExpandableFamilyTableRow : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,77 +104,33 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 77 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 26 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
        
-    private IList<Family> _familiesToShow;
-    private IList<Family> _allFamilies;
+    private string iconClass = "oi oi-collapse-down";
+    private bool _isCollapsed = true;
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public Family Family { get; set; }
 
-    private string _filterAdultByName;
-
-    [CascadingParameter]
-    protected Task<AuthenticationState> AuthStat { get; set; }
-
-
-    protected override async Task OnInitializedAsync()
+    public void ExpandView()
     {
-        base.OnInitialized();
-        var user = (await AuthStat).User;
-        if (!user.Identity.IsAuthenticated)
+        if (_isCollapsed)
         {
-            NavigationManager.NavigateTo("/Login");
+            _isCollapsed = false;
+            iconClass = "oi oi-collapse-up";
         }
         else
         {
-            _allFamilies = FamilyService.GetFamilies();
-            _familiesToShow = _allFamilies;
+            _isCollapsed = true;
+            iconClass = "oi oi-collapse-down"; 
         }
     }
-
-    private void FilterAdultsByName(ChangeEventArgs args)
-    {
-        _filterAdultByName = null;
-        _filterAdultByName = args.Value.ToString();
-
-        if (_filterAdultByName != null)
-        {
-            List<Family> familiesWithAdultsWithNameMatch = new List<Family>();
-
-            foreach (var family in _allFamilies)
-            {
-                bool adultWithNameMatchFound = false;
-                foreach (var adult in family.Adults)
-                {
-                    if ($"{adult.FirstName} {adult.LastName}".ToLower().Contains(_filterAdultByName.ToLower()))
-                    {
-                        adultWithNameMatchFound = true;
-                        break; 
-                    }
-                }
-                if (adultWithNameMatchFound)
-                {
-                    familiesWithAdultsWithNameMatch.Add(family);
-                }
-            }
-
-            _familiesToShow = familiesWithAdultsWithNameMatch; 
-        }
-        else
-        {
-            _familiesToShow = _allFamilies;
-        }
-    }
-
-    private void GoToAddAdult(Family f)
-    {
-        NavigationManager.NavigateTo($"/AddAdult/{f.StreetName}/{f.HouseNumber}");
-    }
-
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

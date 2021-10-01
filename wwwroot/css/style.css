@@ -37,4 +37,10 @@ body {
   background-color: #EBECF5 !important;
 }
 
+.animation-fade-in {
+  animation-name: fade-in;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
 /*# sourceMappingURL=style.css.map */

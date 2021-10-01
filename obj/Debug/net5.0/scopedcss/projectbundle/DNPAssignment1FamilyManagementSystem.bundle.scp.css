@@ -1,23 +1,39 @@
 @import '';
 
-/* _content/DNPAssignment1FamilyManagementSystem/Pages/ExpandableFamilyTableRow.razor.rz.scp.css */
-tr[b-wfra8awobk] {
+/* _content/DNPAssignment1FamilyManagementSystem/Components/ExpandableFamilyTableRow.razor.rz.scp.css */
+@keyframes fade-in-b-3xlak414es {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes left-right-translate-b-3xlak414es {
+  0% {
+    transform: translateX(1rem);
+  }
+  100% {
+    transform: translateX(-1rem);
+  }
+}
+tr[b-3xlak414es] {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-tr td[b-wfra8awobk] {
+tr td[b-3xlak414es] {
   border: none;
 }
-tr td button[b-wfra8awobk] {
+tr td button[b-3xlak414es] {
   border: none;
   transition: all 0.3s ease-in-out;
 }
-tr td button:hover[b-wfra8awobk] {
+tr td button:hover[b-3xlak414es] {
   opacity: 0.7;
   background-color: red;
   color: white;
 }
-tr:hover[b-wfra8awobk] {
+tr:hover[b-3xlak414es] {
   background-color: #4f505c;
   opacity: 0.7;
   color: white;

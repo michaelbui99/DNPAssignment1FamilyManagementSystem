@@ -1,0 +1,33 @@
+﻿@inject NavigationManager NavigationManager
+
+@page "/AddAdult/{StreetName}/{HouseNumber:int}"
+<AuthorizeView>
+    <Authorized>
+        <h3>Add Adult to Family: @StreetName @HouseNumber</h3>
+
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+    [Parameter]
+    public string StreetName { get; set; }
+
+    [Parameter]
+    public int HouseNumber { get; set; }
+
+
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo("/Login");
+        }
+    }
+
+}

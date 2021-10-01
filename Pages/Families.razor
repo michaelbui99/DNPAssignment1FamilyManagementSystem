@@ -1,5 +1,7 @@
 ﻿@page "/Families"
 @using DNPAssignment1FamilyManagementSystem.Data
+@using DNPAssignment1FamilyManagementSystem.Components
+
 @using Models
 @inject NavigationManager NavigationManager
 @inject IFamilyService FamilyService
@@ -45,9 +47,9 @@
                         <ExpandableFamilyTableRow Family="f">
                             <tr>
                                 <td colspan="4">
-                                    <div class="content-container">
+                                    <div class="content-container animation-fade-in">
                                         <div class="adults-container">
-                                            <h4>Adults:</h4>
+                                            <h4>Adults:  <button @onclick="()=>GoToAddAdult(f)">Add Adult</button></h4>
                                             @foreach (var a in f.Adults)
                                             {
                                                 <PersonInfomation Person=@a/>
@@ -129,6 +131,11 @@
         {
             _familiesToShow = _allFamilies;
         }
+    }
+
+    private void GoToAddAdult(Family f)
+    {
+        NavigationManager.NavigateTo($"/AddAdult/{f.StreetName}/{f.HouseNumber}");
     }
 
 }
