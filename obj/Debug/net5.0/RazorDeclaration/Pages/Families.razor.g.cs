@@ -105,7 +105,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 72 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
+#line 75 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
@@ -135,8 +135,6 @@ using Models;
     {
         _filterAdultByName = null;
         _filterAdultByName = args.Value.ToString();
-        Console.WriteLine(_filterAdultByName);
-
 
         if (_filterAdultByName != null)
         {
@@ -147,7 +145,7 @@ using Models;
                 bool adultWithNameMatchFound = false;
                 foreach (var adult in family.Adults)
                 {
-                    if ($"{adult.FirstName} {adult.LastName}".Contains(_filterAdultByName))
+                    if ($"{adult.FirstName} {adult.LastName}".ToLower().Contains(_filterAdultByName.ToLower()))
                     {
                         adultWithNameMatchFound = true;
                         break; 

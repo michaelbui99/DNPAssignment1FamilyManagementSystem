@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 
 namespace Models
@@ -7,7 +8,8 @@ namespace Models
     {
         [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; }
-        [Required(ErrorMessage = "Password is required"), Range(8, int.MaxValue, ErrorMessage = "Password must be at least 8 characters")]
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(Int32.MaxValue, MinimumLength = 8, ErrorMessage = "Password must be min. 8 characters")]
         public string Password { get; set; }
 
         public override string ToString()
