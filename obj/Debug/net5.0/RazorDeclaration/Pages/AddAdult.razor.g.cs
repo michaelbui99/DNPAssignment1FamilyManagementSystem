@@ -91,7 +91,7 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\AddAdult.razor"
+#line 11 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\AddAdult.razor"
        
 
     [Parameter]
@@ -99,7 +99,7 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 
     [Parameter]
     public int HouseNumber { get; set; }
-    
+
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -112,7 +112,6 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         {
             NavigationManager.NavigateTo("/Login");
         }
-       
     }
 
 

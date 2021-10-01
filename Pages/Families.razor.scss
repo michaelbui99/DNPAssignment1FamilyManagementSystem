@@ -35,6 +35,21 @@
             height: 100%;
             background-color: $lightGray;
            .adults-container {
+             h4 {
+               
+               button{
+                 background-color: $saturatedBlue;
+                 color: white;
+                 transition: all 0.3s ease-in-out;
+                 border: none;
+                 border-radius: 5px;
+                 
+                 &:hover {
+                   opacity: 0.7;
+                 }
+               }
+             }
+             
              p {
                color:black
              }

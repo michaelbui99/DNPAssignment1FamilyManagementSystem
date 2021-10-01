@@ -65,6 +65,16 @@ tr:hover[b-3xlak414es] {
   height: 100%;
   background-color: #EBECF5;
 }
+.families-container table tbody tr td .content-container .adults-container h4 button[b-2chmzdkc7s] {
+  background-color: #150bd4;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 5px;
+}
+.families-container table tbody tr td .content-container .adults-container h4 button:hover[b-2chmzdkc7s] {
+  opacity: 0.7;
+}
 .families-container table tbody tr td .content-container .adults-container p[b-2chmzdkc7s] {
   color: black;
 }
