@@ -80,12 +80,27 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             }
             
             int indexOfFamily = _fileContext.Families.IndexOf(family);
-            //Adult with ID 0 is valid id. 
-            adult.Id = _fileContext.Adults.Count; 
+            var maxIdOfAllAdults = GetMaxIdOfAllAdults();
+            adult.Id = maxIdOfAllAdults; 
             _fileContext.Families[indexOfFamily].Adults.Add(adult);
             _fileContext.SaveChanges();
         }
 
+
+        private int GetMaxIdOfAllAdults()
+        {
+            int maxIdOfAllAdults = 0;
+            foreach (var family in _fileContext.Families)
+            {
+                int maxIdOfCurrentFamily = family.Adults.Max(a => a.Id);
+                if (maxIdOfCurrentFamily > maxIdOfAllAdults)
+                {
+                    maxIdOfAllAdults = maxIdOfCurrentFamily;
+                }
+            }
+
+            return maxIdOfAllAdults;
+        }
         public void RemoveAdultFromFamily(Family family, Adult adult)
         {
             if (!_fileContext.Families
