@@ -9,9 +9,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 50vw;
   height: 100vh;
-  background-color: #4f505c;
+  background-color: #2B2D42;
 }
 .login-container .left-section img {
   max-width: 400px;
@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 60vw;
+  width: 50vw;
   height: 100vh;
   background-color: #EBECF5;
 }
@@ -48,12 +48,17 @@
   width: 20rem;
   height: 2.5rem;
   padding-left: 1rem;
+  background-color: #2B2D42;
+  color: white;
+}
+.login-container .right-section input::placeholder {
+  color: white;
 }
 .login-container .right-section input:last-of-type {
   margin-bottom: 1rem;
 }
 .login-container .right-section button {
-  background-color: #150bd4;
+  background-color: #2B2D42;
   width: 20rem;
   height: 2.5rem;
   border-radius: 5px;

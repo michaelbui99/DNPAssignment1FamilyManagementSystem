@@ -10,9 +10,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40vw;
+    width: 50vw;
     height: 100vh;
-    background-color:  $darkGray;
+    background-color:  $darkNavy;
     img {
       max-width: 400px;
       max-height: 350px;
@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 60vw;
+    width: 50vw;
     height: 100vh;
     background-color: $lightGray;
 
@@ -57,6 +57,12 @@
       width: 20rem;
       height: 2.5rem;
       padding-left: 1rem;
+      background-color:$darkNavy;
+      color: white;
+      
+      &::placeholder {
+        color: white;
+      }
 
       &:last-of-type {
         margin-bottom: 1rem;
@@ -64,7 +70,7 @@
     }
 
     button {
-      background-color: $saturatedBlue;
+      background-color: $darkNavy;
       width: 20rem;
       height: 2.5rem;
       border-radius: 5px;
