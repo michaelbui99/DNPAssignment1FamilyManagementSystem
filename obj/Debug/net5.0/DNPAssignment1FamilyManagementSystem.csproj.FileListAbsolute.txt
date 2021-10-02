@@ -134,3 +134,5 @@ C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Components\ExpandableFamilyTableRow.razor.rz.scp.css
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\AddAdult.razor.g.cs
 C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\AddAdult.razor.g.cs
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Components\PetInformation.razor.g.cs
+C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\obj\Debug\net5.0\Razor\Components\PetInformation.razor.g.cs

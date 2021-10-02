@@ -64,6 +64,9 @@ tr:hover[b-3xlak414es] {
   width: 100%;
   height: 100%;
   background-color: #EBECF5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .families-container table tbody tr td .content-container .adults-container h4 button[b-2chmzdkc7s] {
   background-color: #150bd4;
@@ -71,11 +74,40 @@ tr:hover[b-3xlak414es] {
   transition: all 0.3s ease-in-out;
   border: none;
   border-radius: 5px;
+  transform: scale(0.8);
 }
 .families-container table tbody tr td .content-container .adults-container h4 button:hover[b-2chmzdkc7s] {
   opacity: 0.7;
 }
 .families-container table tbody tr td .content-container .adults-container p[b-2chmzdkc7s] {
+  color: black;
+}
+.families-container table tbody tr td .content-container .children-container h4 button[b-2chmzdkc7s] {
+  background-color: #150bd4;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  transform: scale(0.8);
+}
+.families-container table tbody tr td .content-container .children-container h4 button:hover[b-2chmzdkc7s] {
+  opacity: 0.7;
+}
+.families-container table tbody tr td .content-container .children-container p[b-2chmzdkc7s] {
+  color: black;
+}
+.families-container table tbody tr td .content-container .family-pet-container h4 button[b-2chmzdkc7s] {
+  background-color: #150bd4;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  transform: scale(0.8);
+}
+.families-container table tbody tr td .content-container .family-pet-container h4 button:hover[b-2chmzdkc7s] {
+  opacity: 0.7;
+}
+.families-container table tbody tr td .content-container .family-pet-container p[b-2chmzdkc7s] {
   color: black;
 }
 

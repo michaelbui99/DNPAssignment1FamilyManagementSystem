@@ -80,6 +80,8 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             }
             
             int indexOfFamily = _fileContext.Families.IndexOf(family);
+            //Adult with ID 0 is valid id. 
+            adult.Id = _fileContext.Adults.Count; 
             _fileContext.Families[indexOfFamily].Adults.Add(adult);
             _fileContext.SaveChanges();
         }

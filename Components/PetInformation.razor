@@ -1,0 +1,10 @@
+﻿@using Models
+<p>Name: @Pet.Name</p>
+<p>Species: @Pet.Species</p>
+<p>Age: @Pet.Age</p>
+
+@code {
+    [Parameter]
+    public Pet Pet { get; set; }
+
+}

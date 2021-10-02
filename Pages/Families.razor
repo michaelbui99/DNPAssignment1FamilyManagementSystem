@@ -14,7 +14,7 @@
                 <div class="icon-wrapper">
                     <i class="fas fa-search"></i>
                 </div>
-                <input type="text" placeholder="Search by name" @oninput="(args) => FilterAdultsByName(args)">
+                <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
 
             </div>
             @if (_familiesToShow is null)
@@ -49,7 +49,7 @@
                                 <td colspan="4">
                                     <div class="content-container animation-fade-in">
                                         <div class="adults-container">
-                                            <h4>Adults:  <button @onclick="()=>GoToAddAdult(f)">Add Adult</button></h4>
+                                            <h4>Adults:  <button @onclick="()=>GoToAddAdult(f)"><i class="fas fa-plus"></i>Add Adult</button></h4>
                                             @foreach (var a in f.Adults)
                                             {
                                                 <PersonInfomation Person=@a/>
@@ -59,8 +59,24 @@
                                             }
                                         </div>
                                         
-                                        <div class="children-container"></div>
-                                        <div class="family-pet-container"></div>
+                                        <div class="children-container">
+                                            <h4>Children: </h4>
+                                            @foreach (var c in f.Children)
+                                            {
+                                                <PersonInfomation Person=@c/>
+                                                <br/>
+                                            }
+                                        </div>
+                                        
+                                        <div class="family-pet-container">
+                                            <h4>Pets: </h4>
+                                            @foreach (var p in f.Pets)
+                                            {
+                                                <PetInformation Pet=@p/>
+                                                <br/>
+
+                                            }
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
