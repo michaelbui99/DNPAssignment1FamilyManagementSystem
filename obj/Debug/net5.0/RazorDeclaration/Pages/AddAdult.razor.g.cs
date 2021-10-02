@@ -82,6 +82,13 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\AddAdult.razor"
+using DNPAssignment1FamilyManagementSystem.Data;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/AddAdult/{StreetName}/{HouseNumber:int}")]
     public partial class AddAdult : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,7 +98,7 @@ using DNPAssignment1FamilyManagementSystem.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 11 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\AddAdult.razor"
+#line 68 "C:\Users\Shark\Documents\Coding\DotNet\DNP1\FamilyManagementSystem\Pages\AddAdult.razor"
        
 
     [Parameter]
@@ -119,6 +126,7 @@ using DNPAssignment1FamilyManagementSystem.Shared;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
     }
 }
 #pragma warning restore 1591

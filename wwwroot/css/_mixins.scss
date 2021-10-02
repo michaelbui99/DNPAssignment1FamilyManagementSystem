@@ -42,6 +42,12 @@
 
     button{
       @include add-person-button;
+      
+      &.disabled {
+        cursor: not-allowed !important;
+        color: $lightBlue;
+        opacity: 0.6;
+      }
     }
   }
 

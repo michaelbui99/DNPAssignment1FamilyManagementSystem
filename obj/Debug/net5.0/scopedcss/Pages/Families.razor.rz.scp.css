@@ -38,6 +38,11 @@
 .families-container table tbody tr td .content-container .adults-container h4 button:hover[b-2chmzdkc7s] {
   opacity: 0.7;
 }
+.families-container table tbody tr td .content-container .adults-container h4 button.disabled[b-2chmzdkc7s] {
+  cursor: not-allowed !important;
+  color: #b0b5f8;
+  opacity: 0.6;
+}
 .families-container table tbody tr td .content-container .adults-container p[b-2chmzdkc7s] {
   color: black;
 }
@@ -52,6 +57,11 @@
 .families-container table tbody tr td .content-container .children-container h4 button:hover[b-2chmzdkc7s] {
   opacity: 0.7;
 }
+.families-container table tbody tr td .content-container .children-container h4 button.disabled[b-2chmzdkc7s] {
+  cursor: not-allowed !important;
+  color: #b0b5f8;
+  opacity: 0.6;
+}
 .families-container table tbody tr td .content-container .children-container p[b-2chmzdkc7s] {
   color: black;
 }
@@ -65,6 +75,11 @@
 }
 .families-container table tbody tr td .content-container .family-pet-container h4 button:hover[b-2chmzdkc7s] {
   opacity: 0.7;
+}
+.families-container table tbody tr td .content-container .family-pet-container h4 button.disabled[b-2chmzdkc7s] {
+  cursor: not-allowed !important;
+  color: #b0b5f8;
+  opacity: 0.6;
 }
 .families-container table tbody tr td .content-container .family-pet-container p[b-2chmzdkc7s] {
   color: black;
