@@ -112,7 +112,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 101 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+#line 96 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;

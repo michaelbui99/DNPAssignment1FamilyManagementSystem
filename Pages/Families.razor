@@ -10,12 +10,7 @@
         <div class="families-container animation-fade-in">
             <div class="families-container__header">
                 <h3>Families</h3>
-
-                <div class="icon-wrapper">
-                    <i class="fas fa-search"></i>
-                </div>
                 <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
-
             </div>
             @if (_familiesToShow is null)
             {

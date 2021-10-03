@@ -52,14 +52,10 @@ tr:hover[b-3xlak414es] {
   margin-right: 1rem;
 }
 .families-container__header input[b-2chmzdkc7s] {
-  border-radius: 5px;
+  border-radius: 3px;
   height: 75%;
   border: none;
   background-color: white;
-}
-.families-container__header input[b-2chmzdkc7s]::before {
-  content: "\f002";
-  font: normal normal normal 14px/1 FontAwesome;
 }
 .families-container table tbody tr td[b-2chmzdkc7s] {
   border: none;
@@ -73,7 +69,7 @@ tr:hover[b-3xlak414es] {
   justify-content: space-between;
 }
 .families-container table tbody tr td .content-container .adults-container h4 button[b-2chmzdkc7s] {
-  background-color: #150bd4;
+  background-color: #2B2D42;
   color: white;
   transition: all 0.3s ease-in-out;
   border: none;
@@ -92,7 +88,7 @@ tr:hover[b-3xlak414es] {
   color: black;
 }
 .families-container table tbody tr td .content-container .children-container h4 button[b-2chmzdkc7s] {
-  background-color: #150bd4;
+  background-color: #2B2D42;
   color: white;
   transition: all 0.3s ease-in-out;
   border: none;
@@ -111,7 +107,7 @@ tr:hover[b-3xlak414es] {
   color: black;
 }
 .families-container table tbody tr td .content-container .family-pet-container h4 button[b-2chmzdkc7s] {
-  background-color: #150bd4;
+  background-color: #2B2D42;
   color: white;
   transition: all 0.3s ease-in-out;
   border: none;
@@ -155,6 +151,7 @@ tr:hover[b-3xlak414es] {
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  text-align: center;
 }
 .index-container h1[b-csq2d353os] {
   opacity: 0;
