@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"AddAdult.razor.css"}
+{"version":3,"sourceRoot":"","sources":["AddAdult.razor.scss","../wwwroot/css/_variables.scss"],"names":[],"mappings":"AAIA;EACE;EACA,kBCNW;EDOX;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA,kBCPO;EDQP;EACA;EACA;;AAEA;EACE;EACA","file":"AddAdult.razor.css"}

@@ -57,7 +57,7 @@ li:first-of-type span {
   transition: all 0.3s ease-in-out;
 }
 .nav-item ::deep a:hover {
-  background-color: #4f505c;
+  background-color: #2B2D42;
   color: #EBECF5;
 }
 

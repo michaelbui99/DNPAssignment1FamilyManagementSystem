@@ -98,7 +98,7 @@ using DNPAssignment1FamilyManagementSystem.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\AddAdult.razor"
+#line 70 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\AddAdult.razor"
        
 
     [Parameter]

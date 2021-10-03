@@ -1,3 +1,23 @@
-
+.add-adult-container[b-vlsghze0yy] {
+  height: 100%;
+  background-color: #EBECF5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.add-adult-container .form-container[b-vlsghze0yy] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #2B2D42;
+  color: white;
+  border-radius: 5px;
+  padding: 2rem;
+}
+.add-adult-container .form-container input[b-vlsghze0yy] {
+  border-radius: 5px;
+  border: none;
+}
 
 /*# sourceMappingURL=AddAdult.razor.css.map */
