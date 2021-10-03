@@ -89,6 +89,13 @@ using DNPAssignment1FamilyManagementSystem.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\AddAdult.razor"
+using Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/AddAdult/{StreetName}/{HouseNumber:int}")]
     public partial class AddAdult : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -98,7 +105,7 @@ using DNPAssignment1FamilyManagementSystem.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\AddAdult.razor"
+#line 73 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\AddAdult.razor"
        
 
     [Parameter]
@@ -106,6 +113,10 @@ using DNPAssignment1FamilyManagementSystem.Data;
 
     [Parameter]
     public int HouseNumber { get; set; }
+
+    private Adult _newAdult = new Adult() {JobTitle = new Job()};
+
+    private string _selectedSex; 
 
 
     [CascadingParameter]
@@ -119,6 +130,14 @@ using DNPAssignment1FamilyManagementSystem.Data;
         {
             NavigationManager.NavigateTo("/Login");
         }
+    }
+
+    private void AddAdultToFamily()
+    {
+        Family familyOfAdult = FamilyService.GetFamily(StreetName, HouseNumber);
+        _newAdult.Sex = _selectedSex; 
+        FamilyService.AddAdultToFamily(familyOfAdult, _newAdult);
+        NavigationManager.NavigateTo("/Families");
     }
 
 

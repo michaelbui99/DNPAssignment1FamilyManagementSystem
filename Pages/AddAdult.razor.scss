@@ -21,6 +21,25 @@
     input {
       border-radius: 5px;
       border: none; 
+      padding-left: 0.5rem;
+    }
+    
+    button {
+      background-color: $lightGray;
+      width: 5rem;
+      height: 2.5rem;
+      border-radius: 5px;
+      border: none;
+      color: black;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 0.5rem;
+      font-size: small;
+
+      &:hover {
+        opacity: 0.7;
+
+      }
+      
     }
   }
   

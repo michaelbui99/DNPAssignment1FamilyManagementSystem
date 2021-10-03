@@ -1,5 +1,6 @@
 ﻿@page "/AddAdult/{StreetName}/{HouseNumber:int}"
 @using DNPAssignment1FamilyManagementSystem.Data
+@using Models
 @inject IFamilyService FamilyService
 @inject NavigationManager NavigationManager
 
@@ -7,61 +8,63 @@
     <Authorized>
         <div class="add-adult-container">
             <div class="form-container">
-                 <h3>Add Adult to Family: @StreetName @HouseNumber</h3>
-                            <div class="form-group">
-                                <label >First Name</label>
-                                <input type="text" placeholder="First name">
-                            </div>
+                <h3>Add Adult to Family: @StreetName @HouseNumber</h3>
+                <div class="form-group">
+                    <label >First Name</label>
+                    <input type="text" placeholder="First name" @bind-value="_newAdult.FirstName">
+                </div>
+
+                <div class="form-group">
+                    <label >Last Name</label>
+                    <input type="text" placeholder="Last name" @bind-value="_newAdult.LastName">
+                </div>
+
+                <div class="form-group">
+                    <label >Age</label>
+                    <input type="number" placeholder="Age" @bind-value="_newAdult.Age">
+                </div>
+
+                <div class="form-group">
+                    <label >Weight</label>
+                    <input type="number" placeholder="Weight" @bind-value="_newAdult.Weight">
+                </div>
+
+                <div class="form-group">
+                    <label >Height</label>
+                    <input type="number" placeholder="Height" @bind-value="_newAdult.Height">
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <select name="sex" id="sex" @onchange="e=>_selectedSex=e.Value.ToString()">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label >Eye Color</label>
+                    <input type="text" placeholder="Eye color" @bind-value="_newAdult.EyeColor">
+                </div>
+
+                <div class="form-group">
+                    <label >Hair Color</label>
+                    <input type="text" placeholder="Hair Color" @bind-value="_newAdult.HairColor">
+                </div>
+
+                <div class="form-group">
+                    <label >Job Title</label>
+                    <input type="text" placeholder="Job Title" @bind-value="_newAdult.JobTitle.JobTitle">
+                </div>
+
+                <div class="form-group">
+                    <label >Salary</label>
+                    <input type="number" placeholder="Salary" @bind-value="_newAdult.JobTitle.Salary">
+                </div>
                 
-                            <div class="form-group">
-                                <label >Last Name</label>
-                                <input type="text" placeholder="Last name">
-                            </div>
-                
-                            <div class="form-group">
-                                <label >Age</label>
-                                <input type="text" placeholder="Age">
-                            </div>
-                
-                            <div class="form-group">
-                                <label >Weight</label>
-                                <input type="text" placeholder="Weight">
-                            </div>
-                
-                            <div class="form-group">
-                                <label >Height</label>
-                                <input type="text" placeholder="Height">
-                            </div>
-                
-                            <div class="form-group">
-                                <label for="sex">Sex</label>
-                                <select name="sex" id="sex">
-                                    <option value="M">M</option>
-                                    <option value="F">F</option>
-                                </select>
-                            </div>
-                
-                            <div class="form-group">
-                                <label >Eye Color</label>
-                                <input type="text" placeholder="Eye color">
-                            </div>
-                
-                            <div class="form-group">
-                                <label >Hair Color</label>
-                                <input type="text" placeholder="Hair Color">
-                            </div>
-                
-                            <div class="form-group">
-                                <label >Job Title</label>
-                                <input type="text" placeholder="Job Title">
-                            </div>
-                            
-                              <div class="form-group">
-                                            <label >Salary</label>
-                                            <input type="text" placeholder="Salary">
-                                        </div>
+                <button @onclick="AddAdultToFamily">Add Adult</button>
             </div>
-            
+
         </div>
 
     </Authorized>
@@ -75,6 +78,10 @@
     [Parameter]
     public int HouseNumber { get; set; }
 
+    private Adult _newAdult = new Adult() {JobTitle = new Job()};
+
+    private string _selectedSex; 
+
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -87,6 +94,14 @@
         {
             NavigationManager.NavigateTo("/Login");
         }
+    }
+
+    private void AddAdultToFamily()
+    {
+        Family familyOfAdult = FamilyService.GetFamily(StreetName, HouseNumber);
+        _newAdult.Sex = _selectedSex; 
+        FamilyService.AddAdultToFamily(familyOfAdult, _newAdult);
+        NavigationManager.NavigateTo("/Families");
     }
 
 }
