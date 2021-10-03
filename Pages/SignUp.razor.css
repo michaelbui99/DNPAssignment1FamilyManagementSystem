@@ -6,8 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 50vw;
   height: 100vh;
+  background-color: #2B2D42;
 }
 .sign-up-container .left-section img {
   height: 50%;
@@ -18,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  width: 50vw;
   height: 100vh;
 }
 .sign-up-container .right-section .form-group {
@@ -30,12 +31,18 @@
   border: none;
   width: 20rem;
   height: 2.5rem;
+  padding-left: 1rem;
+  background-color: #2B2D42;
+  color: white;
+}
+.sign-up-container .right-section .form-group input::placeholder {
+  color: white;
 }
 .sign-up-container .right-section .form-group input:last-of-type {
   margin-bottom: 1rem;
 }
 .sign-up-container .right-section button {
-  background-color: #150bd4;
+  background-color: #2B2D42;
   width: 20rem;
   height: 2.5rem;
   border-radius: 5px;

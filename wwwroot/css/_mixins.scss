@@ -1,5 +1,5 @@
 ﻿@mixin login-button {
-  background-color: $saturatedBlue;
+  background-color: $darkNavy;
   width: 20rem;
   height: 2.5rem;
   border-radius: 5px;
@@ -15,12 +15,22 @@
 }
 
 @mixin login-input {
-  border-radius: 5px;
-  border: none;
-  width: 20rem;
-  height: 2.5rem;
-  &:last-of-type {
-    margin-bottom: 1rem;
+  input {
+    border-radius: 5px;
+    border: none;
+    width: 20rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+    background-color:$darkNavy;
+    color: white;
+
+    &::placeholder {
+      color: white;
+    }
+
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
   }
 }
 

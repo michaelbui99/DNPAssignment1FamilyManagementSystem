@@ -9,8 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40vw;
+    width: 50vw;
     height: 100vh;
+    background-color: $darkNavy;
     img {
       height: 50%;
       width: 50%;
@@ -22,16 +23,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60vw;
+    width: 50vw;
     height: 100vh;
 
     .form-group {
       display: flex;
       flex-direction: column;
 
-      input {
-        @include login-input
-      }
+      @include login-input
     }
 
 

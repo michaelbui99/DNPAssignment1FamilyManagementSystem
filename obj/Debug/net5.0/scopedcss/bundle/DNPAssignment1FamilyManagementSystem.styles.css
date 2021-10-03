@@ -274,8 +274,9 @@ tr:hover[b-3xlak414es] {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40vw;
+  width: 50vw;
   height: 100vh;
+  background-color: #2B2D42;
 }
 .sign-up-container .left-section img[b-qa34p65ncq] {
   height: 50%;
@@ -286,7 +287,7 @@ tr:hover[b-3xlak414es] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  width: 50vw;
   height: 100vh;
 }
 .sign-up-container .right-section .form-group[b-qa34p65ncq] {
@@ -298,12 +299,18 @@ tr:hover[b-3xlak414es] {
   border: none;
   width: 20rem;
   height: 2.5rem;
+  padding-left: 1rem;
+  background-color: #2B2D42;
+  color: white;
+}
+.sign-up-container .right-section .form-group input[b-qa34p65ncq]::placeholder {
+  color: white;
 }
 .sign-up-container .right-section .form-group input:last-of-type[b-qa34p65ncq] {
   margin-bottom: 1rem;
 }
 .sign-up-container .right-section button[b-qa34p65ncq] {
-  background-color: #150bd4;
+  background-color: #2B2D42;
   width: 20rem;
   height: 2.5rem;
   border-radius: 5px;
