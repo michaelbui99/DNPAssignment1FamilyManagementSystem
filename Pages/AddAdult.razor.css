@@ -1,18 +1,10 @@
 .add-adult-container {
   height: 100%;
   background-color: #EBECF5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
-.add-adult-container .form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: black;
-  border-radius: 5px;
-  padding: 2rem;
+.add-adult-container .form-container img {
+  max-width: 300px;
+  max-height: 250px;
 }
 .add-adult-container .form-container input {
   border-radius: 5px;

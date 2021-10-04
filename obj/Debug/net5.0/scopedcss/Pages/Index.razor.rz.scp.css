@@ -23,6 +23,12 @@
   flex-direction: column;
   text-align: center;
 }
+.index-container img[b-csq2d353os] {
+  max-width: 300px;
+  max-height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .index-container h1[b-csq2d353os] {
   opacity: 0;
   animation-name: fade-in-b-csq2d353os;

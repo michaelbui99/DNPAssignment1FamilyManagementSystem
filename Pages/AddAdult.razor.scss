@@ -5,18 +5,13 @@
 .add-adult-container {
   height: 100%;
   background-color: $lightGray;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  flex-direction: column;
+ 
   .form-container {
-    display: flex; 
-    flex-direction: column;
-    align-items: flex-start;
-    color:black; 
-    border-radius: 5px;
-    padding:2rem; 
     
+    img {
+      max-width: 300px;
+      max-height: 250px;
+    }
     input {
       border-radius: 5px;
       border: none; 
@@ -41,5 +36,6 @@
       
     }
   }
+  
   
 }
