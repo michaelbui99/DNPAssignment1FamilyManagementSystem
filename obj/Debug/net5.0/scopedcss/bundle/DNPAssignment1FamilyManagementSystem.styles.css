@@ -51,8 +51,7 @@ tr:hover[b-3xlak414es] {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #2B2D42;
-  color: white;
+  color: black;
   border-radius: 5px;
   padding: 2rem;
 }
@@ -62,15 +61,15 @@ tr:hover[b-3xlak414es] {
   padding-left: 0.5rem;
 }
 .add-adult-container .form-container button[b-vlsghze0yy] {
-  background-color: #EBECF5;
-  width: 5rem;
+  background-color: #2B2D42;
+  width: 6rem;
   height: 2.5rem;
   border-radius: 5px;
   border: none;
-  color: black;
+  color: white;
   transition: all 0.3s ease-in-out;
   margin-bottom: 0.5rem;
-  font-size: small;
+  font-size: medium;
 }
 .add-adult-container .form-container button:hover[b-vlsghze0yy] {
   opacity: 0.7;
