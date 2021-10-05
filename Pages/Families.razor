@@ -3,15 +3,39 @@
 @using DNPAssignment1FamilyManagementSystem.Components
 
 @using Models
+@using System.ComponentModel.DataAnnotations
 @inject NavigationManager NavigationManager
 @inject IFamilyService FamilyService
 <AuthorizeView>
     <Authorized>
         <div class="families-container animation-fade-in">
             <div class="families-container__header">
-                <h3>Families</h3>
+                <h3>Families <i class="fas fa-plus" @onclick="()=>_addFamilyToggle = !_addFamilyToggle"></i></h3>
                 <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
             </div>
+            @if(_addFamilyToggle) 
+            {
+                <div class="add-family-container animation-fade-in">
+                <div class="form-group">
+                    <label>Street name</label>
+                    <input type="text" placeholder="Street name" @bind-value="_familyToAdd.StreetName">
+                </div>
+                <div class="form-group">
+                    <label>House Number</label>
+                    <input type="number" placeholder="House Number" @bind-value="_familyToAdd.HouseNumber">
+                </div>
+                    <p class="error-label">@_addFamilyErrorLabel</p>
+                    @foreach (var error in _validationResults)
+                    {
+                        <p class="error-label">@error</p>
+                    }
+                <button @onclick="AddNewFamily">
+                    Add Family
+                </button>
+                    
+                </div>
+            }
+            
             @if (_familiesToShow is null)
             {
                 <p>
@@ -96,8 +120,11 @@
 @code {
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
-
+    private bool _addFamilyToggle = false; 
     private string _filterAdultByName;
+    private string _addFamilyErrorLabel;
+    private Family _familyToAdd = new Family();
+    List<ValidationResult> _validationResults = new(); 
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -157,4 +184,24 @@
         NavigationManager.NavigateTo($"/AddAdult/{f.StreetName}/{f.HouseNumber}");
     }
 
+
+    private void AddNewFamily()
+    {
+        _validationResults.Clear();
+        ValidationContext validationContext = new ValidationContext(_familyToAdd);
+        bool familyIsValid = Validator.TryValidateObject(_familyToAdd, validationContext, _validationResults, true);
+        if (familyIsValid)
+        {
+            try
+            {
+                FamilyService.CreateFamily(_familyToAdd);
+            }
+            catch (Exception e)
+            {
+                _addFamilyErrorLabel = e.Message;
+                return; 
+            }
+        }
+        _addFamilyToggle = !_addFamilyToggle; 
+    }
 }

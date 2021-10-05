@@ -77,11 +77,34 @@ tr:hover[b-3xlak414es] {
 .families-container__header h3[b-2chmzdkc7s] {
   margin-right: 1rem;
 }
+.families-container__header h3 i[b-2chmzdkc7s] {
+  transform: scale(0.8);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.families-container__header h3 i:hover[b-2chmzdkc7s] {
+  opacity: 0.8;
+  background-color: #2B2D42;
+  color: white;
+}
 .families-container__header input[b-2chmzdkc7s] {
   border-radius: 3px;
   height: 75%;
   border: none;
   background-color: white;
+}
+.families-container .add-family-container button[b-2chmzdkc7s] {
+  background-color: #2B2D42;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+.families-container .add-family-container button:hover[b-2chmzdkc7s] {
+  opacity: 0.7;
 }
 .families-container table tbody tr td[b-2chmzdkc7s] {
   border: none;
@@ -150,6 +173,10 @@ tr:hover[b-3xlak414es] {
 }
 .families-container table tbody tr td .content-container .family-pet-container p[b-2chmzdkc7s] {
   color: black;
+}
+
+.error-label[b-2chmzdkc7s] {
+  color: red;
 }
 
 /*# sourceMappingURL=Families.razor.css.map */

@@ -6,11 +6,34 @@
 .families-container__header h3 {
   margin-right: 1rem;
 }
+.families-container__header h3 i {
+  transform: scale(0.8);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.families-container__header h3 i:hover {
+  opacity: 0.8;
+  background-color: #2B2D42;
+  color: white;
+}
 .families-container__header input {
   border-radius: 3px;
   height: 75%;
   border: none;
   background-color: white;
+}
+.families-container .add-family-container button {
+  background-color: #2B2D42;
+  width: 20rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 0.5rem;
+}
+.families-container .add-family-container button:hover {
+  opacity: 0.7;
 }
 .families-container table tbody tr td {
   border: none;
@@ -79,6 +102,10 @@
 }
 .families-container table tbody tr td .content-container .family-pet-container p {
   color: black;
+}
+
+.error-label {
+  color: red;
 }
 
 /*# sourceMappingURL=Families.razor.css.map */

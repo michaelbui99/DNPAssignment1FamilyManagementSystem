@@ -103,6 +103,13 @@ using Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+using System.ComponentModel.DataAnnotations;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Families")]
     public partial class Families : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,12 +119,15 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 96 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+#line 120 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
-
+    private bool _addFamilyToggle = false; 
     private string _filterAdultByName;
+    private string _addFamilyErrorLabel;
+    private Family _familyToAdd = new Family();
+    List<ValidationResult> _validationResults = new(); 
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -177,6 +187,26 @@ using Models;
         NavigationManager.NavigateTo($"/AddAdult/{f.StreetName}/{f.HouseNumber}");
     }
 
+
+    private void AddNewFamily()
+    {
+        _validationResults.Clear();
+        ValidationContext validationContext = new ValidationContext(_familyToAdd);
+        bool familyIsValid = Validator.TryValidateObject(_familyToAdd, validationContext, _validationResults, true);
+        if (familyIsValid)
+        {
+            try
+            {
+                FamilyService.CreateFamily(_familyToAdd);
+            }
+            catch (Exception e)
+            {
+                _addFamilyErrorLabel = e.Message;
+                return; 
+            }
+        }
+        _addFamilyToggle = !_addFamilyToggle; 
+    }
 
 #line default
 #line hidden
