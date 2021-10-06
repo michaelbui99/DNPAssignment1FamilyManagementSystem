@@ -195,6 +195,7 @@
             try
             {
                 FamilyService.CreateFamily(_familyToAdd);
+                _addFamilyToggle = !_addFamilyToggle;
             }
             catch (Exception e)
             {
@@ -202,6 +203,5 @@
                 return; 
             }
         }
-        _addFamilyToggle = !_addFamilyToggle; 
     }
 }
