@@ -1210,5 +1210,29 @@
       }
     ],
     "Pets": []
+  },
+  {
+    "Id": 0,
+    "StreetName": "Chad Street",
+    "HouseNumber": 1,
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Mega Chad",
+          "Salary": 99999999
+        },
+        "Id": 14,
+        "FirstName": "Chad",
+        "LastName": "Chadsen",
+        "HairColor": "Black",
+        "EyeColor": "Blue",
+        "Age": 18,
+        "Weight": 200,
+        "Height": 250,
+        "Sex": null
+      }
+    ],
+    "Children": [],
+    "Pets": []
   }
 ]

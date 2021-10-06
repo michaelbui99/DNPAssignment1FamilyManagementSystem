@@ -92,10 +92,17 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             int maxIdOfAllAdults = 0;
             foreach (var family in _fileContext.Families)
             {
+                if (family.Adults.Any())
+                {
                 int maxIdOfCurrentFamily = family.Adults.Max(a => a.Id);
                 if (maxIdOfCurrentFamily > maxIdOfAllAdults)
                 {
                     maxIdOfAllAdults = maxIdOfCurrentFamily;
+                }
+                }
+                else
+                {
+                    continue;
                 }
             }
 

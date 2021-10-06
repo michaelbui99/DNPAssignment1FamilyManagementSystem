@@ -198,6 +198,7 @@ using System.ComponentModel.DataAnnotations;
             try
             {
                 FamilyService.CreateFamily(_familyToAdd);
+                _addFamilyToggle = !_addFamilyToggle;
             }
             catch (Exception e)
             {
@@ -205,7 +206,6 @@ using System.ComponentModel.DataAnnotations;
                 return; 
             }
         }
-        _addFamilyToggle = !_addFamilyToggle; 
     }
 
 #line default
