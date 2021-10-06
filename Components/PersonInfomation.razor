@@ -26,13 +26,16 @@
 
     private void DeletePerson()
     {
-        DeleteStrategy.Delete(Person, Family);
-        Person = null;
+        if (DeleteStrategy != null)
+        {
+            DeleteStrategy.Delete(Person, Family);
+            Person = null;
         
-        /*
+    /*
          *Fixes an issue where p-tags in Parent Component with Salary and Job
          * were not updated after the adult has been deleted. 
          */ 
-        EventCoordinator.Notify();
+            EventCoordinator.Notify();
+        }
     }
 }

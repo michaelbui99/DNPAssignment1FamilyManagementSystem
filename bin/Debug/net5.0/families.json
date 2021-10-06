@@ -1195,13 +1195,5 @@
       }
     ],
     "Pets": []
-  },
-  {
-    "Id": 0,
-    "StreetName": "Chad Street",
-    "HouseNumber": 1,
-    "Adults": [],
-    "Children": [],
-    "Pets": []
   }
 ]

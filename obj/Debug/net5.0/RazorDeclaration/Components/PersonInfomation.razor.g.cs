@@ -117,9 +117,17 @@ using DNPAssignment1FamilyManagementSystem.Data.Impl;
 
     private void DeletePerson()
     {
-        DeleteStrategy.Delete(Person, Family);
-        Person = null;
-        EventCoordinator.Notify();
+        if (DeleteStrategy != null)
+        {
+            DeleteStrategy.Delete(Person, Family);
+            Person = null;
+        
+    /*
+         *Fixes an issue where p-tags in Parent Component with Salary and Job
+         * were not updated after the adult has been deleted. 
+         */ 
+            EventCoordinator.Notify();
+        }
     }
 
 #line default

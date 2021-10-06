@@ -6,67 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db9f483c-3636-464f-972a-ecaf6a0c3e31" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Components/PersonInfomation.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/PersonInfomation.razor.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Components/PersonInfomation.razor.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Impl/DeleteAdultStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Impl/DeleteStrategy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Util/EventCoordinator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Util/IEventCoordinator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Util/IEventListener.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/Components/PersonInfomation.razor.rz.scp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FamilyManagementSystem.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FamilyManagementSystem.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authentication/CustomAuthenticationStateProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Authentication/CustomAuthenticationStateProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/ExpandableFamilyTableRow.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/ExpandableFamilyTableRow.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/PersonInfomation.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Components/PersonInfomation.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/FileFamilyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Impl/FileFamilyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/FileUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Impl/FileUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/IFamilyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IFamilyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Adult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Adult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Child.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Child.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Family.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Family.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Interest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Interest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Job.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Job.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Person.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Pet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Pet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/AddAdult.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AddAdult.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Families.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Families.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/SignUp.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/SignUp.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Persistence/FileContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Persistence/FileContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/families.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/families.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/families.json" beforeDir="false" afterPath="$PROJECT_DIR$/families.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.RazorComponent.input.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.TagHelpers.output.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/ExpandableFamilyTableRow.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/ExpandableFamilyTableRow.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/PersonInfomation.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/PersonInfomation.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/AddAdult.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/AddAdult.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/SignUp.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/SignUp.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/ExpandableFamilyTableRow.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/ExpandableFamilyTableRow.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/PersonInfomation.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/PersonInfomation.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/AddAdult.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/AddAdult.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/SignUp.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/SignUp.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/bundle/DNPAssignment1FamilyManagementSystem.styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/bundle/DNPAssignment1FamilyManagementSystem.styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/projectbundle/DNPAssignment1FamilyManagementSystem.bundle.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/projectbundle/DNPAssignment1FamilyManagementSystem.bundle.scp.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1633079839328</updated>
       <workItem from="1633079845945" duration="12275000" />
-      <workItem from="1633420849361" duration="8514000" />
+      <workItem from="1633420849361" duration="8704000" />
     </task>
     <servers />
   </component>
