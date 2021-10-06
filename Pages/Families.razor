@@ -2,10 +2,15 @@
 @using DNPAssignment1FamilyManagementSystem.Data
 @using DNPAssignment1FamilyManagementSystem.Components
 
-@using Models
 @using System.ComponentModel.DataAnnotations
+@using DNPAssignment1FamilyManagementSystem.Data.Impl
+@using DNPAssignment1FamilyManagementSystem.Models
+@using Microsoft.AspNetCore.Components
 @inject NavigationManager NavigationManager
 @inject IFamilyService FamilyService
+@inject IEventCoordinator EventCoordinator
+@implements DNPAssignment1FamilyManagementSystem.Models.IEventListener
+
 <AuthorizeView>
     <Authorized>
         <div class="families-container animation-fade-in">
@@ -79,7 +84,7 @@
                                             }
                                             @foreach (var a in f.Adults)
                                             {
-                                                <PersonInfomation Person=@a/>
+                                                <PersonInfomation Person=@a Family="f" DeleteStrategy="new DeleteAdultStrategy(FamilyService)"/>
                                                 <p>Job: @a.JobTitle.JobTitle</p>
                                                 <p>Salary: @a.JobTitle.Salary</p>
                                                 <br/>
@@ -90,7 +95,7 @@
                                             <h4>Children: </h4>
                                             @foreach (var c in f.Children)
                                             {
-                                                <PersonInfomation Person=@c/>
+                                                <PersonInfomation Person=@c Family="f"/>
                                                 <br/>
                                             }
                                         </div>
@@ -142,6 +147,7 @@
         {
             _allFamilies = FamilyService.GetFamilies();
             _familiesToShow = _allFamilies;
+            EventCoordinator.Attach(this);
         }
     }
 
@@ -204,4 +210,10 @@
             }
         }
     }
+
+    public void Notify()
+    {
+        StateHasChanged();
+    }
+
 }

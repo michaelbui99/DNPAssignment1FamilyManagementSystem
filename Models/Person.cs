@@ -1,6 +1,4 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace Models {
+namespace DNPAssignment1FamilyManagementSystem.Models {
 public class Person {
     
     public int Id { get; set; }

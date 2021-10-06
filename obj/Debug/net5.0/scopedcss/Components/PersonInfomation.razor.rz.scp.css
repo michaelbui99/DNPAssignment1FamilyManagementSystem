@@ -1,0 +1,11 @@
+button[b-oe6jo7838c] {
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+button:hover[b-oe6jo7838c] {
+  opacity: 0.7;
+  background-color: red;
+  color: white;
+}
+
+/*# sourceMappingURL=PersonInfomation.razor.css.map */

@@ -214,3 +214,4 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\r
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.pdb
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.genruntimeconfig.cache
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.CopyComplete
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Components\PersonInfomation.razor.rz.scp.css

@@ -11,7 +11,6 @@ namespace DNPAssignment1FamilyManagementSystem.Pages
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\_Imports.razor"
 using System.Net.Http;
@@ -110,6 +109,13 @@ using System.ComponentModel.DataAnnotations;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\SignUp.razor"
+using Microsoft.AspNetCore.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/SignUp")]
     public partial class SignUp : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -119,7 +125,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\SignUp.razor"
+#line 50 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\SignUp.razor"
        
     private string _errorText;
     private string _passwordConfirmation; 

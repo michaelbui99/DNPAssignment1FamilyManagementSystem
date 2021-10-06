@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Models {
+namespace DNPAssignment1FamilyManagementSystem.Models {
 public class Family {
     
     public int Id { get; set; }

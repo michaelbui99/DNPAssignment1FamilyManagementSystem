@@ -4,9 +4,9 @@ using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Data;
+using DNPAssignment1FamilyManagementSystem.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
-using Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Authentication
 {

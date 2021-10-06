@@ -89,6 +89,13 @@ using Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PersonInfomation.razor"
+using DNPAssignment1FamilyManagementSystem.Data.Impl;
+
+#line default
+#line hidden
+#nullable disable
     public partial class PersonInfomation : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -97,16 +104,28 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PersonInfomation.razor"
+#line 17 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PersonInfomation.razor"
        
 
     [Parameter]
     public Person Person { get; set; }
+    [Parameter]
+    public Family Family { get; set; }
 
+    [Parameter]
+    public IDeleteStrategy DeleteStrategy { get; set; }
+
+    private void DeletePerson()
+    {
+        DeleteStrategy.Delete(Person, Family);
+        Person = null;
+        EventCoordinator.Notify();
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IEventCoordinator EventCoordinator { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -4,7 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Authentication;
 using DNPAssignment1FamilyManagementSystem.Data;
-using FileData;
+using DNPAssignment1FamilyManagementSystem.Data.Impl;
+using DNPAssignment1FamilyManagementSystem.Models;
+using DNPAssignment1FamilyManagementSystem.Models.Util;
+using DNPAssignment1FamilyManagementSystem.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -34,7 +37,8 @@ namespace DNPAssignment1FamilyManagementSystem
             services.AddSingleton<FileContext>();
             services.AddScoped<IFamilyService, FileFamilyService>();
             services.AddScoped<IUserService, FileUserService>();
-            services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>(); 
+            services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+            services.AddScoped<IEventCoordinator, EventCoordinator>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

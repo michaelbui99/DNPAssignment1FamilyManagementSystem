@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Models {
+namespace DNPAssignment1FamilyManagementSystem.Models {
 public class Child : Person {
     
     public List<Interest> Interests { get; set; }

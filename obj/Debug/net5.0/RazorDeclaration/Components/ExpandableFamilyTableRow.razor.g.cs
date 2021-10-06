@@ -96,6 +96,13 @@ using DNPAssignment1FamilyManagementSystem.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
+using DNPAssignment1FamilyManagementSystem.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class ExpandableFamilyTableRow : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -104,7 +111,7 @@ using DNPAssignment1FamilyManagementSystem.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
+#line 27 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
        
     private string iconClass = "oi oi-collapse-down";
     private bool _isCollapsed = true;

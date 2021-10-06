@@ -11,7 +11,6 @@ namespace DNPAssignment1FamilyManagementSystem.Pages
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\_Imports.razor"
 using System.Net.Http;
@@ -98,20 +97,34 @@ using DNPAssignment1FamilyManagementSystem.Components;
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
-using Models;
+using System.ComponentModel.DataAnnotations;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
-using System.ComponentModel.DataAnnotations;
+using DNPAssignment1FamilyManagementSystem.Data.Impl;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+using DNPAssignment1FamilyManagementSystem.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+using Microsoft.AspNetCore.Components;
 
 #line default
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Families")]
-    public partial class Families : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class Families : Microsoft.AspNetCore.Components.ComponentBase, DNPAssignment1FamilyManagementSystem.Models.IEventListener
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -119,7 +132,7 @@ using System.ComponentModel.DataAnnotations;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 120 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+#line 125 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
@@ -145,6 +158,7 @@ using System.ComponentModel.DataAnnotations;
         {
             _allFamilies = FamilyService.GetFamilies();
             _familiesToShow = _allFamilies;
+            EventCoordinator.Attach(this);
         }
     }
 
@@ -208,9 +222,16 @@ using System.ComponentModel.DataAnnotations;
         }
     }
 
+    public void Notify()
+    {
+        StateHasChanged();
+    }
+
+
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IEventCoordinator EventCoordinator { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }

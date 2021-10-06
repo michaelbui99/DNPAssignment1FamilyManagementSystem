@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FileData;
-using Models;
+using DNPAssignment1FamilyManagementSystem.Models;
+using DNPAssignment1FamilyManagementSystem.Persistence;
 
-namespace DNPAssignment1FamilyManagementSystem.Data
+namespace DNPAssignment1FamilyManagementSystem.Data.Impl
 {
     public class FileFamilyService : IFamilyService
     {

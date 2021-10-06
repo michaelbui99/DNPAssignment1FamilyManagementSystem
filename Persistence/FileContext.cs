@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using Models;
+using DNPAssignment1FamilyManagementSystem.Models;
 
-namespace FileData
+namespace DNPAssignment1FamilyManagementSystem.Persistence
 {
     public class FileContext
     {

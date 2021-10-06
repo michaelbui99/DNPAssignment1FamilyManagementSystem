@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Models;
+using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data
 {
