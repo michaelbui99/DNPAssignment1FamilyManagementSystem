@@ -1,0 +1,53 @@
+@page "/Dashboard"
+@using ChartJs.Blazor.PieChart
+@using DNPAssignment1FamilyManagementSystem.Data
+@using DNPAssignment1FamilyManagementSystem.Models
+@inject IFamilyService FamilyService
+<AuthorizeView>
+    <Authorized>
+        <h3>Dashboard</h3>
+        <Chart Config="_pieConfig"></Chart>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private PieConfig _pieConfig;
+    private IList<Family> _allFamilies;  
+    protected override Task OnInitializedAsync()
+    {
+        _pieConfig = new PieConfig()
+        {
+            Options = new PieOptions()
+            {
+                Responsive = true, 
+                Title = new OptionsTitle()
+                {
+                    Display = true,
+                    Text = "Pie chart test"
+                }
+            }
+        };
+
+        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        {
+            _pieConfig.Data.Labels.Add(color);
+        }
+
+        PieDataset<int> dataset = new PieDataset<int>(new[] { 6, 5, 3, 7 })
+        {
+            BackgroundColor = new[]
+            {
+                ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
+                ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
+                ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
+                ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
+            }
+        };
+
+        _pieConfig.Data.Datasets.Add(dataset);
+
+        _allFamilies = FamilyService.GetFamilies();
+        return base.OnInitializedAsync();
+    }
+
+}

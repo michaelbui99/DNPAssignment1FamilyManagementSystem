@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace DNPAssignment1FamilyManagementSystem.Components
+namespace DNPAssignment1FamilyManagementSystem.Pages
 {
     #line hidden
     using System;
@@ -146,13 +146,28 @@ using ChartJs.Blazor.Interop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PetInformation.razor"
-using Models;
+#line 2 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using ChartJs.Blazor.PieChart;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class PetInformation : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using DNPAssignment1FamilyManagementSystem.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using DNPAssignment1FamilyManagementSystem.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dashboard")]
+    public partial class Dashboard : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -160,15 +175,52 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PetInformation.razor"
+#line 13 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
        
-    [Parameter]
-    public Pet Pet { get; set; }
+    private PieConfig _pieConfig;
+    private IList<Family> _allFamilies;  
+    protected override Task OnInitializedAsync()
+    {
+        _pieConfig = new PieConfig()
+        {
+            Options = new PieOptions()
+            {
+                Responsive = true, 
+                Title = new OptionsTitle()
+                {
+                    Display = true,
+                    Text = "Pie chart test"
+                }
+            }
+        };
+
+        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        {
+            _pieConfig.Data.Labels.Add(color);
+        }
+
+        PieDataset<int> dataset = new PieDataset<int>(new[] { 6, 5, 3, 7 })
+        {
+            BackgroundColor = new[]
+            {
+                ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
+                ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
+                ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
+                ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
+            }
+        };
+
+        _pieConfig.Data.Datasets.Add(dataset);
+
+        _allFamilies = FamilyService.GetFamilies();
+        return base.OnInitializedAsync();
+    }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
     }
 }
 #pragma warning restore 1591

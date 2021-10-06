@@ -215,3 +215,7 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\D
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.genruntimeconfig.cache
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.CopyComplete
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Components\PersonInfomation.razor.rz.scp.css
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\bin\Debug\net5.0\ChartJs.Blazor.dll
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\Dashboard.razor.g.cs
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\Dashboard.razor.g.cs
