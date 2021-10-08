@@ -1,5 +1,6 @@
 .charts-container[b-gc0yiem2gn] {
   max-width: 75vw;
+  overflow-y: hidden;
 }
 .charts-container .stats-container[b-gc0yiem2gn] {
   display: flex;
@@ -27,11 +28,11 @@
   border-radius: 10px;
   width: 100%;
 }
-.charts-container .chart-stat-container p[b-gc0yiem2gn] {
+.charts-container .chart-stat-container div p[b-gc0yiem2gn] {
   opacity: 1;
-  color: black;
+  color: white;
 }
-.charts-container .chart-stat-container p:nth-child(1)[b-gc0yiem2gn] {
+.charts-container .chart-stat-container div p:nth-child(1)[b-gc0yiem2gn] {
   font-size: 2rem;
   font-weight: bold;
 }

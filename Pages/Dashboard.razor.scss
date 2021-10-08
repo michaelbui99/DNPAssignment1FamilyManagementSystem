@@ -1,5 +1,7 @@
 @import "../wwwroot/css/variables";
 
+
+
 h3 {
 
 }
@@ -10,7 +12,7 @@ p {
 
 .charts-container {
   max-width: 75vw;
-  
+overflow-y: hidden;
   .stats-container {
     display: flex;
     flex-direction: row;
@@ -25,6 +27,7 @@ p {
       p {
         opacity: 1;
       }
+
       p:nth-child(3) {
         font-size: 2rem;
         font-weight: bold;
@@ -32,24 +35,28 @@ p {
     }
   }
 
-  .chart-stat-container {
-    display: flex;
-    flex-direction: row;
-    background-color: $lightRed;
-    opacity: 0.7;
-    padding: 1rem 2rem; 
-    border-radius: 10px;
-    width: 100%;
-    
-    p{
-      opacity: 1;
-      color: black;
-      
-    &:nth-child(1){
-      font-size: 2rem;
-      font-weight: bold;
-    }  
+  
+    .chart-stat-container {
+      display: flex;
+      flex-direction: row;
+      background-color: $lightRed;
+      opacity: 0.7;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      width: 100%;
+
+      div {
+        p {
+          opacity: 1;
+          color: white;
+
+          &:nth-child(1) {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+        }
+      }
+
     }
-   
-  }
+  
 }

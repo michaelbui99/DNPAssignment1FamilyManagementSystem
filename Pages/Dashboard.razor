@@ -3,6 +3,10 @@
 @using DNPAssignment1FamilyManagementSystem.Data
 @using DNPAssignment1FamilyManagementSystem.Models
 @using System.Drawing
+@using ChartJs.Blazor.BarChart
+@using ChartJs.Blazor.LineChart
+@using System.Collections.ObjectModel
+@using ChartJs.Blazor.BarChart.Axes
 @inject IFamilyStatisticsService FamilyStatisticsService
 <AuthorizeView>
     <Authorized>
@@ -48,25 +52,34 @@
                 </div>
             </div>
 
-            
-            <div class="chart-stat-container">
-                <div>
-                    <p>@FamilyStatisticsService.GetEyeColorDistribution().Keys.Count</p>
-                    <p>Different Eye Colors</p>
+
+                <div class="chart-stat-container">
+                    <div>
+                        <p>@FamilyStatisticsService.GetEyeColorDistribution().Keys.Count</p>
+                        <p>Different Eye Colors</p>
+                    </div>
+                    <Chart Config="_eyeColorPieConfig"></Chart>
                 </div>
-                <Chart Config="_eyeColorPieConfig"></Chart>
-            </div>
-            
+                <div class="chart-stat-container">
+                    <div>
+                        <p>@FamilyStatisticsService.GetAverageSalaryPerFamily()</p>
+                        <p> Earned on average per family per month</p>
+                    </div>
+                    <Chart Config="_salaryPieConfig"></Chart>
+                </div>
+
         </div>
     </Authorized>
 </AuthorizeView>
 
 @code {
     private PieConfig _eyeColorPieConfig;
+    private PieConfig _salaryPieConfig;
 
     protected override Task OnInitializedAsync()
     {
         InitEyeColorDistributionEyeChart();
+        InitSalaryPieChart();
         return base.OnInitializedAsync();
     }
 
@@ -83,14 +96,13 @@
                 {
                     Display = true,
                     Text = "Eye Color Distribution",
-                    FontColor = "black"
+                    FontColor = "white"
                 },
                 Legend = new Legend()
                 {
-                    
                     Labels = new LegendLabels()
                     {
-                        FontColor = "black"
+                        FontColor = "white"
                     }
                 }
             }
@@ -107,7 +119,7 @@
     /*
          *Dynamically adding color to pie slices depending on the eye color
          * The Data set contains eye colors that are not known colors defined by HTML specifications
-         * resulting in the chain of if-statements
+         * resulting in the chain of if-statements as a temp fix
          */
         IList<String> eyeColorsAsColorExStrings = new List<string>();
         foreach (var key in FamilyStatisticsService.GetEyeColorDistribution().Keys)
@@ -138,6 +150,48 @@
         };
 
         _eyeColorPieConfig.Data.Datasets.Add(dataset);
+    }
+
+    private void InitSalaryPieChart()
+    {
+        _salaryPieConfig = new PieConfig()
+        {
+            Options = new PieOptions()
+            {
+                Responsive = true, Title = new OptionsTitle()
+                {
+                    Display = true, Text = "Salary Distribution", FontColor = "white"
+                },
+                Legend = new Legend()
+                {
+                    Labels = new LegendLabels()
+                    {
+                        FontColor = "white"
+                    }
+                }
+            }
+        };
+
+        foreach (var keyValuePair in FamilyStatisticsService.GetSalaryDistribution())
+        {
+            _salaryPieConfig.Data.Labels.Add(keyValuePair.Key);
+        }
+
+        string[] knownColors = Enum.GetNames(typeof(System.Drawing.KnownColor));
+        List<string> knownColorsAsHexStrings = new List<string>();
+        
+        foreach (var knownColor in knownColors)
+        {
+            Color color = Color.FromName(knownColor);
+            knownColorsAsHexStrings.Add(ColorUtil.ColorHexString(color.R, color.G, color.B)); 
+        }
+        knownColorsAsHexStrings.Reverse();
+        PieDataset<decimal> salaryDataSet = new PieDataset<decimal>(FamilyStatisticsService.GetSalaryDistribution().Values)
+        {
+            BackgroundColor = knownColorsAsHexStrings.ToArray()
+        };
+        
+        _salaryPieConfig.Data.Datasets.Add(salaryDataSet);
     }
 
 }

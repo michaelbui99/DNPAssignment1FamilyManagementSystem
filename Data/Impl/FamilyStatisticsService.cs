@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DNPAssignment1FamilyManagementSystem.Models;
 
@@ -14,57 +15,73 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
 
         public IDictionary<string, int> GetEyeColorDistribution()
         {
-            HashSet<string> allEyeColors = GetAllEyeColors(); 
+            HashSet<string> allEyeColors = GetAllEyeColors();
             Dictionary<string, int> eyeColorDistributionDataSet = new Dictionary<string, int>();
-            IList<Family> families = _familyService.GetFamilies(); 
-            
+            IList<Family> families = _familyService.GetFamilies();
+
             foreach (var eyeColor in allEyeColors)
             {
-                int colorOccurence = 0; 
+                int colorOccurence = 0;
                 foreach (var family in families)
                 {
                     family.Adults.ForEach(a =>
                     {
                         if (a.EyeColor == eyeColor)
                         {
-                            colorOccurence++; 
+                            colorOccurence++;
                         }
                     });
                     family.Children.ForEach(c =>
                     {
                         if (c.EyeColor == eyeColor)
                         {
-                            colorOccurence++; 
+                            colorOccurence++;
                         }
                     });
                 }
+
                 eyeColorDistributionDataSet.Add(eyeColor, colorOccurence);
             }
 
             return eyeColorDistributionDataSet;
         }
 
+        public IDictionary<string, decimal> GetSalaryDistribution()
+        {
+            Dictionary<string, decimal> salaryDistributionDataSet = new Dictionary<string, decimal>();
+            IList<Family> allFamilies = _familyService.GetFamilies();
+            
+            foreach (var family in allFamilies)
+            {
+                decimal familySalary = 0;
+                family.Adults.ForEach(a => familySalary+= a.JobTitle.Salary);
+                salaryDistributionDataSet.Add($"{family.StreetName} {family.HouseNumber}", familySalary);
+            }
+            
+            return salaryDistributionDataSet;
+        }
+
         public decimal GetAverageChildrenPerFamily()
         {
-            return (decimal)GetTotalAmountOfChildren() / (decimal)GetTotalAmountOfFamilies();
+            return (decimal) GetTotalAmountOfChildren() / (decimal) GetTotalAmountOfFamilies();
         }
 
         public int GetTotalAmountOfFamilies()
         {
             int count = 0;
-            IList<Family> families = _familyService.GetFamilies(); 
+            IList<Family> families = _familyService.GetFamilies();
             foreach (var family in families)
             {
-                count++; 
+                count++;
             }
 
-            return count; 
+            return count;
         }
 
         public int GetTotalAmountOfAdults()
         {
             int count = 0;
-            IList<Family> families = _familyService.GetFamilies(); 
+            IList<Family> families = _familyService.GetFamilies();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a => count++);
@@ -75,14 +92,14 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
 
         public int GetTotalAmountOfChildren()
         {
-            int count = 0; 
+            int count = 0;
             IList<Family> families = _familyService.GetFamilies();
             foreach (var family in families)
             {
                 family.Children.ForEach(c => count++);
             }
 
-            return count; 
+            return count;
         }
 
         public int GetTotalAmountOfPets()
@@ -92,17 +109,17 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             foreach (var family in families)
             {
                 family.Pets.ForEach(p => count++);
-                
+
                 family.Children.ForEach(c => c.Pets.ForEach(p => count++));
             }
 
-            return count; 
+            return count;
         }
 
         public decimal GetAverageSalaryPerFamily()
         {
             decimal totalSalary = 0;
-            IList<Family> families = _familyService.GetFamilies(); 
+            IList<Family> families = _familyService.GetFamilies();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a =>
@@ -114,20 +131,20 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                 });
             }
 
-            return totalSalary / GetTotalAmountOfFamilies(); 
+            return totalSalary / GetTotalAmountOfFamilies();
         }
 
         private HashSet<string> GetAllEyeColors()
         {
             HashSet<string> allEyeColors = new HashSet<string>();
-            IList<Family> families = _familyService.GetFamilies(); 
+            IList<Family> families = _familyService.GetFamilies();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a => allEyeColors.Add(a.EyeColor));
                 family.Children.ForEach(c => allEyeColors.Add(c.EyeColor));
             }
 
-            return allEyeColors; 
+            return allEyeColors;
         }
     }
 }

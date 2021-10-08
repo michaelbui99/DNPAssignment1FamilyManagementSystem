@@ -173,6 +173,34 @@ using System.Drawing;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using ChartJs.Blazor.BarChart;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using ChartJs.Blazor.LineChart;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using System.Collections.ObjectModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using ChartJs.Blazor.BarChart.Axes;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Dashboard")]
     public partial class Dashboard : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -182,13 +210,15 @@ using System.Drawing;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+#line 75 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
        
     private PieConfig _eyeColorPieConfig;
+    private PieConfig _salaryPieConfig;
 
     protected override Task OnInitializedAsync()
     {
         InitEyeColorDistributionEyeChart();
+        InitSalaryPieChart();
         return base.OnInitializedAsync();
     }
 
@@ -205,14 +235,13 @@ using System.Drawing;
                 {
                     Display = true,
                     Text = "Eye Color Distribution",
-                    FontColor = "black"
+                    FontColor = "white"
                 },
                 Legend = new Legend()
                 {
-                    
                     Labels = new LegendLabels()
                     {
-                        FontColor = "black"
+                        FontColor = "white"
                     }
                 }
             }
@@ -229,7 +258,7 @@ using System.Drawing;
     /*
          *Dynamically adding color to pie slices depending on the eye color
          * The Data set contains eye colors that are not known colors defined by HTML specifications
-         * resulting in the chain of if-statements
+         * resulting in the chain of if-statements as a temp fix
          */
         IList<String> eyeColorsAsColorExStrings = new List<string>();
         foreach (var key in FamilyStatisticsService.GetEyeColorDistribution().Keys)
@@ -260,6 +289,48 @@ using System.Drawing;
         };
 
         _eyeColorPieConfig.Data.Datasets.Add(dataset);
+    }
+
+    private void InitSalaryPieChart()
+    {
+        _salaryPieConfig = new PieConfig()
+        {
+            Options = new PieOptions()
+            {
+                Responsive = true, Title = new OptionsTitle()
+                {
+                    Display = true, Text = "Salary Distribution", FontColor = "white"
+                },
+                Legend = new Legend()
+                {
+                    Labels = new LegendLabels()
+                    {
+                        FontColor = "white"
+                    }
+                }
+            }
+        };
+
+        foreach (var keyValuePair in FamilyStatisticsService.GetSalaryDistribution())
+        {
+            _salaryPieConfig.Data.Labels.Add(keyValuePair.Key);
+        }
+
+        string[] knownColors = Enum.GetNames(typeof(System.Drawing.KnownColor));
+        List<string> knownColorsAsHexStrings = new List<string>();
+        
+        foreach (var knownColor in knownColors)
+        {
+            Color color = Color.FromName(knownColor);
+            knownColorsAsHexStrings.Add(ColorUtil.ColorHexString(color.R, color.G, color.B)); 
+        }
+        knownColorsAsHexStrings.Reverse();
+        PieDataset<decimal> salaryDataSet = new PieDataset<decimal>(FamilyStatisticsService.GetSalaryDistribution().Values)
+        {
+            BackgroundColor = knownColorsAsHexStrings.ToArray()
+        };
+        
+        _salaryPieConfig.Data.Datasets.Add(salaryDataSet);
     }
 
 
