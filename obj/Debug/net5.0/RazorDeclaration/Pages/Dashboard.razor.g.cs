@@ -182,7 +182,7 @@ using System.Drawing;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 17 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+#line 64 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
        
     private PieConfig _eyeColorPieConfig;
 
@@ -195,7 +195,7 @@ using System.Drawing;
 
     private void InitEyeColorDistributionEyeChart()
     {
-        //Creating a new PieConfig
+    //Creating a new PieConfig
         _eyeColorPieConfig = new PieConfig()
         {
             Options = new PieOptions()
@@ -204,43 +204,52 @@ using System.Drawing;
                 Title = new OptionsTitle()
                 {
                     Display = true,
-                    Text = "Eye Color Distribution"
+                    Text = "Eye Color Distribution",
+                    FontColor = "black"
+                },
+                Legend = new Legend()
+                {
+                    
+                    Labels = new LegendLabels()
+                    {
+                        FontColor = "black"
+                    }
                 }
             }
         };
 
-        //Adding Chart Labels
+    //Adding Chart Labels
         foreach (string color in FamilyStatisticsService.GetEyeColorDistribution().Keys)
         {
             _eyeColorPieConfig.Data.Labels.Add(color);
         }
 
-        
-        //TODO: Find a solution to adding unspecified HTML colors without a chain of if-statements 
-        /*
+
+    //TODO: Find a solution to adding unspecified HTML colors without a chain of if-statements 
+    /*
          *Dynamically adding color to pie slices depending on the eye color
          * The Data set contains eye colors that are not known colors defined by HTML specifications
          * resulting in the chain of if-statements
          */
-        IList<String> eyeColorsAsColorExStrings = new List<string>(); 
+        IList<String> eyeColorsAsColorExStrings = new List<string>();
         foreach (var key in FamilyStatisticsService.GetEyeColorDistribution().Keys)
         {
-            Color color;  
+            Color color;
             if (key.ToLower() == "grey")
             {
                 color = Color.FromName("Gray");
             }
             else if (key.ToLower() == "amber")
             {
-                color = Color.FromArgb(255,191,0); 
+                color = Color.FromArgb(255, 191, 0);
             }
             else if (key.ToLower() == "hazel")
             {
-                color = Color.FromArgb(201, 199, 137); 
+                color = Color.FromArgb(201, 199, 137);
             }
             else
             {
-             color = Color.FromName(key); 
+                color = Color.FromName(key);
             }
             eyeColorsAsColorExStrings.Add(ColorUtil.ColorString(color.R, color.G, color.B));
         }
@@ -248,7 +257,6 @@ using System.Drawing;
         PieDataset<int> dataset = new PieDataset<int>(FamilyStatisticsService.GetEyeColorDistribution().Values)
         {
             BackgroundColor = eyeColorsAsColorExStrings.ToArray()
-            
         };
 
         _eyeColorPieConfig.Data.Datasets.Add(dataset);

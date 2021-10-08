@@ -9,7 +9,54 @@
         <h3>Dashboard</h3>
         <p>Welcome to Families Dashboard</p>
         <div class="charts-container">
-            <Chart Config="_eyeColorPieConfig"></Chart>
+            <div class="stats-container">
+                <div class="stats-container__stats">
+                    <span class="oi oi-people"></span>
+                    <p>Families</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfFamilies()</p>
+                    <p>In Total</p>
+                </div>
+
+                <div class="stats-container__stats">
+                    <span class="oi oi-person"></span>
+                    <p>Adults</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfAdults()</p>
+                    <p>In Total</p>
+                </div>
+
+
+                <div class="stats-container__stats">
+                    <span class="oi oi-person"></span>
+                    <p>Children</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfChildren()</p>
+                    <p>In Total</p>
+                </div>
+
+                <div class="stats-container__stats">
+                    <span class="oi oi-bug"></span>
+
+                    <p>Pets</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfPets()</p>
+                    <p>In Total</p>
+                </div>
+
+                <div class="stats-container__stats">
+                    <span class="oi oi-person"></span>
+                    <p>Average amount of children</p>
+                    <p>@FamilyStatisticsService.GetAverageChildrenPerFamily()</p>
+                    <p>Per Family</p>
+                </div>
+            </div>
+
+            
+            <div class="chart-stat-container">
+                <div>
+                    <p>@FamilyStatisticsService.GetEyeColorDistribution().Keys.Count</p>
+                    <p>Different Eye Colors</p>
+                </div>
+                <Chart Config="_eyeColorPieConfig"></Chart>
+            </div>
+            
         </div>
     </Authorized>
 </AuthorizeView>
@@ -26,7 +73,7 @@
 
     private void InitEyeColorDistributionEyeChart()
     {
-        //Creating a new PieConfig
+    //Creating a new PieConfig
         _eyeColorPieConfig = new PieConfig()
         {
             Options = new PieOptions()
@@ -35,43 +82,52 @@
                 Title = new OptionsTitle()
                 {
                     Display = true,
-                    Text = "Eye Color Distribution"
+                    Text = "Eye Color Distribution",
+                    FontColor = "black"
+                },
+                Legend = new Legend()
+                {
+                    
+                    Labels = new LegendLabels()
+                    {
+                        FontColor = "black"
+                    }
                 }
             }
         };
 
-        //Adding Chart Labels
+    //Adding Chart Labels
         foreach (string color in FamilyStatisticsService.GetEyeColorDistribution().Keys)
         {
             _eyeColorPieConfig.Data.Labels.Add(color);
         }
 
-        
-        //TODO: Find a solution to adding unspecified HTML colors without a chain of if-statements 
-        /*
+
+    //TODO: Find a solution to adding unspecified HTML colors without a chain of if-statements 
+    /*
          *Dynamically adding color to pie slices depending on the eye color
          * The Data set contains eye colors that are not known colors defined by HTML specifications
          * resulting in the chain of if-statements
          */
-        IList<String> eyeColorsAsColorExStrings = new List<string>(); 
+        IList<String> eyeColorsAsColorExStrings = new List<string>();
         foreach (var key in FamilyStatisticsService.GetEyeColorDistribution().Keys)
         {
-            Color color;  
+            Color color;
             if (key.ToLower() == "grey")
             {
                 color = Color.FromName("Gray");
             }
             else if (key.ToLower() == "amber")
             {
-                color = Color.FromArgb(255,191,0); 
+                color = Color.FromArgb(255, 191, 0);
             }
             else if (key.ToLower() == "hazel")
             {
-                color = Color.FromArgb(201, 199, 137); 
+                color = Color.FromArgb(201, 199, 137);
             }
             else
             {
-             color = Color.FromName(key); 
+                color = Color.FromName(key);
             }
             eyeColorsAsColorExStrings.Add(ColorUtil.ColorString(color.R, color.G, color.B));
         }
@@ -79,7 +135,6 @@
         PieDataset<int> dataset = new PieDataset<int>(FamilyStatisticsService.GetEyeColorDistribution().Values)
         {
             BackgroundColor = eyeColorsAsColorExStrings.ToArray()
-            
         };
 
         _eyeColorPieConfig.Data.Datasets.Add(dataset);

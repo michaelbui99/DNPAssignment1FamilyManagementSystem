@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"Dashboard.razor.css"}
+{"version":3,"sourceRoot":"","sources":["Dashboard.razor.scss","../wwwroot/css/_variables.scss"],"names":[],"mappings":"AAUA;EACE;;AAEA;EACE;EACA;EACA,kBCXO;EDYP;EACA;EACA;EACA;EACA;;AAGE;EACE;;AAEF;EACE;EACA;;AAKN;EACE;EACA;EACA,kBC3BQ;ED4BR;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAEF;EACE;EACA","file":"Dashboard.razor.css"}

@@ -1,3 +1,39 @@
-
+.charts-container[b-gc0yiem2gn] {
+  max-width: 75vw;
+}
+.charts-container .stats-container[b-gc0yiem2gn] {
+  display: flex;
+  flex-direction: row;
+  background-color: #b0b5f8;
+  opacity: 0.7;
+  border-radius: 10px;
+  padding: 1.5rem 3rem;
+  justify-content: space-between;
+  width: 100%;
+}
+.charts-container .stats-container__stats p[b-gc0yiem2gn] {
+  opacity: 1;
+}
+.charts-container .stats-container__stats p:nth-child(3)[b-gc0yiem2gn] {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.charts-container .chart-stat-container[b-gc0yiem2gn] {
+  display: flex;
+  flex-direction: row;
+  background-color: #cd3232;
+  opacity: 0.7;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 100%;
+}
+.charts-container .chart-stat-container p[b-gc0yiem2gn] {
+  opacity: 1;
+  color: black;
+}
+.charts-container .chart-stat-container p:nth-child(1)[b-gc0yiem2gn] {
+  font-size: 2rem;
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=Dashboard.razor.css.map */
