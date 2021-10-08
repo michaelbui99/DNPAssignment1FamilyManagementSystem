@@ -219,3 +219,4 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\bin\Debug\net5.0\C
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\RazorDeclaration\Pages\Dashboard.razor.g.cs
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\Razor\Pages\Dashboard.razor.g.cs
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\obj\Debug\net5.0\scopedcss\Pages\Dashboard.razor.rz.scp.css

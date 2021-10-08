@@ -166,6 +166,13 @@ using DNPAssignment1FamilyManagementSystem.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+using System.Drawing;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Dashboard")]
     public partial class Dashboard : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -175,52 +182,83 @@ using DNPAssignment1FamilyManagementSystem.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
+#line 17 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Dashboard.razor"
        
-    private PieConfig _pieConfig;
-    private IList<Family> _allFamilies;  
+    private PieConfig _eyeColorPieConfig;
+
     protected override Task OnInitializedAsync()
     {
-        _pieConfig = new PieConfig()
+        InitEyeColorDistributionEyeChart();
+        return base.OnInitializedAsync();
+    }
+
+
+    private void InitEyeColorDistributionEyeChart()
+    {
+        //Creating a new PieConfig
+        _eyeColorPieConfig = new PieConfig()
         {
             Options = new PieOptions()
             {
-                Responsive = true, 
+                Responsive = true,
                 Title = new OptionsTitle()
                 {
                     Display = true,
-                    Text = "Pie chart test"
+                    Text = "Eye Color Distribution"
                 }
             }
         };
 
-        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        //Adding Chart Labels
+        foreach (string color in FamilyStatisticsService.GetEyeColorDistribution().Keys)
         {
-            _pieConfig.Data.Labels.Add(color);
+            _eyeColorPieConfig.Data.Labels.Add(color);
         }
 
-        PieDataset<int> dataset = new PieDataset<int>(new[] { 6, 5, 3, 7 })
+        
+        //TODO: Find a solution to adding unspecified HTML colors without a chain of if-statements 
+        /*
+         *Dynamically adding color to pie slices depending on the eye color
+         * The Data set contains eye colors that are not known colors defined by HTML specifications
+         * resulting in the chain of if-statements
+         */
+        IList<String> eyeColorsAsColorExStrings = new List<string>(); 
+        foreach (var key in FamilyStatisticsService.GetEyeColorDistribution().Keys)
         {
-            BackgroundColor = new[]
+            Color color;  
+            if (key.ToLower() == "grey")
             {
-                ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
-                ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
-                ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
-                ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
+                color = Color.FromName("Gray");
             }
+            else if (key.ToLower() == "amber")
+            {
+                color = Color.FromArgb(255,191,0); 
+            }
+            else if (key.ToLower() == "hazel")
+            {
+                color = Color.FromArgb(201, 199, 137); 
+            }
+            else
+            {
+             color = Color.FromName(key); 
+            }
+            eyeColorsAsColorExStrings.Add(ColorUtil.ColorString(color.R, color.G, color.B));
+        }
+
+        PieDataset<int> dataset = new PieDataset<int>(FamilyStatisticsService.GetEyeColorDistribution().Values)
+        {
+            BackgroundColor = eyeColorsAsColorExStrings.ToArray()
+            
         };
 
-        _pieConfig.Data.Datasets.Add(dataset);
-
-        _allFamilies = FamilyService.GetFamilies();
-        return base.OnInitializedAsync();
+        _eyeColorPieConfig.Data.Datasets.Add(dataset);
     }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyService FamilyService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFamilyStatisticsService FamilyStatisticsService { get; set; }
     }
 }
 #pragma warning restore 1591
