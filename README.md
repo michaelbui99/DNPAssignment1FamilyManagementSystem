@@ -15,7 +15,7 @@ Styling is done with combination of Bootstrap and custom styling in SCSS.
       *   Stats of adults, children and pets in families
       *   Charts showing distribution of Eye Colors and Salary  
 ## Video Demo
-[![Video Demo](https://youtu.be/FrDp7ZJk8D0)
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/FrDp7ZJk8D0E/0.jpg)](https://youtu.be/FrDp7ZJk8D0)
 
 
 ## Screenshots
