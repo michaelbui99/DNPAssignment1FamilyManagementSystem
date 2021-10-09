@@ -18,7 +18,7 @@ Styling is done with combination of Bootstrap and custom styling in SCSS.
 TBA
 
 
-## Screen Shots
+## Screenshots
 <div style="display: flex; flex-direction: column">
 <p>Login page</p>
 <img src="wwwroot/images/screenshots/login_page.png" alt="Login page screenshot"/>
