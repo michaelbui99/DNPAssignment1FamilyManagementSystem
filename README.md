@@ -2,7 +2,7 @@
 This system is an Family Management SPA created using Blazor (Server).
 Styling is done with combination of Bootstrap and custom styling in SCSS. 
 
-##Features
+## Features
 *   Account Creation
 *   Login
 *   Guest Login
