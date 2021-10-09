@@ -6,23 +6,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db9f483c-3636-464f-972a-ecaf6a0c3e31" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/wwwroot/images/screenshots/account-creation_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wwwroot/images/screenshots/dashboard_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wwwroot/images/screenshots/families_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wwwroot/images/screenshots/home_page.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wwwroot/images/screenshots/login_page.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FamilyManagementSystem.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FamilyManagementSystem.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Families.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Families.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.json" beforeDir="false" afterPath="$PROJECT_DIR$/Users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DNPAssignment1FamilyManagementSystem.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DNPAssignment1FamilyManagementSystem.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/families.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/families.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/families.json" beforeDir="false" afterPath="$PROJECT_DIR$/families.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +113,7 @@
       <workItem from="1633079845945" duration="12275000" />
       <workItem from="1633420849361" duration="14200000" />
       <workItem from="1633678583365" duration="811000" />
-      <workItem from="1633700174655" duration="20012000" />
+      <workItem from="1633700174655" duration="21888000" />
     </task>
     <servers />
   </component>

@@ -18,21 +18,6 @@
         "Weight": 39.8,
         "Height": 174,
         "Sex": "F"
-      },
-      {
-        "JobTitle": {
-          "JobTitle": "Mega Chad",
-          "Salary": 9999999
-        },
-        "Id": 14,
-        "FirstName": "Chad",
-        "LastName": "Baxter",
-        "HairColor": "Black",
-        "EyeColor": "Blue",
-        "Age": 1,
-        "Weight": 250,
-        "Height": 250,
-        "Sex": null
       }
     ],
     "Children": [],
