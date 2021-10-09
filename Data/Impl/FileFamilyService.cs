@@ -20,23 +20,22 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             IList<Family> families = _fileContext.Families;
             if (families.Count == 0)
             {
-                throw new Exception("No Families found"); 
+                throw new Exception("No Families found");
             }
 
-            return families; 
+            return families;
         }
 
         public void CreateFamily(Family family)
         {
-            
             foreach (var f in _fileContext.Families)
             {
                 if (f.StreetName == family.StreetName && f.HouseNumber == family.HouseNumber)
                 {
-                    throw new Exception("Family already exists"); 
+                    throw new Exception("Family already exists");
                 }
             }
-            
+
             _fileContext.Families.Add(family);
             _fileContext.SaveChanges();
         }
@@ -47,10 +46,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                 _fileContext.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
             if (familyToRemove is null)
             {
-                throw new Exception("No such family exist"); 
+                throw new Exception("No such family exist");
             }
 
-            _fileContext.Families.Remove(familyToRemove); 
+            _fileContext.Families.Remove(familyToRemove);
             _fileContext.SaveChanges();
         }
 
@@ -60,28 +59,24 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                 == streetName && f.HouseNumber == houseNumber);
             if (familyToReturn is null)
             {
-                throw new Exception("Family not found"); 
+                throw new Exception("Family not found");
             }
 
-            return familyToReturn; 
+            return familyToReturn;
         }
 
         public void AddAdultToFamily(Family family, Adult adult)
         {
             if (family.Adults.Count >= 2)
             {
-                throw new Exception("Family cannot exceed 2 adults"); 
+                throw new Exception("Family cannot exceed 2 adults");
             }
 
-            if (!_fileContext.Families
-                .Where(f => f.StreetName == family.StreetName && f.HouseNumber == family.HouseNumber).ToList().Any())
-            {
-                throw new Exception("No such family exists"); 
-            }
-            
+            CheckFamilyExists(family);
+
             int indexOfFamily = _fileContext.Families.IndexOf(family);
             var maxIdOfAllAdults = GetMaxIdOfAllAdults();
-            adult.Id = maxIdOfAllAdults; 
+            adult.Id = maxIdOfAllAdults;
             _fileContext.Families[indexOfFamily].Adults.Add(adult);
             _fileContext.SaveChanges();
         }
@@ -94,11 +89,11 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             {
                 if (family.Adults.Any())
                 {
-                int maxIdOfCurrentFamily = family.Adults.Max(a => a.Id);
-                if (maxIdOfCurrentFamily > maxIdOfAllAdults)
-                {
-                    maxIdOfAllAdults = maxIdOfCurrentFamily;
-                }
+                    int maxIdOfCurrentFamily = family.Adults.Max(a => a.Id);
+                    if (maxIdOfCurrentFamily > maxIdOfAllAdults)
+                    {
+                        maxIdOfAllAdults = maxIdOfCurrentFamily;
+                    }
                 }
                 else
                 {
@@ -108,18 +103,42 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
 
             return maxIdOfAllAdults;
         }
+
         public void RemoveAdultFromFamily(Family family, Adult adult)
+        {
+            CheckFamilyExists(family);
+
+            int indexOfFamily = _fileContext.Families.IndexOf(family);
+            if (_fileContext.Families[indexOfFamily].Adults.Contains(adult))
+            {
+                _fileContext.Families[indexOfFamily].Adults.Remove(adult);
+                _fileContext.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Adult does not exist in the family");
+            }
+        }
+
+        public void RemoveChildFromFamily(Family family, Child child)
+        {
+            CheckFamilyExists(family);
+
+            int indexOfFamily = _fileContext.Families.IndexOf(family);
+            if (_fileContext.Families[indexOfFamily].Children.Contains(child))
+            {
+                _fileContext.Families[indexOfFamily].Children.Remove(child); 
+                _fileContext.SaveChanges();
+            }
+        }
+
+        private void CheckFamilyExists(Family family)
         {
             if (!_fileContext.Families
                 .Where(f => f.StreetName == family.StreetName && f.HouseNumber == family.HouseNumber).ToList().Any())
             {
-                throw new Exception("No such family exists"); 
+                throw new Exception("No such family exists");
             }
-
-            int indexOfFamily = _fileContext.Families.IndexOf(family);
-            _fileContext.Families[indexOfFamily].Adults.Remove(adult); 
-            _fileContext.SaveChanges();
-
         }
     }
 }

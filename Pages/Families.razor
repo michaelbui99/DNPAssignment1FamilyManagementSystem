@@ -15,32 +15,32 @@
     <Authorized>
         <div class="families-container animation-fade-in">
             <div class="families-container__header">
-                <h3>Families <i class="fas fa-plus" @onclick="()=>_addFamilyToggle = !_addFamilyToggle"></i></h3>
+                <h3>Families <i class="fas fa-plus" @onclick="() => _addFamilyToggle = !_addFamilyToggle"></i></h3>
                 <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
             </div>
-            @if(_addFamilyToggle) 
+            @if (_addFamilyToggle)
             {
                 <div class="add-family-container animation-fade-in">
-                <div class="form-group">
-                    <label>Street name</label>
-                    <input type="text" placeholder="Street name" @bind-value="_familyToAdd.StreetName">
-                </div>
-                <div class="form-group">
-                    <label>House Number</label>
-                    <input type="number" placeholder="House Number" @bind-value="_familyToAdd.HouseNumber">
-                </div>
+                    <div class="form-group">
+                        <label>Street name</label>
+                        <input type="text" placeholder="Street name" @bind-value="_familyToAdd.StreetName">
+                    </div>
+                    <div class="form-group">
+                        <label>House Number</label>
+                        <input type="number" placeholder="House Number" @bind-value="_familyToAdd.HouseNumber">
+                    </div>
                     <p class="error-label">@_addFamilyErrorLabel</p>
                     @foreach (var error in _validationResults)
                     {
                         <p class="error-label">@error</p>
                     }
-                <button @onclick="AddNewFamily">
-                    Add Family
-                </button>
-                    
+                    <button @onclick="AddNewFamily">
+                        Add Family
+                    </button>
+
                 </div>
             }
-            
+
             @if (_familiesToShow is null)
             {
                 <p>
@@ -76,11 +76,10 @@
                                             @if (f.Adults.Count >= 2)
                                             {
                                                 <h4>Adults: <button class="disabled"><i class="fas fa-plus"></i>Add Adult</button></h4>
-                                                
                                             }
                                             else
                                             {
-                                            <h4>Adults: <button @onclick="() => GoToAddAdult(f)"><i class="fas fa-plus"></i>Add Adult</button></h4>
+                                                <h4>Adults: <button @onclick="() => GoToAddAdult(f)"><i class="fas fa-plus"></i>Add Adult</button></h4>
                                             }
                                             @foreach (var a in f.Adults)
                                             {
@@ -90,23 +89,37 @@
                                                 <br/>
                                             }
                                         </div>
-                                        
+
                                         <div class="children-container">
                                             <h4>Children: </h4>
                                             @foreach (var c in f.Children)
                                             {
-                                                <PersonInfomation Person=@c Family="f"/>
+                                                <PersonInfomation Person=@c Family="f" DeleteStrategy="new DeleteChildrenStrategy(FamilyService)"/>
+
+                                                <p>Interests:</p>
+                                                <ul>
+                                                    @foreach (var interest in c.Interests)
+                                                    {
+                                                        <li>@interest.Type</li>
+                                                    }
+                                                </ul>
+                                                <p>Personal Pets:</p>
+                                                <ul>
+                                                    @foreach (var pet in c.Pets)
+                                                    {
+                                                        <li>Species: @pet.Species <br/>Name: @pet.Name<br/>Age: @pet.Age</li>
+                                                    }
+                                                </ul>
                                                 <br/>
                                             }
                                         </div>
-                                        
+
                                         <div class="family-pet-container">
                                             <h4>Pets: </h4>
                                             @foreach (var p in f.Pets)
                                             {
                                                 <PetInformation Pet=@p/>
                                                 <br/>
-
                                             }
                                         </div>
                                     </div>
@@ -125,11 +138,11 @@
 @code {
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
-    private bool _addFamilyToggle = false; 
+    private bool _addFamilyToggle = false;
     private string _filterAdultByName;
     private string _addFamilyErrorLabel;
     private Family _familyToAdd = new Family();
-    List<ValidationResult> _validationResults = new(); 
+    List<ValidationResult> _validationResults = new();
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -168,7 +181,7 @@
                     if ($"{adult.FirstName} {adult.LastName}".ToLower().Contains(_filterAdultByName.ToLower()))
                     {
                         adultWithNameMatchFound = true;
-                        break; 
+                        break;
                     }
                 }
                 if (adultWithNameMatchFound)
@@ -177,7 +190,7 @@
                 }
             }
 
-            _familiesToShow = familiesWithAdultsWithNameMatch; 
+            _familiesToShow = familiesWithAdultsWithNameMatch;
         }
         else
         {
@@ -206,7 +219,7 @@
             catch (Exception e)
             {
                 _addFamilyErrorLabel = e.Message;
-                return; 
+                return;
             }
         }
     }

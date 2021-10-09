@@ -195,15 +195,15 @@ using Microsoft.AspNetCore.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 125 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+#line 138 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
-    private bool _addFamilyToggle = false; 
+    private bool _addFamilyToggle = false;
     private string _filterAdultByName;
     private string _addFamilyErrorLabel;
     private Family _familyToAdd = new Family();
-    List<ValidationResult> _validationResults = new(); 
+    List<ValidationResult> _validationResults = new();
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
@@ -242,7 +242,7 @@ using Microsoft.AspNetCore.Components;
                     if ($"{adult.FirstName} {adult.LastName}".ToLower().Contains(_filterAdultByName.ToLower()))
                     {
                         adultWithNameMatchFound = true;
-                        break; 
+                        break;
                     }
                 }
                 if (adultWithNameMatchFound)
@@ -251,7 +251,7 @@ using Microsoft.AspNetCore.Components;
                 }
             }
 
-            _familiesToShow = familiesWithAdultsWithNameMatch; 
+            _familiesToShow = familiesWithAdultsWithNameMatch;
         }
         else
         {
@@ -280,7 +280,7 @@ using Microsoft.AspNetCore.Components;
             catch (Exception e)
             {
                 _addFamilyErrorLabel = e.Message;
-                return; 
+                return;
             }
         }
     }

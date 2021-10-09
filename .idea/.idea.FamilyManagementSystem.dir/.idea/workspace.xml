@@ -6,13 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db9f483c-3636-464f-972a-ecaf6a0c3e31" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Data/Impl/DeleteChildrenStrategy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FamilyManagementSystem.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FamilyManagementSystem.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/IFamilyStatisticsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IFamilyStatisticsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Impl/FamilyStatisticsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Impl/FamilyStatisticsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Dashboard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Dashboard.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Dashboard.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Dashboard.razor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Dashboard.razor.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Dashboard.razor.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Dashboard.razor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Dashboard.razor.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/IFamilyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/IFamilyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Impl/FileFamilyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Impl/FileFamilyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Families.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Families.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
@@ -20,16 +18,14 @@
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Dashboard.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Dashboard.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Dashboard.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Dashboard.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/Pages/Dashboard.razor.rz.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/Pages/Dashboard.razor.rz.scp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/bundle/DNPAssignment1FamilyManagementSystem.styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/bundle/DNPAssignment1FamilyManagementSystem.styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/projectbundle/DNPAssignment1FamilyManagementSystem.bundle.scp.css" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/scopedcss/projectbundle/DNPAssignment1FamilyManagementSystem.bundle.scp.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +124,7 @@
       <workItem from="1633079845945" duration="12275000" />
       <workItem from="1633420849361" duration="14200000" />
       <workItem from="1633678583365" duration="811000" />
-      <workItem from="1633700174655" duration="11355000" />
+      <workItem from="1633700174655" duration="12742000" />
     </task>
     <servers />
   </component>

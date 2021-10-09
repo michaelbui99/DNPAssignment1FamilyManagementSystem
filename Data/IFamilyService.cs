@@ -10,6 +10,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data
         void DeleteFamily(string streetName, int houseNumber);
         Family GetFamily(string streetName, int houseNumber);
         void AddAdultToFamily(Family family, Adult adult);
-        void RemoveAdultFromFamily(Family family, Adult adult); 
+        void RemoveAdultFromFamily(Family family, Adult adult);
+        void RemoveChildFromFamily(Family family, Child child); 
     }
 }

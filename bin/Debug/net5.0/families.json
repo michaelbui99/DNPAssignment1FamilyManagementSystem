@@ -1,6 +1,5 @@
 [
   {
-    "Id": 0,
     "StreetName": "Bay Avenue",
     "HouseNumber": 1,
     "Adults": [
@@ -24,7 +23,6 @@
     "Pets": []
   },
   {
-    "Id": 0,
     "StreetName": "Innovation Avenue",
     "HouseNumber": 1,
     "Adults": [
@@ -146,7 +144,6 @@
     "Pets": []
   },
   {
-    "Id": 0,
     "StreetName": "William Street",
     "HouseNumber": 1,
     "Adults": [
@@ -265,7 +262,6 @@
     ]
   },
   {
-    "Id": 0,
     "StreetName": "Mitch Cromwood Avenue",
     "HouseNumber": 1,
     "Adults": [
@@ -416,7 +412,6 @@
     "Pets": []
   },
   {
-    "Id": 0,
     "StreetName": "Elgin Avenue",
     "HouseNumber": 1,
     "Adults": [
@@ -604,7 +599,6 @@
     "Pets": []
   },
   {
-    "Id": 0,
     "StreetName": "Railway Street",
     "HouseNumber": 1,
     "Adults": [
@@ -773,7 +767,6 @@
     ]
   },
   {
-    "Id": 0,
     "StreetName": "Airport Avenue",
     "HouseNumber": 1,
     "Adults": [
@@ -886,7 +879,6 @@
     ]
   },
   {
-    "Id": 0,
     "StreetName": "Sycamore Drive",
     "HouseNumber": 1,
     "Adults": [
@@ -967,7 +959,6 @@
     "Pets": []
   },
   {
-    "Id": 0,
     "StreetName": "Hazlett Avenue",
     "HouseNumber": 1,
     "Adults": [
@@ -1130,7 +1121,6 @@
     "Pets": []
   },
   {
-    "Id": 0,
     "StreetName": "Easy Street",
     "HouseNumber": 1,
     "Adults": [
