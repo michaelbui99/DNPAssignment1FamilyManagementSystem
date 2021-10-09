@@ -161,7 +161,7 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Login.razor"
+#line 41 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Login.razor"
        
     private string _username;
     private string _password;
