@@ -18,6 +18,21 @@
         "Weight": 39.8,
         "Height": 174,
         "Sex": "F"
+      },
+      {
+        "JobTitle": {
+          "JobTitle": "Mega chad",
+          "Salary": 9999999
+        },
+        "Id": 14,
+        "FirstName": "Chad",
+        "LastName": "Chadsen",
+        "HairColor": "Blonde",
+        "EyeColor": "Blue",
+        "Age": 1,
+        "Weight": 200,
+        "Height": 250,
+        "Sex": null
       }
     ],
     "Children": [],
@@ -1194,6 +1209,14 @@
         "Sex": "F"
       }
     ],
+    "Pets": []
+  },
+  {
+    "Id": 0,
+    "StreetName": "Chad Street",
+    "HouseNumber": 1,
+    "Adults": [],
+    "Children": [],
     "Pets": []
   }
 ]
