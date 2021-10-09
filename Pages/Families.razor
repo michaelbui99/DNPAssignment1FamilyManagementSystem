@@ -314,8 +314,8 @@
             try
             {
                 FamilyService.CreateFamily(_familyToAdd);
-                _addFamilyToggle = !_addFamilyToggle;
                 StateHasChanged();
+                _addFamilyToggle = !_addFamilyToggle;
             }
             catch (Exception e)
             {

@@ -275,6 +275,7 @@ using Microsoft.AspNetCore.Components;
             try
             {
                 FamilyService.CreateFamily(_familyToAdd);
+                StateHasChanged();
                 _addFamilyToggle = !_addFamilyToggle;
             }
             catch (Exception e)
