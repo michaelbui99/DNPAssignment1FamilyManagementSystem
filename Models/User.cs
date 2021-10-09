@@ -12,6 +12,8 @@ namespace DNPAssignment1FamilyManagementSystem.Models
         [StringLength(Int32.MaxValue, MinimumLength = 8, ErrorMessage = "Password must be min. 8 characters")]
         public string Password { get; set; }
 
+        public string Role { get; set; } = "User"; 
+        
         public override string ToString()
         {
             return JsonSerializer.Serialize(this);

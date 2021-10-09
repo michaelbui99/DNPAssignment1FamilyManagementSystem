@@ -195,7 +195,7 @@ using Microsoft.AspNetCore.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 138 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
+#line 238 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;
@@ -280,6 +280,8 @@ using Microsoft.AspNetCore.Components;
             catch (Exception e)
             {
                 _addFamilyErrorLabel = e.Message;
+                _familyToAdd.StreetName = "";
+                _familyToAdd.HouseNumber = 0; 
                 return;
             }
         }

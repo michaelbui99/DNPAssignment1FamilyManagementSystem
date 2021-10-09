@@ -5,13 +5,27 @@
 
 @if (Person != null)
 {
-<p>Name: @Person.FirstName @Person.LastName  <button @onclick="DeletePerson"><i class="fas fa-trash"></i></button></p>
-<p>Age: @Person.Age</p>
-<p>Sex: @Person.Sex</p>
-<p>Height: @Person.Height</p>
-<p>Weight: @Person.Weight</p>
-<p>EyeColor: @Person.EyeColor</p>
-<p>HairColor: @Person.HairColor</p>
+    <AuthorizeView Policy="IsUser">
+        <Authorized>
+            <p>Name: @Person.FirstName @Person.LastName  <button @onclick="DeletePerson"><i class="fas fa-trash"></i></button></p>
+            <p>Age: @Person.Age</p>
+            <p>Sex: @Person.Sex</p>
+            <p>Height: @Person.Height</p>
+            <p>Weight: @Person.Weight</p>
+            <p>EyeColor: @Person.EyeColor</p>
+            <p>HairColor: @Person.HairColor</p>
+        </Authorized>
+        
+        <NotAuthorized>
+            <p>Name: @Person.FirstName @Person.LastName</p>
+            <p>Age: @Person.Age</p>
+            <p>Sex: @Person.Sex</p>
+            <p>Height: @Person.Height</p>
+            <p>Weight: @Person.Weight</p>
+            <p>EyeColor: @Person.EyeColor</p>
+            <p>HairColor: @Person.HairColor</p>
+        </NotAuthorized>
+    </AuthorizeView>
 }
 
 @code {

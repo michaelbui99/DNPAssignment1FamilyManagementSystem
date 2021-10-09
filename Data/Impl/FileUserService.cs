@@ -19,6 +19,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data
                 Users = new List<User>();
                 FileStream fileStream = File.Create(_usersFile);
                 fileStream.Close();
+                Create(new User()
+                {
+                    Username = "Guest", Password = "Guest", Role = "Guest"
+                });
             }
             else
             {
@@ -29,11 +33,17 @@ namespace DNPAssignment1FamilyManagementSystem.Data
                     return; 
                 }
                 Users = JsonSerializer.Deserialize<List<User>>(usersAsJson);
-               //Debugging 
-                Console.WriteLine("Users has been Deserialized");
-                foreach (var user in Users)
+                try
                 {
-                    Console.WriteLine(user);
+                    Get("Guest");
+                }
+                catch (Exception e)
+                {
+                    //Creates Guest user, if none exists. 
+                    Create(new User()
+                    {
+                        Username = "Guest", Password = "Guest", Role = "Guest"
+                    });
                 }
             }
         }

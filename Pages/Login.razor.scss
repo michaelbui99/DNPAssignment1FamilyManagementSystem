@@ -74,3 +74,15 @@
     }
   }
 }
+
+#guest-login-cta {
+  cursor: pointer;
+  color: #292D85;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    font-weight: bold;
+  }
+  
+}  
+

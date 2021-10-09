@@ -161,7 +161,7 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Login.razor"
+#line 42 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Pages\Login.razor"
        
     private string _username;
     private string _password;
@@ -200,6 +200,12 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
     public void OnCreateAccount()
     {
         NavigationManager.NavigateTo("/SignUp");
+    }
+
+    public void LoginAsGuest()
+    {
+        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest");
+        NavigationManager.NavigateTo("/");
     }
 
 

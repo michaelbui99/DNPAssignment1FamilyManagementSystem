@@ -5,7 +5,7 @@
 @inject IFamilyService FamilyService
 @inject NavigationManager NavigationManager
 
-<AuthorizeView>
+<AuthorizeView Policy="IsUser">
     <Authorized>
         <div class="add-adult-container animation-fade-in">
             <div class="form-container container">
@@ -105,8 +105,10 @@
                 <button @onclick="AddAdultToFamily">Add Adult</button>
             </div>
         </div>
-
     </Authorized>
+    <NotAuthorized>
+        <p>Only Users can add new family members</p>
+    </NotAuthorized>
 </AuthorizeView>
 
 @code {

@@ -5,6 +5,8 @@
 @namespace DNPAssignment1FamilyManagementSystem.Components
 @if (Family != null)
 {
+    <AuthorizeView Policy="IsUser">
+        <Authorized>
     <tr @onclick="@ExpandView">
     <td>
         <span class="@iconClass"></span>
@@ -22,6 +24,22 @@
     {
         @ChildContent
     }
+        </Authorized>       
+        <NotAuthorized>
+             <tr @onclick="@ExpandView">
+                <td>
+                    <span class="@iconClass"></span>
+                </td>
+                <td>@Family.StreetName</td>
+                <td>@Family.HouseNumber</td>
+                <td>@Family.Adults.Count Adults; @Family.Children.Count Children; @Family.Pets.Count Pets</td>
+            </tr>
+                @if (_isCollapsed == false)
+                {
+                    @ChildContent
+                }
+        </NotAuthorized>
+    </AuthorizeView>
 }
 
 @code {

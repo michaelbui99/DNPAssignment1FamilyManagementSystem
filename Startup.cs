@@ -39,7 +39,11 @@ namespace DNPAssignment1FamilyManagementSystem
             services.AddScoped<IUserService, FileUserService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IEventCoordinator, EventCoordinator>();
-            services.AddScoped<IFamilyStatisticsService, FamilyStatisticsService>(); 
+            services.AddScoped<IFamilyStatisticsService, FamilyStatisticsService>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("IsUser", a=> a.RequireClaim("Role", "User"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -174,7 +174,7 @@ using DNPAssignment1FamilyManagementSystem.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
+#line 45 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\ExpandableFamilyTableRow.razor"
        
     private string iconClass = "oi oi-collapse-down";
     private bool _isCollapsed = true;

@@ -31,6 +31,8 @@
                 <p class="create-acc-p">
                     Not registered yet? <span id="create-account-cta" @onclick="OnCreateAccount"> Create an account</span>
                 </p>
+                <p>Or</p>
+                <p><span id="guest-login-cta" @onclick="LoginAsGuest">Continue As Guest</span></p>
             </div>
         </div>
     </NotAuthorized>
@@ -75,6 +77,12 @@
     public void OnCreateAccount()
     {
         NavigationManager.NavigateTo("/SignUp");
+    }
+
+    public void LoginAsGuest()
+    {
+        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest");
+        NavigationManager.NavigateTo("/");
     }
 
 }

@@ -167,7 +167,7 @@ using DNPAssignment1FamilyManagementSystem.Data.Impl;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 17 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PersonInfomation.razor"
+#line 31 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\Components\PersonInfomation.razor"
        
 
     [Parameter]
