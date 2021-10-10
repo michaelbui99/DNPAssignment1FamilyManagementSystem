@@ -15,10 +15,10 @@ Styling is done with combination of Bootstrap and custom styling in SCSS.
       *   Stats of adults, children and pets in families
       *   Charts showing distribution of Eye Colors and Salary  
 ## Video Demo
-TBA
+[![Video Demo](http://img.youtube.com/vi/FrDp7ZJk8D0/0.jpg)](https://www.youtube.com/watch?v=FrDp7ZJk8D0&feature=youtu.be&ab_channel=MBui)
 
 
-## Screen Shots
+## Screenshots
 <div style="display: flex; flex-direction: column">
 <p>Login page</p>
 <img src="wwwroot/images/screenshots/login_page.png" alt="Login page screenshot"/>
