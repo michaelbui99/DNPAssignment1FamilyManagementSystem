@@ -34,7 +34,7 @@ namespace FamilyManagementRestApi
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "FamilyManagementRestApi", Version = "v1"});
             });
             services.AddScoped<FileContext>();
-            services.AddSingleton<IFamiliesRepository, FileFamiliesRepository>(); 
+            services.AddScoped<IFamiliesRepository, FileFamiliesRepository>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

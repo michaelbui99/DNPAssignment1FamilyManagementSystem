@@ -8,6 +8,7 @@ namespace FamilyManagementRestApi.Repositories
         IEnumerable<Family> GetFamilies();
         Family GetFamily(string streetName, int houseNumber);
         void UpdateFamily(Family family);
-        void DeleteFamily(string streetName, int houseNumber); 
+        void DeleteFamily(string streetName, int houseNumber);
+        void CreateFamily(Family family);
     }
 }
