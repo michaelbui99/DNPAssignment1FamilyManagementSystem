@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FamilyManagementRestApi.Models;
 using FamilyManagementRestApi.Persistence;
 
@@ -20,19 +21,24 @@ namespace FamilyManagementRestApi.Repositories.Impl
             return _fileContext.Families;
         }
 
-        public Family GetFamily(string streetName, int houseNumber)
+        public async Task<IEnumerable<Family>> GetFamiliesAsync()
+        {
+            return _fileContext.Families; 
+        }
+
+        public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)
         {
             Family familyToReturn =
                 _fileContext.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
             if (familyToReturn == null)
             {
-                throw new Exception("No such family exists");
+                throw new KeyNotFoundException("No such family exists");
             }
 
             return familyToReturn;
         }
 
-        public void UpdateFamily(Family family)
+        public async Task<Family> UpdateFamilyAsync(Family family)
         {
             if (FamilyExists(family.StreetName, family.HouseNumber))
             {
@@ -40,36 +46,39 @@ namespace FamilyManagementRestApi.Repositories.Impl
                     .FindIndex(existingFamily => existingFamily.Id == family.Id);
                 _fileContext.Families[indexOfFamily] = family;
                 _fileContext.SaveChanges();
+                return family; 
             }
             else
             {
-                _fileContext.Families.Add(family);
-                _fileContext.SaveChanges();
+                throw new KeyNotFoundException("No such family exists"); 
             }
         }
 
-        public void DeleteFamily(string streetName, int houseNumber)
+        public async Task<Family> DeleteFamilyAsync(string streetName, int houseNumber)
         {
             if (!FamilyExists(streetName, houseNumber))
             {
-                throw new Exception("No such family exists");
+                throw new KeyNotFoundException("No such family exists");
             }
 
             int indexOfFamily = _fileContext.Families.ToList()
                 .FindIndex(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
+            Family deletedFamily = _fileContext.Families[indexOfFamily];
             _fileContext.Families.RemoveAt(indexOfFamily);
             _fileContext.SaveChanges();
+            return deletedFamily;
         }
 
-        public void CreateFamily(Family family)
+        public async Task<Family> CreateFamilyAsync(Family family)
         {
             if (FamilyExists(family.StreetName, family.HouseNumber))
             {
-                throw new Exception("Family already exists");
+                throw new ArgumentException("Family already exists");
             }
             
             _fileContext.Families.Add(family);
             _fileContext.SaveChanges();
+            return family; 
         }
 
         private bool FamilyExists(string streetName, int houseNumber)

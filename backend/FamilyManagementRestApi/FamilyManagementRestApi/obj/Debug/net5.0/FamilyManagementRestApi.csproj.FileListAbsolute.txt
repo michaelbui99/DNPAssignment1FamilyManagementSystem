@@ -27,3 +27,6 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyMana
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\ref\FamilyManagementRestApi.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.pdb
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.genruntimeconfig.cache
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\bin\Debug\net5.0\adults.json
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\bin\Debug\net5.0\families.json
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\bin\Debug\net5.0\Users.json
