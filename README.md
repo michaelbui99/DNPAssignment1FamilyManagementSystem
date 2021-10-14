@@ -21,13 +21,13 @@ Styling is done with combination of Bootstrap and custom styling in SCSS.
 ## Screenshots
 <div style="display: flex; flex-direction: column">
 <p>Login page</p>
-<img src="wwwroot/images/screenshots/login_page.png" alt="Login page screenshot"/>
+<img src="frontend/wwwroot/images/screenshots/login_page.png" alt="Login page screenshot"/>
 <p>Account Creation</p>
-<img src="wwwroot/images/screenshots/account-creation_page.png" alt="Account creation page screenshot">
+<img src="frontend/wwwroot/images/screenshots/account-creation_page.png" alt="Account creation page screenshot">
 <p>Home page</p>
-<img src="wwwroot/images/screenshots/home_page.png" alt="Home Page screenshot">
+<img src="frontend/wwwroot/images/screenshots/home_page.png" alt="Home Page screenshot">
 <p>Families page</p>
-<img src="wwwroot/images/screenshots/families_page.png" alt="Families page screenshot">
+<img src="frontend/wwwroot/images/screenshots/families_page.png" alt="Families page screenshot">
 <p>Dashboard</p>
-<img src="wwwroot/images/screenshots/dashboard_page.png" alt="Dashboard page screenshot">
+<img src="frontend/wwwroot/images/screenshots/dashboard_page.png" alt="Dashboard page screenshot">
 </div>
