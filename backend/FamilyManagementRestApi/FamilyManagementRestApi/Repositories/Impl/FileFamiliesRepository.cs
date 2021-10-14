@@ -4,7 +4,7 @@ using System.Linq;
 using FamilyManagementRestApi.Models;
 using FamilyManagementRestApi.Persistence;
 
-namespace FamilyManagementRestApi.Repositories
+namespace FamilyManagementRestApi.Repositories.Impl
 {
     public class FileFamiliesRepository : IFamiliesRepository
     {
@@ -63,7 +63,13 @@ namespace FamilyManagementRestApi.Repositories
 
         public void CreateFamily(Family family)
         {
-            throw new NotImplementedException();
+            if (FamilyExists(family.StreetName, family.HouseNumber))
+            {
+                throw new Exception("Family already exists");
+            }
+            
+            _fileContext.Families.Add(family);
+            _fileContext.SaveChanges();
         }
 
         private bool FamilyExists(string streetName, int houseNumber)
