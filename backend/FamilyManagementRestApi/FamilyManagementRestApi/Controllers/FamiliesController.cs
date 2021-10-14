@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FamilyManagementRestApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class FamiliesController : ControllerBase
     {
         private IFamiliesRepository _familiesRepository;
