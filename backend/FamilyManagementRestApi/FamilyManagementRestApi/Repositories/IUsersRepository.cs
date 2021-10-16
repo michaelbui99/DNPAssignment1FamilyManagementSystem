@@ -7,6 +7,7 @@ namespace FamilyManagementRestApi.Repositories
     {
         IEnumerable<User> GetUsers();
         void CreateUser(User user);
-        void RemoveUser(User user); 
+        void RemoveUser(User user);
+        User ValidateUser(string username, string password); 
     }
 }
