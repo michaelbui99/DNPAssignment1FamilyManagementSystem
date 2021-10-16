@@ -81,6 +81,30 @@ namespace FamilyManagementRestApi.Repositories.Impl
             return family; 
         }
 
+        public async Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult)
+        {
+            if (!FamilyExists(family.StreetName, family.HouseNumber))
+            {
+                throw new KeyNotFoundException("No such family exists"); 
+            }
+
+            int indexOfFamily = _fileContext.Families.IndexOf(family);
+            int maxId = 0; 
+            foreach (var f in _fileContext.Families)
+            {
+                int maxIdOfCurrentFamily = f.Adults.Max(a => a.Id);
+                if (maxIdOfCurrentFamily >= maxId)
+                {
+                    maxId = maxIdOfCurrentFamily;
+                }
+            }
+
+            adult.Id = maxId+1;
+            _fileContext.Families[indexOfFamily].Adults.Add(adult);
+            _fileContext.SaveChanges();
+            return adult;
+        }
+
         private bool FamilyExists(string streetName, int houseNumber)
         {
             Family existingFamily =

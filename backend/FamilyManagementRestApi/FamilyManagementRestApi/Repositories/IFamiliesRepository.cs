@@ -42,5 +42,14 @@ namespace FamilyManagementRestApi.Repositories
         /// <exception cref="ArgumentException">Thrown if the family already exists</exception>
         /// <returns>The newly created Family</returns>
         Task<Family> CreateFamilyAsync(Family family);
+
+        /// <summary>
+        /// Adds an adult to a family. 
+        /// </summary>
+        /// <param name="family">The family where the adult is to be added</param>
+        /// <param name="adult">The adult that is to be added</param>
+        /// <returns>The new Adult as a task</returns>
+        Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult);
+
     }
 }

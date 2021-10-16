@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using FamilyManagementRestApi.DTOs;
 using FamilyManagementRestApi.Models;
@@ -83,6 +84,42 @@ namespace FamilyManagementRestApi.Controllers
             {
                 return NotFound();
             }
+        }
+
+
+        /// <summary>
+        /// Method takes an AddAdultDto instead of Adult, such that the user doesn't have to initialize an ID for the Adult.
+        /// ID assignment is handled by <see cref="IFamiliesRepository"/>
+        /// </summary>
+        /// <param name="streetName"></param>
+        /// <param name="houseNumber"></param>
+        /// <param name="adultDto"></param>
+        [HttpPost]
+        [Route("{streetName}/{houseNumber}/adults")]
+        public async Task<ActionResult<Adult>> AddAdultToFamily([FromRoute] string streetName, [FromRoute] int houseNumber,
+            AddAdultDto adultDto)
+        {
+            try
+            {
+                Adult adultToAdd = new Adult()
+                {
+                    FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
+                    Height = adultDto.Height,
+                    EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
+                    HairColor = adultDto.HairColor, JobTitle = adultDto.JobTitle
+                };
+
+                Family family = await _familiesRepository.GetFamilyAsync(streetName, houseNumber);
+                
+                Adult newAdult = await _familiesRepository.AddAdultToFamilyAsync(family ,adultToAdd);
+
+                return Created($"/{streetName}/{houseNumber}/{newAdult.Id}", newAdult);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound("Family does not exist"); 
+            }
+
         }
     }
 }
