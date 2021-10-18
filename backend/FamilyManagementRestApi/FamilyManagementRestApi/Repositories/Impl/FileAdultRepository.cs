@@ -33,6 +33,10 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
         public async Task<Adult> GetAdultAsync(int id)
         {
+            if (id < 0)
+            {
+                throw new ArgumentException("Id must be 0 or greater"); 
+            }
             Adult adultToReturn = null;
             foreach (var family in _fileContext.Families)
             {

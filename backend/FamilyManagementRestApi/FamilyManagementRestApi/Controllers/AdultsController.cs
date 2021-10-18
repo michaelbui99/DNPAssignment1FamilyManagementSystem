@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FamilyManagementRestApi.DTOs;
 using FamilyManagementRestApi.Models;
@@ -14,12 +16,39 @@ namespace FamilyManagementRestApi.Controllers
     */
     
     [ApiController]
-    [Route("api/adults")]
+    [Route("api/[controller]")]
     public class AdultsController : ControllerBase
     {
         private IFamiliesRepository _familiesRepository;
         private IAdultsRepository _adultsRepository;
 
+        public AdultsController(IFamiliesRepository familiesRepository, IAdultsRepository adultsRepository)
+        {
+            _familiesRepository = familiesRepository;
+            _adultsRepository = adultsRepository;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Adult>>> GetAdults()
+        {
+            IEnumerable<Adult> adults = await _adultsRepository.GetAdultsAsync();
+            return Ok(adults);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Adult>> GetAdult([FromRoute]int id)
+        {
+            try
+            {
+                Adult adultToReturn = await  _adultsRepository.GetAdultAsync(id);
+                return Ok(adultToReturn);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return NotFound(); 
+            }
+            
+        }
 
         /// <summary>
         /// Method takes an AddAdultDto instead of Adult, such that the user doesn't have to initialize an ID for the Adult and

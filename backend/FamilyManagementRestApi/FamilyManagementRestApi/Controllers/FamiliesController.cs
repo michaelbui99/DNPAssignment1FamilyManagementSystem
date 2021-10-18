@@ -27,8 +27,7 @@ namespace FamilyManagementRestApi.Controllers
             return Ok(families);
         }
 
-        [HttpGet]
-        [Route("/{streetName}/{houseNumber:int}")]
+        [HttpGet("{streetName}/{houseNumber:int}")]
         public async Task<ActionResult<Family>> GetFamily([FromRoute] string streetName, [FromRoute] int houseNumber)
         {
             try
@@ -71,8 +70,7 @@ namespace FamilyManagementRestApi.Controllers
         }
 
 
-        [HttpDelete]
-        [Route("{streetName}/{houseNumber}")]
+        [HttpDelete("{streetName}/{houseNumber:int}")]
         public async Task<ActionResult<Family>> DeleteFamily([FromRoute] string streetName, [FromRoute] int houseNumber)
         {
             try
