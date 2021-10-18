@@ -43,7 +43,7 @@ namespace FamilyManagementRestApi.Controllers
 
                 Family family = await _familiesRepository.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
 
-                Adult newAdult = await _familiesRepository.AddAdultToFamilyAsync(family, adultToAdd);
+                Adult newAdult = await _adultsRepository.AddAdultToFamilyAsync(family, adultToAdd);
 
                 return Created($"adults/{newAdult.Id}", newAdult);
             }

@@ -7,6 +7,10 @@ namespace FamilyManagementRestApi.Repositories
 {
     public interface IAdultsRepository
     {
+
+        Task<IEnumerable<Adult>> GetAdultsAsync();
+        Task<Adult> GetAdultAsync(int id); 
+
         /// <summary>
         /// Adds an adult to a family. 
         /// </summary>
@@ -15,6 +19,8 @@ namespace FamilyManagementRestApi.Repositories
         /// <exception cref="KeyNotFoundException">Thrown if the family doesn't exist</exception>
         /// <exception cref="NullReferenceException">Thrown if Family or Adult is null</exception>
         /// <returns>The new Adult as a task</returns>
-        Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult);   
+        Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult);
+
+        Task<Adult> RemoveAdultFromFamilyAsync(Family family, Adult adult); 
     }
 }
