@@ -5,6 +5,8 @@ namespace FamilyManagementRestApi.DTOs
 {
     public class AddAdultDto
     {
+        [Required] public string FamilyStreetName { get; set; }
+        [Required ]public int FamilyHouseNumber { get; set; }
         [Required] public string FirstName { get; set; }
         [Required] public string LastName { get; set; }
 

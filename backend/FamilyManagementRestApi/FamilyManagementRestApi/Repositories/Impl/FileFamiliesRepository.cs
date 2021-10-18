@@ -28,18 +28,33 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
         public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)
         {
-            Family familyToReturn =
-                _fileContext.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
-            if (familyToReturn == null)
+            if (houseNumber <= 0)
+            {
+                throw new ArgumentException("houseNumber must be greater than 0");
+            }
+
+            if (streetName == null || streetName.Length <= 0)
+            {
+                throw new ArgumentException("streetName must be specified");
+            }
+
+            if (!FamilyExists(streetName, houseNumber))
             {
                 throw new KeyNotFoundException("No such family exists");
             }
-
+            
+            Family familyToReturn =
+                _fileContext.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
             return familyToReturn;
         }
 
         public async Task<Family> UpdateFamilyAsync(Family family)
         {
+            if (family == null)
+            {
+                throw new NullReferenceException("Family must not be null"); 
+            }
+            
             if (FamilyExists(family.StreetName, family.HouseNumber))
             {
                 int indexOfFamily = _fileContext.Families.ToList()
@@ -56,6 +71,16 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
         public async Task<Family> DeleteFamilyAsync(string streetName, int houseNumber)
         {
+            if (houseNumber <= 0)
+            {
+                throw new ArgumentException("houseNumber must be greater than 0");
+            }
+
+            if (streetName == null || streetName.Length <= 0)
+            {
+                throw new ArgumentException("streetName must be specified");
+            }
+            
             if (!FamilyExists(streetName, houseNumber))
             {
                 throw new KeyNotFoundException("No such family exists");
@@ -80,33 +105,19 @@ namespace FamilyManagementRestApi.Repositories.Impl
             _fileContext.SaveChanges();
             return family; 
         }
+        
 
-        public async Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult)
+        public bool FamilyExists(string streetName, int houseNumber)
         {
-            if (!FamilyExists(family.StreetName, family.HouseNumber))
+            if (houseNumber <= 0)
             {
-                throw new KeyNotFoundException("No such family exists"); 
+                throw new ArgumentException("houseNumber must be greater than 0");
             }
-
-            int indexOfFamily = _fileContext.Families.IndexOf(family);
-            int maxId = 0; 
-            foreach (var f in _fileContext.Families)
+            if (streetName == null || streetName.Length <= 0)
             {
-                int maxIdOfCurrentFamily = f.Adults.Max(a => a.Id);
-                if (maxIdOfCurrentFamily >= maxId)
-                {
-                    maxId = maxIdOfCurrentFamily;
-                }
+                throw new ArgumentException("streetName must be specified");
             }
-
-            adult.Id = maxId+1;
-            _fileContext.Families[indexOfFamily].Adults.Add(adult);
-            _fileContext.SaveChanges();
-            return adult;
-        }
-
-        private bool FamilyExists(string streetName, int houseNumber)
-        {
+            
             Family existingFamily =
                 _fileContext.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
             if (existingFamily == null)

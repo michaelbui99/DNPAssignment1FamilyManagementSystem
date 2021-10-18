@@ -1195,44 +1195,5 @@
       }
     ],
     "Pets": []
-  },
-  {
-    "Id": 0,
-    "StreetName": "Chad street",
-    "HouseNumber": 1,
-    "Adults": [
-      {
-        "JobTitle": {
-          "JobTitle": "Mega Chad",
-          "Salary": 99999
-        },
-        "Id": 0,
-        "FirstName": "Chad",
-        "LastName": "Chadsen",
-        "HairColor": "Black",
-        "EyeColor": "Blue",
-        "Age": 18,
-        "Weight": 250,
-        "Height": 200,
-        "Sex": "M"
-      },
-      {
-        "JobTitle": {
-          "JobTitle": "Handyman",
-          "Salary": 100
-        },
-        "Id": 14,
-        "FirstName": "Bob",
-        "LastName": "Builder",
-        "HairColor": "Black",
-        "EyeColor": "Black",
-        "Age": 20,
-        "Weight": 300,
-        "Height": 200,
-        "Sex": "M"
-      }
-    ],
-    "Children": [],
-    "Pets": []
   }
 ]

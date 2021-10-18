@@ -50,7 +50,7 @@ namespace FamilyManagementRestApi.Controllers
         /// </summary>
         /// <param name="familyDto">FamilyDto used for creating a new family</param>
         [HttpPost]
-        public async Task<ActionResult<Family>> CreateFamily(CreateFamilyDto familyDto)
+        public async Task<ActionResult<Family>> CreateFamily([FromBody] CreateFamilyDto familyDto)
         {
             try
             {
@@ -87,39 +87,6 @@ namespace FamilyManagementRestApi.Controllers
         }
 
 
-        /// <summary>
-        /// Method takes an AddAdultDto instead of Adult, such that the user doesn't have to initialize an ID for the Adult.
-        /// ID assignment is handled by <see cref="IFamiliesRepository"/>
-        /// </summary>
-        /// <param name="streetName"></param>
-        /// <param name="houseNumber"></param>
-        /// <param name="adultDto"></param>
-        [HttpPost]
-        [Route("{streetName}/{houseNumber}/adults")]
-        public async Task<ActionResult<Adult>> AddAdultToFamily([FromRoute] string streetName, [FromRoute] int houseNumber,
-            AddAdultDto adultDto)
-        {
-            try
-            {
-                Adult adultToAdd = new Adult()
-                {
-                    FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
-                    Height = adultDto.Height,
-                    EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
-                    HairColor = adultDto.HairColor, JobTitle = adultDto.JobTitle
-                };
-
-                Family family = await _familiesRepository.GetFamilyAsync(streetName, houseNumber);
-                
-                Adult newAdult = await _familiesRepository.AddAdultToFamilyAsync(family ,adultToAdd);
-
-                return Created($"/{streetName}/{houseNumber}/{newAdult.Id}", newAdult);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound("Family does not exist"); 
-            }
-
-        }
+       
     }
 }
