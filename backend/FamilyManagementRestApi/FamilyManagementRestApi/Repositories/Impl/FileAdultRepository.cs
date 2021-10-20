@@ -74,10 +74,13 @@ namespace FamilyManagementRestApi.Repositories.Impl
             int maxId = 0; 
             foreach (var f in _fileContext.Families)
             {
-                int maxIdOfCurrentFamily = f.Adults.Max(a => a.Id);
-                if (maxIdOfCurrentFamily >= maxId)
+                if (f.Adults.Count > 0)
                 {
-                    maxId = maxIdOfCurrentFamily;
+                    int maxIdOfCurrentFamily = f.Adults.Max(a => a.Id);
+                    if (maxIdOfCurrentFamily >= maxId)
+                    {
+                        maxId = maxIdOfCurrentFamily;
+                    }
                 }
             }
 

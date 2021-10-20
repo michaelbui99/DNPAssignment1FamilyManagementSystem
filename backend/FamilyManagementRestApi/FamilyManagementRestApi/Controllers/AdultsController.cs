@@ -74,7 +74,7 @@ namespace FamilyManagementRestApi.Controllers
 
                 Adult newAdult = await _adultsRepository.AddAdultToFamilyAsync(family, adultToAdd);
 
-                return Created($"adults/{newAdult.Id}", newAdult);
+                return CreatedAtAction(nameof(GetAdult), new {id = newAdult.Id}, newAdult);
             }
             catch (KeyNotFoundException)
             {
