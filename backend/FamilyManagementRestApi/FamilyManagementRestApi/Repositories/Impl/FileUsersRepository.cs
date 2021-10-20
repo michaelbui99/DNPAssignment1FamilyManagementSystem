@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using FamilyManagementRestApi.Models;
 using FamilyManagementRestApi.Persistence;
 
@@ -35,7 +36,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
                 try
                 {
-                    GetUser("Guest");
+                     GetUserAsync("Guest").Wait();
                 }
                 catch (KeyNotFoundException e)
                 {
@@ -46,7 +47,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
         }
 
 
-        public void CreateUser(User user)
+        public async Task CreateUserAsync(User user)
         {
             if (user == null)
             {
@@ -60,10 +61,9 @@ namespace FamilyManagementRestApi.Repositories.Impl
             
             Users.Add(user);
             WriteUsersToFile();
-            
         }
 
-        public void RemoveUser(User user)
+        public async Task RemoveUserAsync(User user)
         {
             if (user == null)
             {
@@ -79,7 +79,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
             WriteUsersToFile();
         }
 
-        public User GetUser(string username)
+        public async Task<User> GetUserAsync(string username)
         {
             User existingUser = Users.FirstOrDefault(u => u.Username == username);
             if (existingUser == null)
@@ -90,7 +90,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
             return existingUser;
         }
 
-        public User ValidateUser(string username, string password)
+        public async Task<User> ValidateUserAsync(string username, string password)
         {
 
             if (!UserExists(username))
@@ -98,7 +98,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
                 throw new Exception("User not Found"); 
             }
             
-            User userToValidate = GetUser(username);
+            User userToValidate = await GetUserAsync(username);
 
             if (userToValidate.Password != password)
             {
@@ -124,13 +124,13 @@ namespace FamilyManagementRestApi.Repositories.Impl
             File.WriteAllText(_usersFile, usersAsJson);
         }
 
-        private void CreateGuestUser()
+        private async void CreateGuestUser()
         {
             User guestUser = new User()
             {
                 Username = "Guest", Password = "Guest", Role = "Guest"
             }; 
-            CreateUser(guestUser);
+            await CreateUserAsync(guestUser);
         }
     }
 }

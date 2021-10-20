@@ -37,6 +37,7 @@ namespace FamilyManagementRestApi
             services.AddScoped<FileContext>();
             services.AddScoped<IFamiliesRepository, FileFamiliesRepository>();
             services.AddScoped<IAdultsRepository, FileAdultRepository>();
+            services.AddScoped<IUsersRepository, FileUsersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using FamilyManagementRestApi.Models;
 
 namespace FamilyManagementRestApi.Repositories
 {
     public interface IUsersRepository
     {
-        void CreateUser(User user);
-        void RemoveUser(User user);
-        User GetUser(string username); 
-        User ValidateUser(string username, string password); 
+        Task CreateUserAsync(User user);
+        Task RemoveUserAsync(User user);
+        Task<User> GetUserAsync(string username); 
+        Task<User> ValidateUserAsync(string username, string password); 
     }
 }
