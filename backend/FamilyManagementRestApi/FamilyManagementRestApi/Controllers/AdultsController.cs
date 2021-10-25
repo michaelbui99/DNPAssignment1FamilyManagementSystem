@@ -82,9 +82,25 @@ namespace FamilyManagementRestApi.Controllers
             }
         }
 
-        public async Task<ActionResult> DeleteAdult()
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<Adult>> DeleteAdult([FromRoute] int id)
         {
-            return NoContent();
+            Task<Adult> removeAdult; 
+            try
+            {
+                removeAdult =  _adultsRepository.RemoveAdultAsync(id);
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+
+            
+            return Ok(await removeAdult);
         }
     }
 }

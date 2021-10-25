@@ -3,23 +3,7 @@
     "Id": 0,
     "StreetName": "Bay Avenue",
     "HouseNumber": 1,
-    "Adults": [
-      {
-        "JobTitle": {
-          "JobTitle": "Mascot",
-          "Salary": 99821
-        },
-        "Id": 0,
-        "FirstName": "Yasmine",
-        "LastName": "Baxter",
-        "HairColor": "Black",
-        "EyeColor": "Brown",
-        "Age": 58,
-        "Weight": 39.8,
-        "Height": 174,
-        "Sex": "F"
-      }
-    ],
+    "Adults": [],
     "Children": [],
     "Pets": []
   },
@@ -1203,7 +1187,7 @@
     "Adults": [
       {
         "JobTitle": {
-          "JobTitle": "GigaChad",
+          "JobTitle": "Mega Chad",
           "Salary": 99999
         },
         "Id": 15,
@@ -1211,25 +1195,10 @@
         "LastName": "Chadsen",
         "HairColor": "Black",
         "EyeColor": "Blue",
-        "Age": 20,
-        "Weight": 250,
-        "Height": 200,
-        "Sex": "M"
-      },
-      {
-        "JobTitle": {
-          "JobTitle": "Stacy",
-          "Salary": 1
-        },
-        "Id": 16,
-        "FirstName": "Stacy",
-        "LastName": "Stacy",
-        "HairColor": "Blonde",
-        "EyeColor": "Blue",
         "Age": 18,
-        "Weight": 80,
-        "Height": 160,
-        "Sex": "F"
+        "Weight": 200,
+        "Height": 250,
+        "Sex": "M"
       }
     ],
     "Children": [],

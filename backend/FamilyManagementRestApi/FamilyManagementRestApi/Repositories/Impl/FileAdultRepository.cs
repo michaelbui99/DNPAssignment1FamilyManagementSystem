@@ -22,7 +22,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
         public async Task<IEnumerable<Adult>> GetAdultsAsync()
         {
             IList<Adult> allAdults = new List<Adult>();
-            var families = await _familiesRepository.GetFamiliesAsync(); 
+            var families = await _familiesRepository.GetFamiliesAsync();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a => allAdults.Add(a));
@@ -35,8 +35,9 @@ namespace FamilyManagementRestApi.Repositories.Impl
         {
             if (id < 0)
             {
-                throw new ArgumentException("Id must be 0 or greater"); 
+                throw new ArgumentException("Id must be 0 or greater");
             }
+
             Adult adultToReturn = null;
             foreach (var family in _fileContext.Families)
             {
@@ -51,11 +52,10 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
             if (adultToReturn == null)
             {
-                throw new KeyNotFoundException("No such adult exists"); 
+                throw new KeyNotFoundException("No such adult exists");
             }
 
-            return adultToReturn; 
-
+            return adultToReturn;
         }
 
 
@@ -63,15 +63,16 @@ namespace FamilyManagementRestApi.Repositories.Impl
         {
             if (!_familiesRepository.FamilyExists(family.StreetName, family.HouseNumber))
             {
-                throw new KeyNotFoundException("No such family exists"); 
+                throw new KeyNotFoundException("No such family exists");
             }
+
             if (family == null || adult == null)
             {
                 throw new NullReferenceException("Arguments must not be null");
             }
 
             int indexOfFamily = _fileContext.Families.IndexOf(family);
-            int maxId = 0; 
+            int maxId = 0;
             foreach (var f in _fileContext.Families)
             {
                 if (f.Adults.Count > 0)
@@ -84,7 +85,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
                 }
             }
 
-            adult.Id = maxId+1;
+            adult.Id = maxId + 1;
             _fileContext.Families[indexOfFamily].Adults.Add(adult);
             _fileContext.SaveChanges();
             return adult;
@@ -92,36 +93,37 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
         public async Task<Adult> RemoveAdultAsync(int adultId)
         {
-            Adult existingAdult = null;
-            Family familyOfExistingAdult = null; 
             if (adultId < 0)
             {
                 throw new ArgumentException("Id must be 0 or greater");
             }
-            
+
+            Adult adultToRemove = null;
+            Family familyOfExistingAdult = null;
             foreach (var family in _fileContext.Families)
             {
-                family.Adults.ForEach(a =>
+                if (family.Adults.Any())
                 {
-                    if (a.Id == adultId)
+                    family.Adults.ForEach(a =>
                     {
-                        existingAdult = a;
-                        familyOfExistingAdult = family; 
-                    }
-                });
+                        if (a.Id == adultId)
+                        {
+                            adultToRemove = a;
+                            familyOfExistingAdult = family;
+                        }
+                    });
+                }
             }
 
-            if (existingAdult == null)
+            if (adultToRemove == null)
             {
                 throw new KeyNotFoundException("No such adult exists");
             }
-            
+
             int indexOfFamily = _fileContext.Families.IndexOf(familyOfExistingAdult);
-            int indexOfAdult = _fileContext.Families[indexOfFamily].Adults.IndexOf(existingAdult);
-            Adult removedAdult = _fileContext.Families[indexOfAdult].Adults[indexOfAdult];
-            _fileContext.Families[indexOfAdult].Adults.RemoveAt(indexOfAdult);
+            _fileContext.Families[indexOfFamily].Adults.Remove(adultToRemove);
             _fileContext.SaveChanges();
-            return removedAdult;
+            return adultToRemove;
         }
     }
 }
