@@ -6,6 +6,6 @@ namespace FamilyManagementRestApi.DTOs
     public class LoginResponseDto
     {
         public User User { get; set; }
-        public IEnumerable<string> ErrorMessages { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }
