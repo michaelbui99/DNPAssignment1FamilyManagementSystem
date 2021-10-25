@@ -21,6 +21,6 @@ namespace FamilyManagementRestApi.Repositories
         /// <returns>The new Adult as a task</returns>
         Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult);
 
-        Task<Adult> RemoveAdultFromFamilyAsync(Family family, Adult adult); 
+        Task<Adult> RemoveAdultAsync(int adultId); 
     }
 }

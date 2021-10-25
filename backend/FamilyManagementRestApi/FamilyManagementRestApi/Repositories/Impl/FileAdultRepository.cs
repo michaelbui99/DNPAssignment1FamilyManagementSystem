@@ -90,20 +90,34 @@ namespace FamilyManagementRestApi.Repositories.Impl
             return adult;
         }
 
-        public async Task<Adult> RemoveAdultFromFamilyAsync(Family family, Adult adult)
+        public async Task<Adult> RemoveAdultAsync(int adultId)
         {
-            if (!_familiesRepository.FamilyExists(family.StreetName, family.HouseNumber))
+            Adult existingAdult = null;
+            Family familyOfExistingAdult = null; 
+            if (adultId < 0)
             {
-                throw new KeyNotFoundException("No such family exists"); 
-            }
-
-            if (family == null || adult == null)
-            {
-                throw new NullReferenceException("Arguments must not be null"); 
+                throw new ArgumentException("Id must be 0 or greater");
             }
             
-            int indexOfFamily = _fileContext.Families.IndexOf(family);
-            int indexOfAdult = _fileContext.Families[indexOfFamily].Adults.IndexOf(adult);
+            foreach (var family in _fileContext.Families)
+            {
+                family.Adults.ForEach(a =>
+                {
+                    if (a.Id == adultId)
+                    {
+                        existingAdult = a;
+                        familyOfExistingAdult = family; 
+                    }
+                });
+            }
+
+            if (existingAdult == null)
+            {
+                throw new KeyNotFoundException("No such adult exists");
+            }
+            
+            int indexOfFamily = _fileContext.Families.IndexOf(familyOfExistingAdult);
+            int indexOfAdult = _fileContext.Families[indexOfFamily].Adults.IndexOf(existingAdult);
             Adult removedAdult = _fileContext.Families[indexOfAdult].Adults[indexOfAdult];
             _fileContext.Families[indexOfAdult].Adults.RemoveAt(indexOfAdult);
             _fileContext.SaveChanges();

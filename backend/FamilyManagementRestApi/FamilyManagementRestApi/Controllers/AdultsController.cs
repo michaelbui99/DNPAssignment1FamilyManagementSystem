@@ -81,5 +81,10 @@ namespace FamilyManagementRestApi.Controllers
                 return NotFound("Family does not exist");
             }
         }
+
+        public async Task<ActionResult> DeleteAdult()
+        {
+            return NoContent();
+        }
     }
 }
