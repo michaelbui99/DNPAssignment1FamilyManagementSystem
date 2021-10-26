@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data.Impl
@@ -13,11 +14,11 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             _familyService = familyService;
         }
 
-        public IDictionary<string, int> GetEyeColorDistribution()
+        public async Task<IDictionary<string, int>> GetEyeColorDistributionAsync()
         {
-            HashSet<string> allEyeColors = GetAllEyeColors();
+            HashSet<string> allEyeColors = await GetAllEyeColors();
             Dictionary<string, int> eyeColorDistributionDataSet = new Dictionary<string, int>();
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
 
             foreach (var eyeColor in allEyeColors)
             {
@@ -46,10 +47,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return eyeColorDistributionDataSet;
         }
 
-        public IDictionary<string, decimal> GetSalaryDistribution()
+        public async Task<IDictionary<string, decimal>> GetSalaryDistributionAsync()
         {
             Dictionary<string, decimal> salaryDistributionDataSet = new Dictionary<string, decimal>();
-            IList<Family> allFamilies = _familyService.GetFamilies();
+            IList<Family> allFamilies = await _familyService.GetFamiliesAsync();
             
             foreach (var family in allFamilies)
             {
@@ -61,15 +62,15 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return salaryDistributionDataSet;
         }
 
-        public decimal GetAverageChildrenPerFamily()
+        public async Task<decimal> GetAverageChildrenPerFamilyAsync()
         {
-            return (decimal) GetTotalAmountOfChildren() / (decimal) GetTotalAmountOfFamilies();
+            return  (decimal) await GetTotalAmountOfChildrenAsync() / (decimal) await GetTotalAmountOfFamiliesAsync();
         }
 
-        public int GetTotalAmountOfFamilies()
+        public async Task<int> GetTotalAmountOfFamiliesAsync()
         {
             int count = 0;
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
             foreach (var family in families)
             {
                 count++;
@@ -78,10 +79,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return count;
         }
 
-        public int GetTotalAmountOfAdults()
+        public async Task<int> GetTotalAmountOfAdultsAsync()
         {
             int count = 0;
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a => count++);
@@ -90,10 +91,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return count;
         }
 
-        public int GetTotalAmountOfChildren()
+        public async Task<int> GetTotalAmountOfChildrenAsync()
         {
             int count = 0;
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
             foreach (var family in families)
             {
                 family.Children.ForEach(c => count++);
@@ -102,10 +103,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return count;
         }
 
-        public int GetTotalAmountOfPets()
+        public async Task<int> GetTotalAmountOfPetsAsync()
         {
             int count = 0;
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
             foreach (var family in families)
             {
                 family.Pets.ForEach(p => count++);
@@ -116,10 +117,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return count;
         }
 
-        public decimal GetAverageSalaryPerFamily()
+        public async Task<decimal> GetAverageSalaryPerFamilyAsync()
         {
             decimal totalSalary = 0;
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a =>
@@ -131,13 +132,13 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                 });
             }
 
-            return totalSalary / GetTotalAmountOfFamilies();
+            return totalSalary / await GetTotalAmountOfFamiliesAsync();
         }
 
-        private HashSet<string> GetAllEyeColors()
+        private async Task<HashSet<string>> GetAllEyeColors()
         {
             HashSet<string> allEyeColors = new HashSet<string>();
-            IList<Family> families = _familyService.GetFamilies();
+            IList<Family> families = await _familyService.GetFamiliesAsync();
             foreach (var family in families)
             {
                 family.Adults.ForEach(a => allEyeColors.Add(a.EyeColor));

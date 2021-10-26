@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data
@@ -19,7 +20,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data
                 Users = new List<User>();
                 FileStream fileStream = File.Create(_usersFile);
                 fileStream.Close();
-                Create(new User()
+                CreateAsync(new User()
                 {
                     Username = "Guest", Password = "Guest", Role = "Guest"
                 });
@@ -35,12 +36,12 @@ namespace DNPAssignment1FamilyManagementSystem.Data
                 Users = JsonSerializer.Deserialize<List<User>>(usersAsJson);
                 try
                 {
-                    Get("Guest");
+                    GetAsync("Guest");
                 }
                 catch (Exception e)
                 {
                     //Creates Guest user, if none exists. 
-                    Create(new User()
+                    CreateAsync(new User()
                     {
                         Username = "Guest", Password = "Guest", Role = "Guest"
                     });
@@ -49,7 +50,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data
         }
 
 
-        public void Create(User user)
+        public async Task CreateAsync(User user)
         {
             foreach (var u in Users)
             {
@@ -63,7 +64,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             WriteUsersToFile();
         }
 
-        public User Get(string username)
+        public async Task<User> GetAsync(string username)
         {
             User userToReturn = Users.FirstOrDefault(u => u.Username == username);
             if (userToReturn is null)
@@ -74,7 +75,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data
             return userToReturn; 
         }
 
-        public User ValidateUser(string username, string password)
+        public async Task<User> ValidateUserAsync(string username, string password)
         {
             User userToValidate = Users.FirstOrDefault(u => u.Username == username);
 

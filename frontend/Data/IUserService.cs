@@ -1,12 +1,13 @@
-﻿using DNPAssignment1FamilyManagementSystem.Models;
+﻿using System.Threading.Tasks;
+using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data
 {
     public interface IUserService
     {
-        void Create(User user);
-        User Get(string username);
+        Task CreateAsync(User user);
+        Task<User> GetAsync(string username);
 
-        User ValidateUser(string username, string password); 
+        Task<User> ValidateUserAsync(string username, string password); 
     }
 }

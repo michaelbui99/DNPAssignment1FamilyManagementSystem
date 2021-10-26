@@ -17,14 +17,14 @@
                 <div class="stats-container__stats">
                     <span class="oi oi-people"></span>
                     <p>Families</p>
-                    <p>@FamilyStatisticsService.GetTotalAmountOfFamilies()</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfFamiliesAsync()</p>
                     <p>In Total</p>
                 </div>
 
                 <div class="stats-container__stats">
                     <span class="oi oi-person"></span>
                     <p>Adults</p>
-                    <p>@FamilyStatisticsService.GetTotalAmountOfAdults()</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfAdultsAsync()</p>
                     <p>In Total</p>
                 </div>
 
@@ -32,7 +32,7 @@
                 <div class="stats-container__stats">
                     <span class="oi oi-person"></span>
                     <p>Children</p>
-                    <p>@FamilyStatisticsService.GetTotalAmountOfChildren()</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfChildrenAsync()</p>
                     <p>In Total</p>
                 </div>
 
@@ -40,14 +40,14 @@
                     <span class="oi oi-bug"></span>
 
                     <p>Pets</p>
-                    <p>@FamilyStatisticsService.GetTotalAmountOfPets()</p>
+                    <p>@FamilyStatisticsService.GetTotalAmountOfPetsAsync()</p>
                     <p>In Total</p>
                 </div>
 
                 <div class="stats-container__stats">
                     <span class="oi oi-person"></span>
                     <p>Average amount of children</p>
-                    <p>@FamilyStatisticsService.GetAverageChildrenPerFamily()</p>
+                    <p>@FamilyStatisticsService.GetAverageChildrenPerFamilyAsync()</p>
                     <p>Per Family</p>
                 </div>
             </div>
@@ -55,14 +55,14 @@
 
                 <div class="chart-stat-container">
                     <div>
-                        <p>@FamilyStatisticsService.GetEyeColorDistribution().Keys.Count</p>
+                        <p>@FamilyStatisticsService.GetEyeColorDistributionAsync().Keys.Count</p>
                         <p>Different Eye Colors</p>
                     </div>
                     <Chart Config="_eyeColorPieConfig"></Chart>
                 </div>
                 <div class="chart-stat-container">
                     <div>
-                        <p>@FamilyStatisticsService.GetAverageSalaryPerFamily()</p>
+                        <p>@FamilyStatisticsService.GetAverageSalaryPerFamilyAsync()</p>
                         <p> Earned on average per family per month</p>
                     </div>
                     <Chart Config="_salaryPieConfig"></Chart>
@@ -109,7 +109,7 @@
         };
 
     //Adding Chart Labels
-        foreach (string color in FamilyStatisticsService.GetEyeColorDistribution().Keys)
+        foreach (string color in FamilyStatisticsService.GetEyeColorDistributionAsync().Keys)
         {
             _eyeColorPieConfig.Data.Labels.Add(color);
         }
@@ -122,7 +122,7 @@
          * resulting in the chain of if-statements as a temp fix
          */
         IList<String> eyeColorsAsColorExStrings = new List<string>();
-        foreach (var key in FamilyStatisticsService.GetEyeColorDistribution().Keys)
+        foreach (var key in FamilyStatisticsService.GetEyeColorDistributionAsync().Keys)
         {
             Color color;
             if (key.ToLower() == "grey")
@@ -144,7 +144,7 @@
             eyeColorsAsColorExStrings.Add(ColorUtil.ColorString(color.R, color.G, color.B));
         }
 
-        PieDataset<int> dataset = new PieDataset<int>(FamilyStatisticsService.GetEyeColorDistribution().Values)
+        PieDataset<int> dataset = new PieDataset<int>(FamilyStatisticsService.GetEyeColorDistributionAsync().Values)
         {
             BackgroundColor = eyeColorsAsColorExStrings.ToArray()
         };
@@ -172,7 +172,7 @@
             }
         };
 
-        foreach (var keyValuePair in FamilyStatisticsService.GetSalaryDistribution())
+        foreach (var keyValuePair in FamilyStatisticsService.GetSalaryDistributionAsync())
         {
             _salaryPieConfig.Data.Labels.Add(keyValuePair.Key);
         }
@@ -186,7 +186,7 @@
             knownColorsAsHexStrings.Add(ColorUtil.ColorHexString(color.R, color.G, color.B)); 
         }
         knownColorsAsHexStrings.Reverse();
-        PieDataset<decimal> salaryDataSet = new PieDataset<decimal>(FamilyStatisticsService.GetSalaryDistribution().Values)
+        PieDataset<decimal> salaryDataSet = new PieDataset<decimal>(FamilyStatisticsService.GetSalaryDistributionAsync().Values)
         {
             BackgroundColor = knownColorsAsHexStrings.ToArray()
         };

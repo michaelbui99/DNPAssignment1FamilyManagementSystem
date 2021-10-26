@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data.Impl
 {
     public interface IDeleteStrategy
     {
-        void Delete(Person person, Family family);
+        Task DeleteAsync(Person person, Family family);
     }
 }

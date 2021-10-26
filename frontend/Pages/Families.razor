@@ -258,7 +258,7 @@
         }
         else
         {
-            _allFamilies = FamilyService.GetFamilies();
+            _allFamilies = FamilyService.GetFamiliesAsync();
             _familiesToShow = _allFamilies;
             EventCoordinator.Attach(this);
         }
@@ -313,7 +313,7 @@
         {
             try
             {
-                FamilyService.CreateFamily(_familyToAdd);
+                FamilyService.CreateFamilyAsync(_familyToAdd);
                 StateHasChanged();
                 _addFamilyToggle = !_addFamilyToggle;
             }

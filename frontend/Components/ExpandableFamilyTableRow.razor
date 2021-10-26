@@ -15,7 +15,7 @@
     <td>@Family.HouseNumber</td>
     <td>@Family.Adults.Count Adults; @Family.Children.Count Children; @Family.Pets.Count Pets</td>
     <td>
-        <button @onclick="() => { FamilyService.DeleteFamily(Family.StreetName, Family.HouseNumber); Family = null; StateHasChanged();}">
+        <button @onclick="() => { FamilyService.DeleteFamilyAsync(Family.StreetName, Family.HouseNumber); Family = null; StateHasChanged();}">
             <i class="fas fa-trash"></i>
         </button>
     </td>

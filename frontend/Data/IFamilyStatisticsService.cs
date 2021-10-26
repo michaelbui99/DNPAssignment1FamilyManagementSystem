@@ -1,16 +1,17 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DNPAssignment1FamilyManagementSystem.Data
 {
     public interface IFamilyStatisticsService
     {
-        IDictionary<string, int> GetEyeColorDistribution();
-        IDictionary<string, decimal> GetSalaryDistribution(); 
-        decimal GetAverageChildrenPerFamily();
-        int GetTotalAmountOfFamilies();
-        int GetTotalAmountOfAdults();
-        int GetTotalAmountOfChildren();
-        int GetTotalAmountOfPets();
-        decimal GetAverageSalaryPerFamily();
+        Task<IDictionary<string, int>> GetEyeColorDistributionAsync();
+        Task<IDictionary<string, decimal>> GetSalaryDistributionAsync(); 
+        Task<decimal> GetAverageChildrenPerFamilyAsync();
+        Task<int> GetTotalAmountOfFamiliesAsync();
+        Task<int> GetTotalAmountOfAdultsAsync();
+        Task<int> GetTotalAmountOfChildrenAsync();
+        Task<int> GetTotalAmountOfPetsAsync();
+        Task<decimal> GetAverageSalaryPerFamilyAsync();
     }
 }

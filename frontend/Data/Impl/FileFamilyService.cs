@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Models;
 using DNPAssignment1FamilyManagementSystem.Persistence;
 
@@ -15,7 +16,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             _fileContext = fileContext;
         }
 
-        public IList<Family> GetFamilies()
+        public async Task<IList<Family>> GetFamiliesAsync()
         {
             IList<Family> families = _fileContext.Families;
             if (families.Count == 0)
@@ -23,10 +24,10 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                 throw new Exception("No Families found");
             }
 
-            return families;
+            return  families;
         }
 
-        public void CreateFamily(Family family)
+        public async Task CreateFamilyAsync(Family family)
         {
             foreach (var f in _fileContext.Families)
             {
@@ -40,7 +41,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             _fileContext.SaveChanges();
         }
 
-        public void DeleteFamily(string streetName, int houseNumber)
+        public async Task DeleteFamilyAsync(string streetName, int houseNumber)
         {
             Family familyToRemove =
                 _fileContext.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
@@ -53,7 +54,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             _fileContext.SaveChanges();
         }
 
-        public Family GetFamily(string streetName, int houseNumber)
+        public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)
         {
             Family familyToReturn = _fileContext.Families.FirstOrDefault(f => f.StreetName
                 == streetName && f.HouseNumber == houseNumber);
@@ -65,7 +66,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return familyToReturn;
         }
 
-        public void AddAdultToFamily(Family family, Adult adult)
+        public async Task AddAdultToFamilyAsync(Family family, Adult adult)
         {
             if (family.Adults.Count >= 2)
             {
@@ -104,7 +105,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             return maxIdOfAllAdults;
         }
 
-        public void RemoveAdultFromFamily(Family family, Adult adult)
+        public async Task RemoveAdultFromFamilyAsync(Family family, Adult adult)
         {
             CheckFamilyExists(family);
 
@@ -120,7 +121,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             }
         }
 
-        public void RemoveChildFromFamily(Family family, Child child)
+        public async Task RemoveChildFromFamilyAsync(Family family, Child child)
         {
             CheckFamilyExists(family);
 

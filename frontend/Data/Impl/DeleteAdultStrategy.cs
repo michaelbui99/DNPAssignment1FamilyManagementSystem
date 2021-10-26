@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Models;
 
 
@@ -13,9 +14,9 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             _familyService = familyService;
         }
 
-        public void Delete(Person person, Family family)
+        public async Task DeleteAsync(Person person, Family family)
         {
-            _familyService.RemoveAdultFromFamily(family, (Adult) person);
+            await _familyService.RemoveAdultFromFamilyAsync(family, (Adult) person);
         }
     }
 }

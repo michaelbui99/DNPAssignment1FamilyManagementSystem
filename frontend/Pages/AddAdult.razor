@@ -139,9 +139,9 @@
 
     private void AddAdultToFamily()
     {
-        Family familyOfAdult = FamilyService.GetFamily(StreetName, HouseNumber);
+        Family familyOfAdult =  awaitFamilyService.GetFamilyAsync(StreetName, HouseNumber);
         _newAdult.Sex = _selectedSex;
-        FamilyService.AddAdultToFamily(familyOfAdult, _newAdult);
+        FamilyService.AddAdultToFamilyAsync(familyOfAdult, _newAdult);
         NavigationManager.NavigateTo("/Families");
     }
 

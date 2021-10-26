@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data
 {
     public interface IFamilyService
     {
-        IList<Family> GetFamilies();
-        void CreateFamily(Family family);
-        void DeleteFamily(string streetName, int houseNumber);
-        Family GetFamily(string streetName, int houseNumber);
-        void AddAdultToFamily(Family family, Adult adult);
-        void RemoveAdultFromFamily(Family family, Adult adult);
-        void RemoveChildFromFamily(Family family, Child child); 
+        Task<IList<Family>> GetFamiliesAsync();
+        Task CreateFamilyAsync(Family family);
+        Task DeleteFamilyAsync(string streetName, int houseNumber);
+        Task<Family> GetFamilyAsync(string streetName, int houseNumber);
+        Task AddAdultToFamilyAsync(Family family, Adult adult);
+        Task RemoveAdultFromFamilyAsync(Family family, Adult adult);
+        Task RemoveChildFromFamilyAsync(Family family, Child child); 
     }
 }
