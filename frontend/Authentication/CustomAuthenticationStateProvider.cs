@@ -45,7 +45,7 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
         }
 
 
-        public void ValidateLogin(string username, string password)
+        public async void ValidateLogin(string username, string password)
         {
             Console.WriteLine("Validating log in");
             if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
@@ -54,7 +54,7 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
             ClaimsIdentity identity = new ClaimsIdentity();
             try
             {
-                User user = userService.ValidateUserAsync(username, password);
+                User user = await userService.ValidateUserAsync(username, password);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
