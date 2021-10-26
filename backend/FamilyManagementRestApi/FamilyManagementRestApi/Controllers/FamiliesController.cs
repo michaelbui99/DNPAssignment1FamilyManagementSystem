@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
-using FamilyManagementRestApi.DTOs;
 using FamilyManagementRestApi.Models;
 using FamilyManagementRestApi.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -44,27 +43,16 @@ namespace FamilyManagementRestApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Takes an CreateFamilyDto instead of Family,
-        /// such that the user doesn't need to initialize the adults list, children list and pets list in the HTTP JSON payload.
-        /// This method is assumes the user wants to create a new Family without any members and manually
-        /// add family members afterwards. 
-        /// </summary>
-        /// <param name="familyDto">FamilyDto used for creating a new family</param>
+   
         [HttpPost]
-        public async Task<ActionResult<Family>> CreateFamily([FromBody] CreateFamilyDto familyDto)
+        public async Task<ActionResult<Family>> CreateFamily([FromBody] Family family)
         {
             try
             {
-                Family familyToCreate = new Family()
-                {
-                    StreetName = familyDto.StreetName, HouseNumber = familyDto.HouseNumber, Adults = new(),
-                    Children = new(), Pets = new()
-                };
-                await _familiesRepository.CreateFamilyAsync(familyToCreate);
+                Family createdFamily = await _familiesRepository.CreateFamilyAsync(family);
                 return CreatedAtAction(nameof(GetFamily),
-                    new {streetName = familyToCreate.StreetName, houseNumber = familyToCreate.HouseNumber},
-                    familyToCreate);
+                    new {streetName = createdFamily.StreetName, houseNumber = createdFamily.HouseNumber},
+                    createdFamily);
             }
             catch (ArgumentException e)
             {

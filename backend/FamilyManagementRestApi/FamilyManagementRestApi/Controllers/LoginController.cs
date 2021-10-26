@@ -10,7 +10,7 @@ namespace FamilyManagementRestApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class LoginController
+    public class LoginController : ControllerBase
     {
         private IUsersRepository _usersRepository;
 
@@ -20,27 +20,20 @@ namespace FamilyManagementRestApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<LoginResponseDto>> LoginUser([FromBody] LoginRequestDto loginRequestDto)
+        public async Task<ActionResult<User>> LoginUser([FromBody] User user)
         {
-            string exceptionMessage = null;
-            User userToValidate = null;
 
             try
             {
-                userToValidate =
-                    await _usersRepository.ValidateUserAsync(loginRequestDto.Username, loginRequestDto.Password);
+                    await _usersRepository.ValidateUserAsync(user.Username, user.Password);
             }
             catch (Exception e)
             {
-                exceptionMessage = e.Message;
+                return Unauthorized(e.Message);
             }
 
-            LoginResponseDto response = new LoginResponseDto()
-            {
-                User = userToValidate, ErrorMessage = exceptionMessage
-            }; 
             
-            return response;
+            return user;
         }
         
     }
