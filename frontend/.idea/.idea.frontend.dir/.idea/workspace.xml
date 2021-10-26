@@ -6,13 +6,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1260204-ff90-4388-8144-c07f5a033b96" name="Changes" comment="Refractor interfaces for async usage">
+      <change afterPath="$PROJECT_DIR$/Data/Impl/WebFamilyService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/AddAdultDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dtos/CreateFamilyDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Extensions/FamilyExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/Controllers/FamiliesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/Controllers/FamiliesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/bin/Debug/net5.0/FamilyManagementRestApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/bin/Debug/net5.0/FamilyManagementRestApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/bin/Debug/net5.0/FamilyManagementRestApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/bin/Debug/net5.0/FamilyManagementRestApi.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/obj/Debug/net5.0/FamilyManagementRestApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/obj/Debug/net5.0/FamilyManagementRestApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/obj/Debug/net5.0/FamilyManagementRestApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/FamilyManagementRestApi/FamilyManagementRestApi/obj/Debug/net5.0/FamilyManagementRestApi.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.frontend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.frontend.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authentication/CustomAuthenticationStateProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Authentication/CustomAuthenticationStateProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Impl/RestFamilyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Impl/RestFamilyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/AddAdult.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AddAdult.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Dashboard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Dashboard.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Impl/RestFamilyService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Adult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Adult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Child.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Child.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Family.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Family.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Interest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Interest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Job.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Job.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Person.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Pet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Pet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Families.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Families.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Login.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Login.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
@@ -23,38 +38,14 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/ExpandableFamilyTableRow.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/ExpandableFamilyTableRow.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/PersonInfomation.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/PersonInfomation.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/PetInformation.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Components/PetInformation.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/AddAdult.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/AddAdult.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Dashboard.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Dashboard.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Error.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Error.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Families.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Index.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Login.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/Login.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/SignUp.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/SignUp.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/_Host.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/_Host.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Shared/NavMenu.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Shared/SurveyPrompt.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/ExpandableFamilyTableRow.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/ExpandableFamilyTableRow.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/PersonInfomation.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/PersonInfomation.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/PetInformation.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Components/PetInformation.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/AddAdult.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/AddAdult.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Dashboard.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Dashboard.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Families.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Index.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Login.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/Login.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/SignUp.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/SignUp.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Shared/NavMenu.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Shared/NavMenu.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,8 +56,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/Micha/Documents/Coding/WebDev/FamilyManagementSystem/frontend/Pages/AddAdult.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bb42fd38bd8407b9667fbf8ce1367e98f5388/B0/NotImplementedException.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1zSahbeG1cyTsAdHQ8fKMt28Q6t" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -123,7 +123,7 @@
       <updated>1634144064259</updated>
       <workItem from="1634144074556" duration="67000" />
       <workItem from="1635244781090" duration="153000" />
-      <workItem from="1635246996430" duration="5856000" />
+      <workItem from="1635246996430" duration="9735000" />
     </task>
     <task id="LOCAL-00001" summary="Refractor interfaces for async usage">
       <created>1635259239134</created>
@@ -162,7 +162,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Pages/Families.razor</url>
-          <line>257</line>
+          <line>256</line>
           <properties documentPath="C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Families.razor" initialLine="257" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
             <startOffsets>

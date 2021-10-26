@@ -214,13 +214,23 @@ using ChartJs.Blazor.BarChart.Axes;
        
     private PieConfig _eyeColorPieConfig;
     private PieConfig _salaryPieConfig;
-    private IDictionary<string, int> eyeColorDistributionData;
-
-    protected override Task OnInitializedAsync()
+    private IDictionary<string, int> _eyeColorDistributionData;
+    private int _totalAmountOfFamilies;
+    private int _totalAmountOfAdults;
+    private int _totalAmountOfChildren;
+    private int _totalAmountOfPets;
+    private decimal _averageChildrenPerFamily;
+    private decimal _averageSalaryPerFamily; 
+    protected override async Task OnInitializedAsync()
     {
         InitEyeColorDistributionEyeChart();
         InitSalaryPieChart();
-        return base.OnInitializedAsync();
+        _totalAmountOfFamilies = await FamilyStatisticsService.GetTotalAmountOfFamiliesAsync();
+        _totalAmountOfAdults = await FamilyStatisticsService.GetTotalAmountOfAdultsAsync();
+        _totalAmountOfChildren = await FamilyStatisticsService.GetTotalAmountOfChildrenAsync();
+        _totalAmountOfPets = await FamilyStatisticsService.GetTotalAmountOfPetsAsync();
+        _averageChildrenPerFamily = await FamilyStatisticsService.GetAverageChildrenPerFamilyAsync();
+        _averageSalaryPerFamily = await FamilyStatisticsService.GetAverageSalaryPerFamilyAsync();
     }
 
 
@@ -249,9 +259,9 @@ using ChartJs.Blazor.BarChart.Axes;
         };
 
     //Adding Chart Labels
-        eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
+        _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
         StateHasChanged();
-        foreach (string color in eyeColorDistributionData.Keys)
+        foreach (string color in _eyeColorDistributionData.Keys)
         {
             _eyeColorPieConfig.Data.Labels.Add(color);
         }
@@ -264,7 +274,7 @@ using ChartJs.Blazor.BarChart.Axes;
          * resulting in the chain of if-statements as a temp fix
          */
         IList<String> eyeColorsAsColorExStrings = new List<string>();
-        foreach (var key in eyeColorDistributionData.Keys)
+        foreach (var key in _eyeColorDistributionData.Keys)
         {
             Color color;
             if (key.ToLower() == "grey")
@@ -286,7 +296,7 @@ using ChartJs.Blazor.BarChart.Axes;
             eyeColorsAsColorExStrings.Add(ColorUtil.ColorString(color.R, color.G, color.B));
         }
 
-        PieDataset<int> dataset = new PieDataset<int>(eyeColorDistributionData.Values)
+        PieDataset<int> dataset = new PieDataset<int>(_eyeColorDistributionData.Values)
         {
             BackgroundColor = eyeColorsAsColorExStrings.ToArray()
         };

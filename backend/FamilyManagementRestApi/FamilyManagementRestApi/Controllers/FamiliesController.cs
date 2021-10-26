@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading.Tasks;
 using FamilyManagementRestApi.DTOs;
 using FamilyManagementRestApi.Models;
@@ -23,6 +24,7 @@ namespace FamilyManagementRestApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Family>>> GetFamilies()
         {
+            Console.WriteLine($"Request received for {nameof(GetFamily)}");
             var families = await _familiesRepository.GetFamiliesAsync();
             return Ok(families);
         }
@@ -30,6 +32,7 @@ namespace FamilyManagementRestApi.Controllers
         [HttpGet("{streetName}/{houseNumber:int}")]
         public async Task<ActionResult<Family>> GetFamily([FromRoute] string streetName, [FromRoute] int houseNumber)
         {
+            Console.WriteLine($"Request received for {nameof(GetFamily)}");
             try
             {
                 Family family = await _familiesRepository.GetFamilyAsync(streetName, houseNumber);

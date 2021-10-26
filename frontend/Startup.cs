@@ -35,7 +35,7 @@ namespace DNPAssignment1FamilyManagementSystem
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<FileContext>();
-            services.AddScoped<IFamilyService, FileFamilyService>();
+            services.AddScoped<IFamilyService, WebFamilyService>();
             services.AddScoped<IUserService, FileUserService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<IEventCoordinator, EventCoordinator>();

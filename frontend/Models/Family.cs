@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace DNPAssignment1FamilyManagementSystem.Models {
 public class Family {
-    
     public int Id { get; set; }
     [Required]
     public string StreetName { get; set; }

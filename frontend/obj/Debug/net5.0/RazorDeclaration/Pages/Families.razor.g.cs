@@ -211,7 +211,6 @@ using Microsoft.AspNetCore.Components;
 
     protected override async Task OnInitializedAsync()
     {
-        base.OnInitialized();
         var user = (await AuthStat).User;
         if (!user.Identity.IsAuthenticated)
         {

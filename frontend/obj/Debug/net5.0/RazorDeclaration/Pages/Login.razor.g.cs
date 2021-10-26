@@ -170,10 +170,10 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
 
-    protected async override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
     //Redirects the user to index if user is already logged in.
-        base.OnInitialized();
+       
         var user = (await AuthStat).User;
         if (user.Identity.IsAuthenticated)
         {
@@ -181,12 +181,12 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         }
     }
 
-    public void PerformLogin()
+    private void PerformLogin()
     {
         _errorMessage = "";
         try
         {
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
+              ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
             _username = "";
             _password = "";
             NavigationManager.NavigateTo("/");
@@ -196,13 +196,13 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
             _errorMessage = e.Message; 
         }
     }
-    
-    public void OnCreateAccount()
+
+    private void OnCreateAccount()
     {
         NavigationManager.NavigateTo("/SignUp");
     }
 
-    public void LoginAsGuest()
+    private void LoginAsGuest()
     {
         ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest");
         NavigationManager.NavigateTo("/");
