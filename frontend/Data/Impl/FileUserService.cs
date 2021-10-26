@@ -81,12 +81,12 @@ namespace DNPAssignment1FamilyManagementSystem.Data
 
             if (userToValidate is null)
             {
-                throw new Exception("User not Found"); 
+                throw new ArgumentException("User not Found"); 
             }
 
             if (userToValidate.Password != password)
             {
-                throw new Exception("Incorrect Password"); 
+                throw new ArgumentException("Incorrect Password"); 
             }
 
             return userToValidate; 

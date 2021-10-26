@@ -45,7 +45,7 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
         }
 
 
-        public async void ValidateLogin(string username, string password)
+        public async Task ValidateLogin(string username, string password)
         {
             Console.WriteLine("Validating log in");
             if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
@@ -60,9 +60,9 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
-                throw e;
+                throw;
             }
 
             NotifyAuthenticationStateChanged(

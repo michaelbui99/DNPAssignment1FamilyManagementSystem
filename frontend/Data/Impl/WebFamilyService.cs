@@ -6,7 +6,6 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using DNPAssignment1FamilyManagementSystem.Dtos;
-using DNPAssignment1FamilyManagementSystem.Extensions;
 using DNPAssignment1FamilyManagementSystem.Models;
 
 namespace DNPAssignment1FamilyManagementSystem.Data.Impl
@@ -37,8 +36,8 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
         public async Task CreateFamilyAsync(Family family)
         {
             using HttpClient client = new HttpClient();
-            string createFamilyDtoAsJson = JsonSerializer.Serialize(family.AsDto());
-            StringContent payload = new StringContent(createFamilyDtoAsJson, Encoding.UTF8, "application/json");
+            string familyAsJson = JsonSerializer.Serialize(family);
+            StringContent payload = new StringContent(familyAsJson, Encoding.UTF8, "application/json");
 
             HttpResponseMessage responseMessage = await client.PostAsync($"{RootUrl}/Families", payload);
             if (!responseMessage.IsSuccessStatusCode)

@@ -181,17 +181,17 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         }
     }
 
-    private void PerformLogin()
+    private async void PerformLogin()
     {
         _errorMessage = "";
         try
         {
-              ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
+          await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_username, _password);
             _username = "";
             _password = "";
             NavigationManager.NavigateTo("/");
         }
-        catch (Exception e)
+        catch (ArgumentException e)
         {
             _errorMessage = e.Message; 
         }
