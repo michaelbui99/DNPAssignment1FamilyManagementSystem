@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FamilyManagementRestApi.DTOs;
 using FamilyManagementRestApi.Models;
@@ -29,9 +30,18 @@ namespace FamilyManagementRestApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Adult>>> GetAdults()
+        public async Task<ActionResult<IEnumerable<Adult>>> GetAdults([FromQuery(Name = "firstname")]string firstName, [FromQuery(Name="lastname")] string lastName)
         {
             IEnumerable<Adult> adults = await _adultsRepository.GetAdultsAsync();
+            if (firstName != null)
+            {
+                adults = adults.Where(a => a.FirstName != firstName).ToList(); 
+            }
+
+            if (lastName != null)
+            {
+                adults = adults.Where(a => a.LastName != lastName).ToList(); 
+            }
             return Ok(adults);
         }
 
