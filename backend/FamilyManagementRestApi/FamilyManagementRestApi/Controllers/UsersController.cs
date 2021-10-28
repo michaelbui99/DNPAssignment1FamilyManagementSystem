@@ -23,6 +23,7 @@ namespace FamilyManagementRestApi.Controllers
         {
             try
             {
+                Console.WriteLine($"{this} {nameof(CreateUser)} called");
                 await _usersRepository.CreateUserAsync(user);
                 return Ok();
             }

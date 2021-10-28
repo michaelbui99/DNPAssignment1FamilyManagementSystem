@@ -102,6 +102,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
             if (userToValidate.Password != password)
             {
+                Console.WriteLine($"{this} {nameof(ValidateUserAsync)} threw exception");
                 throw new ArgumentException("Incorrect Password"); 
             }
 
@@ -130,6 +131,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
             {
                 Username = "Guest", Password = "Guest", Role = "Guest"
             }; 
+            Console.WriteLine($"{this} creating user...");
             await CreateUserAsync(guestUser);
         }
     }

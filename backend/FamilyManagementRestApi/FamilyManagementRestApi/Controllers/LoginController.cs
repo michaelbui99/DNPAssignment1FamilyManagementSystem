@@ -24,15 +24,19 @@ namespace FamilyManagementRestApi.Controllers
         {
             Console.WriteLine($"Request for {nameof(LoginUser)}");
 
-            User userToValidate = null; 
+            User userToValidate = null;
             try
             {
-                    userToValidate = await _usersRepository.ValidateUserAsync(user.Username, user.Password);
+                userToValidate = await _usersRepository.ValidateUserAsync(user.Username, user.Password);
             }
             catch (ArgumentException e)
             {
                 Console.WriteLine($"Exception was thrown for action {nameof(LoginUser)}");
                 return Unauthorized(e.Message);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return NotFound(e.Message);
             }
 
             Console.WriteLine($"Request for {nameof(LoginUser)} was OK.");
