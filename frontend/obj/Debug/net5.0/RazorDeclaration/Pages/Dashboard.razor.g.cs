@@ -210,7 +210,7 @@ using ChartJs.Blazor.BarChart.Axes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 75 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 84 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
        
     private PieConfig _eyeColorPieConfig;
     private PieConfig _salaryPieConfig;
@@ -220,21 +220,28 @@ using ChartJs.Blazor.BarChart.Axes;
     private int _totalAmountOfChildren;
     private int _totalAmountOfPets;
     private decimal _averageChildrenPerFamily;
-    private decimal _averageSalaryPerFamily; 
+    private decimal _averageSalaryPerFamily;
+    private bool sideEffectsAreDone = false; 
+    
     protected override async Task OnInitializedAsync()
     {
-        InitEyeColorDistributionEyeChart();
-        InitSalaryPieChart();
+       
         _totalAmountOfFamilies = await FamilyStatisticsService.GetTotalAmountOfFamiliesAsync();
         _totalAmountOfAdults = await FamilyStatisticsService.GetTotalAmountOfAdultsAsync();
         _totalAmountOfChildren = await FamilyStatisticsService.GetTotalAmountOfChildrenAsync();
         _totalAmountOfPets = await FamilyStatisticsService.GetTotalAmountOfPetsAsync();
         _averageChildrenPerFamily = await FamilyStatisticsService.GetAverageChildrenPerFamilyAsync();
         _averageSalaryPerFamily = await FamilyStatisticsService.GetAverageSalaryPerFamilyAsync();
+        _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
+
+         await InitEyeColorDistributionEyeChart();
+         await InitSalaryPieChart();
+        sideEffectsAreDone = true; 
+        StateHasChanged();
     }
+    
 
-
-    private async void InitEyeColorDistributionEyeChart()
+    private async Task InitEyeColorDistributionEyeChart()
     {
     //Creating a new PieConfig
         _eyeColorPieConfig = new PieConfig()
@@ -259,7 +266,6 @@ using ChartJs.Blazor.BarChart.Axes;
         };
 
     //Adding Chart Labels
-        _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
         StateHasChanged();
         foreach (string color in _eyeColorDistributionData.Keys)
         {
@@ -304,7 +310,7 @@ using ChartJs.Blazor.BarChart.Axes;
         _eyeColorPieConfig.Data.Datasets.Add(dataset);
     }
 
-    private async void InitSalaryPieChart()
+    private async Task InitSalaryPieChart()
     {
         _salaryPieConfig = new PieConfig()
         {

@@ -191,9 +191,11 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
             _password = "";
             NavigationManager.NavigateTo("/");
         }
-        catch (ArgumentException e)
+        catch (Exception e)
         {
+            Console.WriteLine($"{this} {nameof(PerformLogin)} caught exception");
             _errorMessage = e.Message; 
+            StateHasChanged();
         }
     }
 
@@ -202,9 +204,9 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         NavigationManager.NavigateTo("/SignUp");
     }
 
-    private void LoginAsGuest()
+    private async void LoginAsGuest()
     {
-        ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest");
+       await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest");
         NavigationManager.NavigateTo("/");
     }
 

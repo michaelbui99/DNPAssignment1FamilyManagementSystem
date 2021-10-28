@@ -25,6 +25,7 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
+            Console.WriteLine($"{this} {nameof(GetAuthenticationStateAsync)} was called");
             var identity = new ClaimsIdentity();
             if (cachedUser == null)
             {
@@ -32,7 +33,7 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
                 if (!string.IsNullOrEmpty(userAsJson))
                 {
                     User tmp = JsonSerializer.Deserialize<User>(userAsJson);
-                    ValidateLogin(tmp.Username, tmp.Password);
+                    await ValidateLogin(tmp.Username, tmp.Password);
                 }
             }
             else
@@ -47,6 +48,8 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
 
         public async Task ValidateLogin(string username, string password)
         {
+            Console.WriteLine($"{this} {nameof(ValidateLogin)} was called");
+
             Console.WriteLine("Validating log in");
             if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
             if (string.IsNullOrEmpty(password)) throw new Exception("Enter password");
@@ -54,10 +57,12 @@ namespace DNPAssignment1FamilyManagementSystem.Authentication
             ClaimsIdentity identity = new ClaimsIdentity();
             try
             {
+                Console.WriteLine($"{this} Calling validation service");
                 User user = await userService.ValidateUserAsync(username, password);
+                Console.WriteLine(user.Username);
                 identity = SetupClaimsForUser(user);
                 string serialisedData = JsonSerializer.Serialize(user);
-                jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
+               await jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
             }
             catch (ArgumentException e)

@@ -10,7 +10,9 @@
 @inject IFamilyStatisticsService FamilyStatisticsService
 <AuthorizeView>
     <Authorized>
-        <h3>Dashboard</h3>
+        @if (sideEffectsAreDone)
+        {
+            <h3>Dashboard</h3>
         <p>Welcome to Families Dashboard</p>
         <div class="charts-container">
             <div class="stats-container">
@@ -53,22 +55,29 @@
             </div>
 
 
-                <div class="chart-stat-container">
-                    <div>
-                        <p>@_eyeColorDistributionData.Keys.Count</p>
-                        <p>Different Eye Colors</p>
-                    </div>
-                    <Chart Config="_eyeColorPieConfig"></Chart>
+            <div class="chart-stat-container">
+                <div>
+                    <p>@_eyeColorDistributionData.Keys.Count</p>
+                    <p>Different Eye Colors</p>
                 </div>
-                <div class="chart-stat-container">
-                    <div>
-                        <p>@_averageSalaryPerFamily</p>
-                        <p> Earned on average per family per month</p>
-                    </div>
-                    <Chart Config="_salaryPieConfig"></Chart>
+                <Chart Config="_eyeColorPieConfig"></Chart>
+            </div>
+            <div class="chart-stat-container">
+                <div>
+                    <p>@_averageSalaryPerFamily</p>
+                    <p> Earned on average per family per month</p>
                 </div>
+                <Chart Config="_salaryPieConfig"></Chart>
+            </div>
 
         </div>
+        }
+        
+        @if (!sideEffectsAreDone)
+        {
+            <p>Loading...</p>
+        }
+        
     </Authorized>
 </AuthorizeView>
 
@@ -81,21 +90,28 @@
     private int _totalAmountOfChildren;
     private int _totalAmountOfPets;
     private decimal _averageChildrenPerFamily;
-    private decimal _averageSalaryPerFamily; 
+    private decimal _averageSalaryPerFamily;
+    private bool sideEffectsAreDone = false; 
+    
     protected override async Task OnInitializedAsync()
     {
-        InitEyeColorDistributionEyeChart();
-        InitSalaryPieChart();
+       
         _totalAmountOfFamilies = await FamilyStatisticsService.GetTotalAmountOfFamiliesAsync();
         _totalAmountOfAdults = await FamilyStatisticsService.GetTotalAmountOfAdultsAsync();
         _totalAmountOfChildren = await FamilyStatisticsService.GetTotalAmountOfChildrenAsync();
         _totalAmountOfPets = await FamilyStatisticsService.GetTotalAmountOfPetsAsync();
         _averageChildrenPerFamily = await FamilyStatisticsService.GetAverageChildrenPerFamilyAsync();
         _averageSalaryPerFamily = await FamilyStatisticsService.GetAverageSalaryPerFamilyAsync();
+        _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
+
+         await InitEyeColorDistributionEyeChart();
+         await InitSalaryPieChart();
+        sideEffectsAreDone = true; 
+        StateHasChanged();
     }
+    
 
-
-    private async void InitEyeColorDistributionEyeChart()
+    private async Task InitEyeColorDistributionEyeChart()
     {
     //Creating a new PieConfig
         _eyeColorPieConfig = new PieConfig()
@@ -120,7 +136,6 @@
         };
 
     //Adding Chart Labels
-        _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
         StateHasChanged();
         foreach (string color in _eyeColorDistributionData.Keys)
         {
@@ -165,7 +180,7 @@
         _eyeColorPieConfig.Data.Datasets.Add(dataset);
     }
 
-    private async void InitSalaryPieChart()
+    private async Task InitSalaryPieChart()
     {
         _salaryPieConfig = new PieConfig()
         {

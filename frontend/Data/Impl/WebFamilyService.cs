@@ -24,7 +24,6 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             }
 
             string fetchedFamiliesAsJson = await responseMessage.Content.ReadAsStringAsync();
-            Console.WriteLine(fetchedFamiliesAsJson);
             IList<Family> fetchedFamilies = JsonSerializer.Deserialize<List<Family>>(fetchedFamiliesAsJson, new JsonSerializerOptions()
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase

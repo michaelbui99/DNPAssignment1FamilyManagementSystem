@@ -209,7 +209,7 @@ using Microsoft.AspNetCore.Components;
         }
     }
 
-    private void CreateUser()
+    private async void CreateUser()
     {
 
         validationResults.Clear();
@@ -232,15 +232,16 @@ using Microsoft.AspNetCore.Components;
             try
             {
                 //Throws exception if user already exists.
-                UserService.CreateAsync(_newUser);
+                await UserService.CreateAsync(_newUser);
             }
             catch (Exception e)
             {
                 _errorText = e.Message;
+                StateHasChanged();
                 return;
             }
             //User is logged on upon successful account creation
-            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_newUser.Username, _newUser.Password);
+            await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(_newUser.Username, _newUser.Password);
             NavigationManager.NavigateTo("/");
         }
     }

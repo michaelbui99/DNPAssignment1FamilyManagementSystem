@@ -264,7 +264,7 @@ using Microsoft.AspNetCore.Components;
     }
 
 
-    private void AddNewFamily()
+    private async void AddNewFamily()
     {
         _validationResults.Clear();
         ValidationContext validationContext = new ValidationContext(_familyToAdd);
@@ -273,7 +273,7 @@ using Microsoft.AspNetCore.Components;
         {
             try
             {
-                FamilyService.CreateFamilyAsync(_familyToAdd);
+                await FamilyService.CreateFamilyAsync(_familyToAdd);
                 StateHasChanged();
                 _addFamilyToggle = !_addFamilyToggle;
             }
