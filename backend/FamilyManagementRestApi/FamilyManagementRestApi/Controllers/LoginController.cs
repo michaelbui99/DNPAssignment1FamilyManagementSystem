@@ -22,18 +22,22 @@ namespace FamilyManagementRestApi.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> LoginUser([FromBody] User user)
         {
+            Console.WriteLine($"Request for {nameof(LoginUser)}");
 
+            User userToValidate = null; 
             try
             {
-                    await _usersRepository.ValidateUserAsync(user.Username, user.Password);
+                    userToValidate = await _usersRepository.ValidateUserAsync(user.Username, user.Password);
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
+                Console.WriteLine($"Exception was thrown for action {nameof(LoginUser)}");
                 return Unauthorized(e.Message);
             }
 
-            
-            return user;
+            Console.WriteLine($"Request for {nameof(LoginUser)} was OK.");
+            Console.WriteLine($"Returning user: {userToValidate.Username}");
+            return Ok(userToValidate);
         }
         
     }

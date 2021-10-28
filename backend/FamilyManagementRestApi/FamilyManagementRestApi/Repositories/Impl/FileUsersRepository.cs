@@ -58,7 +58,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
             {
                 throw new ArgumentException("User already exists");
             }
-            
+
             Users.Add(user);
             WriteUsersToFile();
         }
@@ -95,14 +95,14 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
             if (!UserExists(username))
             {
-                throw new Exception("User not Found"); 
+                throw new KeyNotFoundException("User not Found"); 
             }
             
             User userToValidate = await GetUserAsync(username);
 
             if (userToValidate.Password != password)
             {
-                throw new Exception("Incorrect Password"); 
+                throw new ArgumentException("Incorrect Password"); 
             }
 
             return userToValidate; 
