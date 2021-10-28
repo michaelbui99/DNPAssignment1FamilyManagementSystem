@@ -203,9 +203,9 @@ using Models;
 
     private async void AddAdultToFamily()
     {
-        Family familyOfAdult = await FamilyService.GetFamilyAsync(StreetName, HouseNumber);
+        Task<Family> fetchFamilyOfAdult = FamilyService.GetFamilyAsync(StreetName, HouseNumber); 
         _newAdult.Sex = _selectedSex;
-        await FamilyService.AddAdultToFamilyAsync(familyOfAdult, _newAdult);
+        await FamilyService.AddAdultToFamilyAsync(await fetchFamilyOfAdult, _newAdult);
         NavigationManager.NavigateTo("/Families");
     }
 
