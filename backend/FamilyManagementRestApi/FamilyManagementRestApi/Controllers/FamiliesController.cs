@@ -35,6 +35,7 @@ namespace FamilyManagementRestApi.Controllers
             try
             {
                 Family family = await _familiesRepository.GetFamilyAsync(streetName, houseNumber);
+                Console.WriteLine($"{this} {nameof(GetFamily)} returning Family: {family.StreetName},{family.HouseNumber}");
                 return Ok(family);
             }
             catch (Exception e)
