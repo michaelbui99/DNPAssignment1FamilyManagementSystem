@@ -12,227 +12,227 @@
 @implements DNPAssignment1FamilyManagementSystem.Models.IEventListener
 
 <AuthorizeView Policy="IsUser">
-    <Authorized>
-        <div class="families-container animation-fade-in">
-            <div class="families-container__header">
-                <h3>Families <i class="fas fa-plus" @onclick="() => _addFamilyToggle = !_addFamilyToggle"></i></h3>
-                <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
-            </div>
-            @if (_addFamilyToggle)
-            {
-                <div class="add-family-container animation-fade-in">
-                    <div class="form-group">
-                        <label>Street name</label>
-                        <input type="text" placeholder="Street name" @bind-value="_familyToAdd.StreetName">
-                    </div>
-                    <div class="form-group">
-                        <label>House Number</label>
-                        <input type="number" placeholder="House Number" @bind-value="_familyToAdd.HouseNumber">
-                    </div>
-                    <p class="error-label">@_addFamilyErrorLabel</p>
-                    @foreach (var error in _validationResults)
-                    {
-                        <p class="error-label">@error</p>
-                    }
-                    <button @onclick="AddNewFamily">
-                        Add Family
-                    </button>
-
-                </div>
-            }
-
-            @if (_familiesToShow is null)
-            {
-                <p>
-                    <em>Loading...</em>
-                </p>
-            }
-            else if (!_familiesToShow.Any())
-            {
-                <p>
-                    <em>No Families has been created yet.</em>
-                </p>
-            }
-            else
-            {
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Street Name</th>
-                        <th>House No</th>
-                        <th>Member Count</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach (var f in _familiesToShow)
-                    {
-                        <ExpandableFamilyTableRow Family="f">
-                            <tr>
-                                <td colspan="4">
-                                    <div class="content-container animation-fade-in">
-                                        <div class="adults-container">
-                                            @if (f.Adults.Count >= 2)
-                                            {
-                                                <h4>Adults: <button class="disabled"><i class="fas fa-plus"></i>Add Adult</button></h4>
-                                            }
-                                            else
-                                            {
-                                                <h4>Adults: <button @onclick="() => GoToAddAdult(f)"><i class="fas fa-plus"></i>Add Adult</button></h4>
-                                            }
-                                            @foreach (var a in f.Adults)
-                                            {
-                                                <PersonInfomation Person=@a Family="f" DeleteStrategy="new DeleteAdultStrategy(FamilyService)"/>
-                                                <p>Job: @a.JobTitle.JobTitle</p>
-                                                <p>Salary: @a.JobTitle.Salary</p>
-                                                <br/>
-                                            }
-                                        </div>
-
-                                        <div class="children-container">
-                                            <h4>Children: </h4>
-                                            @foreach (var c in f.Children)
-                                            {
-                                                <PersonInfomation Person=@c Family="f" DeleteStrategy="new DeleteChildrenStrategy(FamilyService)"/>
-
-                                                <p>Interests:</p>
-                                                <ul>
-                                                    @foreach (var interest in c.Interests)
-                                                    {
-                                                        <li>@interest.Type</li>
-                                                    }
-                                                </ul>
-                                                <p>Personal Pets:</p>
-                                                <ul>
-                                                    @foreach (var pet in c.Pets)
-                                                    {
-                                                        <li>Species: @pet.Species <br/>Name: @pet.Name<br/>Age: @pet.Age</li>
-                                                    }
-                                                </ul>
-                                                <br/>
-                                            }
-                                        </div>
-
-                                        <div class="family-pet-container">
-                                            <h4>Pets: </h4>
-                                            @foreach (var p in f.Pets)
-                                            {
-                                                <PetInformation Pet=@p/>
-                                                <br/>
-                                            }
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </ExpandableFamilyTableRow>
-                    }
-                    </tbody>
-                </table>
-            }
-
+<Authorized>
+    <div class="families-container animation-fade-in">
+        <div class="families-container__header">
+            <h3>Families <i class="fas fa-plus" @onclick="() => _addFamilyToggle = !_addFamilyToggle"></i></h3>
+            <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
         </div>
-    </Authorized>
-    
-    <NotAuthorized>
-         <div class="families-container animation-fade-in">
-                    <div class="families-container__header">
-                        <h3>Families</h3>
-                        <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
-                    </div>
-             
-        
-                    @if (_familiesToShow is null)
-                    {
-                        <p>
-                            <em>Loading...</em>
-                        </p>
-                    }
-                    else if (!_familiesToShow.Any())
-                    {
-                        <p>
-                            <em>No Families has been created yet.</em>
-                        </p>
-                    }
-                    else
-                    {
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Street Name</th>
-                                <th>House No</th>
-                                <th>Member Count</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach (var f in _familiesToShow)
-                            {
-                                <ExpandableFamilyTableRow Family="f">
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="content-container animation-fade-in">
-                                                <div class="adults-container">
-                                                    @if (f.Adults.Count >= 2)
-                                                    {
-                                                        <h4>Adults: </h4>
-                                                    }
-                                                    else
-                                                    {
-                                                        <h4>Adults:</h4>
-                                                    }
-                                                    @foreach (var a in f.Adults)
-                                                    {
-                                                        <PersonInfomation Person=@a Family="f"/>
-                                                        <p>Job: @a.JobTitle.JobTitle</p>
-                                                        <p>Salary: @a.JobTitle.Salary</p>
-                                                        <br/>
-                                                    }
-                                                </div>
-        
-                                                <div class="children-container">
-                                                    <h4>Children: </h4>
-                                                    @foreach (var c in f.Children)
-                                                    {
-                                                        <PersonInfomation Person=@c Family="f"/>
-        
-                                                        <p>Interests:</p>
-                                                        <ul>
-                                                            @foreach (var interest in c.Interests)
-                                                            {
-                                                                <li>@interest.Type</li>
-                                                            }
-                                                        </ul>
-                                                        <p>Personal Pets:</p>
-                                                        <ul>
-                                                            @foreach (var pet in c.Pets)
-                                                            {
-                                                                <li>Species: @pet.Species <br/>Name: @pet.Name<br/>Age: @pet.Age</li>
-                                                            }
-                                                        </ul>
-                                                        <br/>
-                                                    }
-                                                </div>
-        
-                                                <div class="family-pet-container">
-                                                    <h4>Pets: </h4>
-                                                    @foreach (var p in f.Pets)
-                                                    {
-                                                        <PetInformation Pet=@p/>
-                                                        <br/>
-                                                    }
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </ExpandableFamilyTableRow>
-                            }
-                            </tbody>
-                        </table>
-                    }
-        
+        @if (_addFamilyToggle)
+        {
+            <div class="add-family-container animation-fade-in">
+                <div class="form-group">
+                    <label>Street name</label>
+                    <input type="text" placeholder="Street name" @bind-value="_familyToAdd.StreetName">
                 </div>
-    </NotAuthorized>
+                <div class="form-group">
+                    <label>House Number</label>
+                    <input type="number" placeholder="House Number" @bind-value="_familyToAdd.HouseNumber">
+                </div>
+                <p class="error-label">@_addFamilyErrorLabel</p>
+                @foreach (var error in _validationResults)
+                {
+                    <p class="error-label">@error</p>
+                }
+                <button @onclick="AddNewFamily">
+                    Add Family
+                </button>
+
+            </div>
+        }
+
+        @if (_familiesToShow is null)
+        {
+            <p>
+                <em>Loading...</em>
+            </p>
+        }
+        else if (!_familiesToShow.Any())
+        {
+            <p>
+                <em>No Families has been created yet.</em>
+            </p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Street Name</th>
+                    <th>House No</th>
+                    <th>Member Count</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var f in _familiesToShow)
+                {
+                    <ExpandableFamilyTableRow Family="f">
+                        <tr>
+                            <td colspan="4">
+                                <div class="content-container animation-fade-in">
+                                    <div class="adults-container">
+                                        @if (f.Adults.Count >= 2)
+                                        {
+                                            <h4>Adults: <button class="disabled"><i class="fas fa-plus"></i>Add Adult</button></h4>
+                                        }
+                                        else
+                                        {
+                                            <h4>Adults: <button @onclick="() => GoToAddAdult(f)"><i class="fas fa-plus"></i>Add Adult</button></h4>
+                                        }
+                                        @foreach (var a in f.Adults)
+                                        {
+                                            <PersonInfomation Person=@a Family="f" DeleteStrategy="new DeleteAdultStrategy(FamilyService)"/>
+                                            <p>Job: @a.JobTitle.JobTitle</p>
+                                            <p>Salary: @a.JobTitle.Salary</p>
+                                            <br/>
+                                        }
+                                    </div>
+
+                                    <div class="children-container">
+                                        <h4>Children: </h4>
+                                        @foreach (var c in f.Children)
+                                        {
+                                            <PersonInfomation Person=@c Family="f" DeleteStrategy="new DeleteChildrenStrategy(FamilyService)"/>
+
+                                            <p>Interests:</p>
+                                            <ul>
+                                                @foreach (var interest in c.Interests)
+                                                {
+                                                    <li>@interest.Type</li>
+                                                }
+                                            </ul>
+                                            <p>Personal Pets:</p>
+                                            <ul>
+                                                @foreach (var pet in c.Pets)
+                                                {
+                                                    <li>Species: @pet.Species <br/>Name: @pet.Name<br/>Age: @pet.Age</li>
+                                                }
+                                            </ul>
+                                            <br/>
+                                        }
+                                    </div>
+
+                                    <div class="family-pet-container">
+                                        <h4>Pets: </h4>
+                                        @foreach (var p in f.Pets)
+                                        {
+                                            <PetInformation Pet=@p/>
+                                            <br/>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ExpandableFamilyTableRow>
+                }
+                </tbody>
+            </table>
+        }
+
+    </div>
+</Authorized>
+
+<NotAuthorized>
+    <div class="families-container animation-fade-in">
+        <div class="families-container__header">
+            <h3>Families</h3>
+            <input type="text" placeholder="Search by name of adult" @oninput="(args) => FilterAdultsByName(args)">
+        </div>
+
+
+        @if (_familiesToShow is null)
+        {
+            <p>
+                <em>Loading...</em>
+            </p>
+        }
+        else if (!_familiesToShow.Any())
+        {
+            <p>
+                <em>No Families has been created yet.</em>
+            </p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Street Name</th>
+                    <th>House No</th>
+                    <th>Member Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var f in _familiesToShow)
+                {
+                    <ExpandableFamilyTableRow Family="f">
+                        <tr>
+                            <td colspan="4">
+                                <div class="content-container animation-fade-in">
+                                    <div class="adults-container">
+                                        @if (f.Adults.Count >= 2)
+                                        {
+                                            <h4>Adults: </h4>
+                                        }
+                                        else
+                                        {
+                                            <h4>Adults:</h4>
+                                        }
+                                        @foreach (var a in f.Adults)
+                                        {
+                                            <PersonInfomation Person=@a Family="f"/>
+                                            <p>Job: @a.JobTitle.JobTitle</p>
+                                            <p>Salary: @a.JobTitle.Salary</p>
+                                            <br/>
+                                        }
+                                    </div>
+
+                                    <div class="children-container">
+                                        <h4>Children: </h4>
+                                        @foreach (var c in f.Children)
+                                        {
+                                            <PersonInfomation Person=@c Family="f"/>
+
+                                            <p>Interests:</p>
+                                            <ul>
+                                                @foreach (var interest in c.Interests)
+                                                {
+                                                    <li>@interest.Type</li>
+                                                }
+                                            </ul>
+                                            <p>Personal Pets:</p>
+                                            <ul>
+                                                @foreach (var pet in c.Pets)
+                                                {
+                                                    <li>Species: @pet.Species <br/>Name: @pet.Name<br/>Age: @pet.Age</li>
+                                                }
+                                            </ul>
+                                            <br/>
+                                        }
+                                    </div>
+
+                                    <div class="family-pet-container">
+                                        <h4>Pets: </h4>
+                                        @foreach (var p in f.Pets)
+                                        {
+                                            <PetInformation Pet=@p/>
+                                            <br/>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ExpandableFamilyTableRow>
+                }
+                </tbody>
+            </table>
+        }
+
+    </div>
+</NotAuthorized>
 </AuthorizeView>
 
 @code {
@@ -260,6 +260,7 @@
             _allFamilies = await FamilyService.GetFamiliesAsync();
             _familiesToShow = _allFamilies;
             EventCoordinator.Attach(this);
+            StateHasChanged();
         }
     }
 
@@ -313,14 +314,18 @@
             try
             {
                 await FamilyService.CreateFamilyAsync(_familyToAdd);
-                StateHasChanged();
+                _familyToAdd.StreetName = "";
+                _familyToAdd.HouseNumber = 0;
                 _addFamilyToggle = !_addFamilyToggle;
+                _allFamilies = await FamilyService.GetFamiliesAsync();
+                _familiesToShow = _allFamilies;
+                StateHasChanged();
             }
             catch (Exception e)
             {
                 _addFamilyErrorLabel = e.Message;
                 _familyToAdd.StreetName = "";
-                _familyToAdd.HouseNumber = 0; 
+                _familyToAdd.HouseNumber = 0;
                 return;
             }
         }

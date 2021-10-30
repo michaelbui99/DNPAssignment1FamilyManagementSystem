@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BrlxgNiaQqchZhxw8HaMExjdvjF0hMJ2+4p+7yPsgSR6aUPWCsXrx7UKCogl5OoTYDNndLnK6KjnGziYUOpAJw==",
+  "dgSpecHash": "CK0RyiuEIxtoWPH6HmDiy+Uwz5XGwl5CokSgRPnrUaq/sxFJZniONu+PTQ8uujwueS0ikK37JzJaI/TvXhQMuQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Micha\\Documents\\Coding\\WebDev\\FamilyManagementSystem\\frontend\\DNPAssignment1FamilyManagementSystem.csproj",
   "expectedPackageFiles": [
@@ -18,7 +18,10 @@
     "C:\\Users\\Micha\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
     "C:\\Users\\Micha\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
     "C:\\Users\\Micha\\.nuget\\packages\\microsoft.jsinterop\\3.1.8\\microsoft.jsinterop.3.1.8.nupkg.sha512",
-    "C:\\Users\\Micha\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Micha\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Micha\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Micha\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Micha\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

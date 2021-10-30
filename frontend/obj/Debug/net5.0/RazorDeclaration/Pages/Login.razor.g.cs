@@ -206,7 +206,7 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
 
     private async void LoginAsGuest()
     {
-       await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest");
+       await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin("Guest", "Guest123");
         NavigationManager.NavigateTo("/");
     }
 

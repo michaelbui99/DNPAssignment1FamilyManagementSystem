@@ -237,7 +237,6 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\bin\Debug
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\bin\Debug\net5.0\DNPAssignment1FamilyManagementSystem.Views.pdb
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\bin\Debug\net5.0\ChartJs.Blazor.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csprojAssemblyReference.cache
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.AssemblyInfoInputs.cache
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.AssemblyInfo.cs
@@ -303,3 +302,4 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\ref\DNPAssignment1FamilyManagementSystem.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.pdb
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.genruntimeconfig.cache
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\obj\Debug\net5.0\DNPAssignment1FamilyManagementSystem.csproj.AssemblyReference.cache

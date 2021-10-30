@@ -221,6 +221,7 @@ using Microsoft.AspNetCore.Components;
             _allFamilies = await FamilyService.GetFamiliesAsync();
             _familiesToShow = _allFamilies;
             EventCoordinator.Attach(this);
+            StateHasChanged();
         }
     }
 
@@ -274,14 +275,18 @@ using Microsoft.AspNetCore.Components;
             try
             {
                 await FamilyService.CreateFamilyAsync(_familyToAdd);
-                StateHasChanged();
+                _familyToAdd.StreetName = "";
+                _familyToAdd.HouseNumber = 0;
                 _addFamilyToggle = !_addFamilyToggle;
+                _allFamilies = await FamilyService.GetFamiliesAsync();
+                _familiesToShow = _allFamilies;
+                StateHasChanged();
             }
             catch (Exception e)
             {
                 _addFamilyErrorLabel = e.Message;
                 _familyToAdd.StreetName = "";
-                _familyToAdd.HouseNumber = 0; 
+                _familyToAdd.HouseNumber = 0;
                 return;
             }
         }
