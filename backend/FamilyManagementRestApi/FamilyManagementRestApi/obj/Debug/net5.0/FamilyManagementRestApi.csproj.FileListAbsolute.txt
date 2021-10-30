@@ -11,7 +11,6 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyMana
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.csprojAssemblyReference.cache
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.AssemblyInfoInputs.cache
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.AssemblyInfo.cs
@@ -22,7 +21,6 @@ C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyMana
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\staticwebassets\FamilyManagementRestApi.StaticWebAssets.xml
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\scopedcss\bundle\FamilyManagementRestApi.styles.css
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.RazorTargetAssemblyInfo.cache
-C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.csproj.CopyComplete
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\ref\FamilyManagementRestApi.dll
 C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.pdb
@@ -62,3 +60,4 @@ C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyMana
 C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\ref\FamilyManagementRestApi.dll
 C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.pdb
 C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.genruntimeconfig.cache
+C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\backend\FamilyManagementRestApi\FamilyManagementRestApi\obj\Debug\net5.0\FamilyManagementRestApi.csproj.AssemblyReference.cache

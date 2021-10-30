@@ -129,7 +129,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
         {
             User guestUser = new User()
             {
-                Username = "Guest", Password = "Guest", Role = "Guest"
+                Username = "Guest", Password = "Guest123", Role = "Guest"
             }; 
             Console.WriteLine($"{this} creating user...");
             await CreateUserAsync(guestUser);

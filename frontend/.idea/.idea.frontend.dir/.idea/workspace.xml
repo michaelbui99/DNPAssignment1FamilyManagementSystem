@@ -5,25 +5,7 @@
     <projectFile profileName="DNPAssignment1FamilyManagementSystem">DNPAssignment1FamilyManagementSystem.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1260204-ff90-4388-8144-c07f5a033b96" name="Changes" comment="Fixed a bug where dashboard was crashing because the page was trying to render elements with reference to objects that has not been initialised because of them being async.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.frontend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.frontend.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Impl/WebFamilyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Impl/WebFamilyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/AddAdult.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/AddAdult.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/AddAdult.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/Razor/Pages/AddAdult.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/DNPAssignment1FamilyManagementSystem.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/AddAdult.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/RazorDeclaration/Pages/AddAdult.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net5.0/ref/DNPAssignment1FamilyManagementSystem.dll" afterDir="false" />
-    </list>
+    <list default="true" id="c1260204-ff90-4388-8144-c07f5a033b96" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +24,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3bb42fd38bd8407b9667fbf8ce1367e98f5388/B0/NotImplementedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Micha/Documents/Coding/WebDev/FamilyManagementSystem/frontend/Pages/AddAdult.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Micha/Documents/Coding/WebDev/FamilyManagementSystem/frontend/Authentication/CustomAuthenticationStateProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4251b32fc94a419d9d5321925894ad486c988/1A/NavigationManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -102,7 +85,7 @@
       <workItem from="1634144074556" duration="67000" />
       <workItem from="1635244781090" duration="153000" />
       <workItem from="1635246996430" duration="14088000" />
-      <workItem from="1635423868848" duration="6867000" />
+      <workItem from="1635423868848" duration="7185000" />
     </task>
     <task id="LOCAL-00001" summary="Refractor interfaces for async usage">
       <created>1635259239134</created>
@@ -118,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635428929071</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed a bug where AddAdultToFamily was taking adult's FirstName twice instead of LastName">
+      <created>1635430828727</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1635430828727</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +133,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Refractor interfaces for async usage" />
     <MESSAGE value="Fixed a bug where dashboard was crashing because the page was trying to render elements with reference to objects that has not been initialised because of them being async." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug where dashboard was crashing because the page was trying to render elements with reference to objects that has not been initialised because of them being async." />
+    <MESSAGE value="Fixed a bug where AddAdultToFamily was taking adult's FirstName twice instead of LastName" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug where AddAdultToFamily was taking adult's FirstName twice instead of LastName" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

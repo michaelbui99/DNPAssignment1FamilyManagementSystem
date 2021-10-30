@@ -35,12 +35,12 @@ namespace FamilyManagementRestApi.Controllers
             IEnumerable<Adult> adults = await _adultsRepository.GetAdultsAsync();
             if (firstName != null)
             {
-                adults = adults.Where(a => a.FirstName != firstName).ToList(); 
+                adults = adults.Where(a => a.FirstName.ToLower().Contains(firstName.ToLower())).ToList(); 
             }
 
             if (lastName != null)
             {
-                adults = adults.Where(a => a.LastName != lastName).ToList(); 
+                adults = adults.Where(a => a.LastName.ToLower().Contains(lastName.ToLower())).ToList(); 
             }
             return Ok(adults);
         }

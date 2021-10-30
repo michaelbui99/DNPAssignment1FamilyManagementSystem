@@ -21,10 +21,19 @@ namespace FamilyManagementRestApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Family>>> GetFamilies()
+        public async Task<ActionResult<IEnumerable<Family>>> GetFamilies([FromQuery] string streetName, [FromQuery] int? houseNumber)
         {
             Console.WriteLine($"Request received for {nameof(GetFamily)}");
             var families = await _familiesRepository.GetFamiliesAsync();
+            if (streetName != null)
+            {
+                families = families.Where(f => f.StreetName.ToLower().Contains(streetName.ToLower())); 
+            }
+
+            if (houseNumber != null)
+            {
+                families = families.Where((f => f.HouseNumber == houseNumber)); 
+            }
             return Ok(families);
         }
 

@@ -3,7 +3,23 @@
     "Id": 0,
     "StreetName": "Bay Avenue",
     "HouseNumber": 1,
-    "Adults": [],
+    "Adults": [
+      {
+        "JobTitle": {
+          "JobTitle": "Spy",
+          "Salary": 1
+        },
+        "Id": 15,
+        "FirstName": "James",
+        "LastName": "James",
+        "HairColor": "Brown",
+        "EyeColor": "Blue",
+        "Age": 40,
+        "Weight": 100,
+        "Height": 187,
+        "Sex": "M"
+      }
+    ],
     "Children": [],
     "Pets": []
   },
