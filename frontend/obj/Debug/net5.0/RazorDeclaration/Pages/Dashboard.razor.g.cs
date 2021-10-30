@@ -13,189 +13,189 @@ namespace DNPAssignment1FamilyManagementSystem.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 1 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 2 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 3 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 4 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 5 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 6 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 7 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 8 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 9 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using DNPAssignment1FamilyManagementSystem;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 10 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using DNPAssignment1FamilyManagementSystem.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 11 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 12 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Common;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 13 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Common.Axes;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 14 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Common.Axes.Ticks;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 15 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Common.Enums;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 16 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 16 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Common.Handlers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 17 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Common.Time;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 18 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 18 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Util;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 19 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
+#line 19 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\_Imports.razor"
 using ChartJs.Blazor.Interop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 2 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using ChartJs.Blazor.PieChart;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 3 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using DNPAssignment1FamilyManagementSystem.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 4 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using DNPAssignment1FamilyManagementSystem.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 5 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using System.Drawing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 6 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using ChartJs.Blazor.BarChart;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 7 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using ChartJs.Blazor.LineChart;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 8 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using System.Collections.ObjectModel;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 9 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
 using ChartJs.Blazor.BarChart.Axes;
 
 #line default
@@ -210,7 +210,7 @@ using ChartJs.Blazor.BarChart.Axes;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 84 "C:\Users\Micha\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
+#line 84 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Dashboard.razor"
        
     private PieConfig _eyeColorPieConfig;
     private PieConfig _salaryPieConfig;

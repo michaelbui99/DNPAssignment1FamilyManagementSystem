@@ -10,7 +10,7 @@
 @inject IFamilyStatisticsService FamilyStatisticsService
 <AuthorizeView>
     <Authorized>
-        @if (sideEffectsAreDone)
+        @if (_sideEffectsAreDone)
         {
             <h3>Dashboard</h3>
         <p>Welcome to Families Dashboard</p>
@@ -73,7 +73,7 @@
         </div>
         }
         
-        @if (!sideEffectsAreDone)
+        @if (!_sideEffectsAreDone)
         {
             <p>Loading...</p>
         }
@@ -91,7 +91,7 @@
     private int _totalAmountOfPets;
     private decimal _averageChildrenPerFamily;
     private decimal _averageSalaryPerFamily;
-    private bool sideEffectsAreDone = false; 
+    private bool _sideEffectsAreDone = false; 
     
     protected override async Task OnInitializedAsync()
     {
@@ -104,14 +104,14 @@
         _averageSalaryPerFamily = await FamilyStatisticsService.GetAverageSalaryPerFamilyAsync();
         _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
 
-         await InitEyeColorDistributionEyeChart();
+         await InitEyeColorDistributionPieChart();
          await InitSalaryPieChart();
-        sideEffectsAreDone = true; 
+        _sideEffectsAreDone = true; 
         StateHasChanged();
     }
     
 
-    private async Task InitEyeColorDistributionEyeChart()
+    private async Task InitEyeColorDistributionPieChart()
     {
     //Creating a new PieConfig
         _eyeColorPieConfig = new PieConfig()
