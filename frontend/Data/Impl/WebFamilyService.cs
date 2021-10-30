@@ -129,7 +129,6 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                     throw new KeyNotFoundException(errorMessage);
                 }
             }
-            throw new System.NotImplementedException();
         }
 
         public Task RemoveChildFromFamilyAsync(Family family, Child child)

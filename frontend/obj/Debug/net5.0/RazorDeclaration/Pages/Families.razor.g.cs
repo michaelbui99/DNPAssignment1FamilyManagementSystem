@@ -218,11 +218,16 @@ using Microsoft.AspNetCore.Components;
         }
         else
         {
-            _allFamilies = await FamilyService.GetFamiliesAsync();
-            _familiesToShow = _allFamilies;
+            await FetchFamilies();
             EventCoordinator.Attach(this);
             StateHasChanged();
         }
+    }
+
+    private async Task FetchFamilies()
+    {
+        _allFamilies = await FamilyService.GetFamiliesAsync();
+        _familiesToShow = _allFamilies;
     }
 
     private void FilterAdultsByName(ChangeEventArgs args)
@@ -292,8 +297,9 @@ using Microsoft.AspNetCore.Components;
         }
     }
 
-    public void Notify()
+    public async void Notify()
     {
+        await FetchFamilies();
         StateHasChanged();
     }
 

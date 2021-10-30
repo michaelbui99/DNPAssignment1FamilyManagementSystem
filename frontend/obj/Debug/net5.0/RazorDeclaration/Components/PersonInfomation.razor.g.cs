@@ -178,11 +178,11 @@ using DNPAssignment1FamilyManagementSystem.Data.Impl;
     [Parameter]
     public IDeleteStrategy DeleteStrategy { get; set; }
 
-    private void DeletePerson()
+    private async void DeletePerson()
     {
         if (DeleteStrategy != null)
         {
-            DeleteStrategy.DeleteAsync(Person, Family);
+            await DeleteStrategy.DeleteAsync(Person, Family);
             Person = null;
         
     /*
