@@ -13,20 +13,20 @@ namespace FamilyManagementRestApi.Repositories.Impl
     {
 
         public IList<User> Users { get; set; }
-        private const string _usersFile = "Users.json";
+        private const string UsersFile = "Users.json";
 
         public FileUsersRepository()
         {
-            if (!File.Exists(_usersFile))
+            if (!File.Exists(UsersFile))
             {
                 Users = new List<User>();
-                FileStream fileStream = File.Create(_usersFile); 
+                FileStream fileStream = File.Create(UsersFile); 
                 fileStream.Close();
                CreateGuestUser();
             }
             else
             {
-                string usersAsJson = File.ReadAllText(_usersFile);
+                string usersAsJson = File.ReadAllText(UsersFile);
                 if (usersAsJson.Length <= 0)
                 {
                     Users = new List<User>();
@@ -122,7 +122,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
         private void WriteUsersToFile()
         {
             string usersAsJson = JsonSerializer.Serialize(Users); 
-            File.WriteAllText(_usersFile, usersAsJson);
+            File.WriteAllText(UsersFile, usersAsJson);
         }
 
         private async void CreateGuestUser()
