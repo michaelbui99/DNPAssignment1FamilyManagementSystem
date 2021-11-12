@@ -3,14 +3,16 @@ using System;
 using FamilyManagementRestApi.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FamilyManagementRestApi.Migrations
 {
     [DbContext(typeof(FamilyDbContext))]
-    partial class FamilyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211112163225_1_Adults")]
+    partial class _1_Adults
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

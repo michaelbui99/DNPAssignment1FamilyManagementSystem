@@ -6,6 +6,7 @@ namespace FamilyManagementRestApi.Persistence
     public class FamilyDbContext : DbContext
     {
         public DbSet<Family> Families { get; set; }
+        public DbSet<Adult> Adults { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

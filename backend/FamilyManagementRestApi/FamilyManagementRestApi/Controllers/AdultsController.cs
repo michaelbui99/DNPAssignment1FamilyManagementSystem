@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace FamilyManagementRestApi.Controllers
 {
     //TODO: Move input validation from repository to controller 
-    
+
     [ApiController]
     [Route("api/[controller]")]
     public class AdultsController : ControllerBase
@@ -26,34 +26,33 @@ namespace FamilyManagementRestApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Adult>>> GetAdults([FromQuery(Name = "firstname")]string firstName, [FromQuery(Name="lastname")] string lastName)
+        public async Task<ActionResult<IEnumerable<Adult>>> GetAdults([FromQuery(Name = "firstname")] string firstName,
+            [FromQuery(Name = "lastname")] string lastName)
         {
             IEnumerable<Adult> adults = await _adultsRepository.GetAdultsAsync();
             if (firstName != null)
             {
-                adults = adults.Where(a => a.FirstName.ToLower().Contains(firstName.ToLower())).ToList(); 
+                adults = adults.Where(a => a.FirstName.ToLower().Contains(firstName.ToLower())).ToList();
             }
 
             if (lastName != null)
             {
-                adults = adults.Where(a => a.LastName.ToLower().Contains(lastName.ToLower())).ToList(); 
+                adults = adults.Where(a => a.LastName.ToLower().Contains(lastName.ToLower())).ToList();
             }
+
             return Ok(adults);
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Adult>> GetAdult([FromRoute]int id)
+        public async Task<ActionResult<Adult>> GetAdult([FromRoute] int id)
         {
-            try
+            Adult adultToReturn = await _adultsRepository.GetAdultAsync(id);
+            if (adultToReturn == null)
             {
-                Adult adultToReturn = await  _adultsRepository.GetAdultAsync(id);
-                return Ok(adultToReturn);
+                return NotFound();
             }
-            catch (KeyNotFoundException e)
-            {
-                return NotFound(); 
-            }
-            
+
+            return Ok(adultToReturn);
         }
 
         /// <summary>
@@ -66,47 +65,48 @@ namespace FamilyManagementRestApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Adult>> AddAdultToFamily([FromBody] AddAdultDto adultDto)
         {
-            try
+            if (adultDto == null)
             {
-                Adult adultToAdd = new Adult()
-                {
-                    FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
-                    Height = adultDto.Height,
-                    EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
-                    HairColor = adultDto.HairColor, Job = adultDto.JobTitle
-                };
-
-                Family family = await _familiesRepository.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
-
-                Adult newAdult = await _adultsRepository.AddAdultToFamilyAsync(family, adultToAdd);
-
-                return CreatedAtAction(nameof(GetAdult), new {id = newAdult.Id}, newAdult);
+                return BadRequest();
             }
-            catch (KeyNotFoundException)
+
+            Family family =
+                await _familiesRepository.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
+            if (family == null)
             {
-                return NotFound("Family does not exist");
+                return NotFound("Family does not exist"); 
             }
+            
+            Adult adultToAdd = new Adult()
+            {
+                FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
+                Height = adultDto.Height,
+                EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
+                HairColor = adultDto.HairColor, Job = adultDto.JobTitle
+            };
+
+
+            Adult newAdult = await _adultsRepository.AddAdultToFamilyAsync(family, adultToAdd);
+
+            return CreatedAtAction(nameof(GetAdult), new {id = newAdult.Id}, newAdult);
         }
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<Adult>> DeleteAdult([FromRoute] int id)
         {
-            Task<Adult> removeAdult; 
-            try
+
+            if (id < 0)
             {
-                removeAdult =  _adultsRepository.RemoveAdultAsync(id);
-            }
-            catch (ArgumentException e)
-            {
-                return BadRequest(e.Message);
-            }
-            catch (KeyNotFoundException e)
-            {
-                return NotFound(e.Message);
+                return BadRequest("Id cannot be negative"); 
             }
 
-            
-            return Ok(await removeAdult);
+            Adult removedAdult = await _adultsRepository.RemoveAdultAsync(id);
+            if (removedAdult == null)
+            {
+                return NotFound("Adult does not exist"); 
+            }
+
+            return Ok(removedAdult); 
         }
     }
 }
