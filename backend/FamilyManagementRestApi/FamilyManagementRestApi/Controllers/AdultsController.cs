@@ -73,7 +73,7 @@ namespace FamilyManagementRestApi.Controllers
                     FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
                     Height = adultDto.Height,
                     EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
-                    HairColor = adultDto.HairColor, JobTitle = adultDto.JobTitle
+                    HairColor = adultDto.HairColor, Job = adultDto.JobTitle
                 };
 
                 Family family = await _familiesRepository.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
