@@ -10,11 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyManagementRestApi.Controllers
 {
-    /*
-     *  Adults have their own endpoint instead of having the api/Families/{streetName}/{houseNumber}/Adults endpoint.
-     * Giving Adults its own endpoints enables the client get a list of all adults in the system while still being able
-     * to get adults from a specific family by passing request params instead of hitting the specific family's endpoint.  
-    */
+    //TODO: Move input validation from repository to controller 
     
     [ApiController]
     [Route("api/[controller]")]
