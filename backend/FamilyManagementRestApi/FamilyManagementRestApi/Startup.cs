@@ -35,8 +35,9 @@ namespace FamilyManagementRestApi
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "FamilyManagementRestApi", Version = "v1"});
             });
             services.AddScoped<FileContext>();
+            services.AddScoped<FamilyDbContext>();
             services.AddScoped<IFamiliesRepository, FileFamiliesRepository>();
-            services.AddScoped<IAdultsRepository, FileAdultRepository>();
+            services.AddScoped<IAdultsRepository, SqliteAdultRepository>();
             services.AddScoped<IUsersRepository, FileUsersRepository>();
         }
 
