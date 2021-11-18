@@ -37,7 +37,7 @@ namespace FamilyManagementRestApi.Services.Impl
             return await _usersRepository.CreateUserAsync(user); 
         }
 
-        public async Task<User> ValidateUserASync(string username, string password)
+        public async Task<User> ValidateUserAsync(string username, string password)
         {
             User userToValidate = await _usersRepository.GetUserAsync(username);
             if (userToValidate == null)

@@ -25,7 +25,7 @@ namespace FamilyManagementRestApi.Services
         /// <exception cref="KeyNotFoundException">User does not exist</exception>
         /// <exception cref="ArgumentException">Password is incorrect</exception>
         /// <returns>The validated user</returns>
-        Task<User> ValidateUserASync(string username, string password); 
+        Task<User> ValidateUserAsync(string username, string password); 
 
     }
 }
