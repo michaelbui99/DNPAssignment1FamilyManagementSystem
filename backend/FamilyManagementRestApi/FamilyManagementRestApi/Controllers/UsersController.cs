@@ -2,30 +2,35 @@
 using System.Threading.Tasks;
 using FamilyManagementRestApi.Models;
 using FamilyManagementRestApi.Repositories;
+using FamilyManagementRestApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyManagementRestApi.Controllers
 {
+    //TODO: Move input validation from repository to controller 
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private IUsersRepository _usersRepository;
+        private readonly IUsersService _usersService;
 
-        public UsersController(IUsersRepository usersRepository)
+        public UsersController(IUsersService usersService)
         {
-            _usersRepository = usersRepository;
+            _usersService = usersService;
         }
 
 
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser([FromBody] User user)
         {
+            if (user == null)
+            {
+                return BadRequest();
+            }
             try
             {
-                Console.WriteLine($"{this} {nameof(CreateUser)} called");
-                await _usersRepository.CreateUserAsync(user);
-                return Ok();
+                User newUser = await _usersService.CreateUserAsync(user);
+                return Ok(newUser);
             }
             catch (ArgumentException e)
             {

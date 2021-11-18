@@ -7,6 +7,7 @@ namespace FamilyManagementRestApi.Models
     public class User
     {
         [Required(ErrorMessage = "Username is required")]
+        [Key]
         public string Username { get; set; }
         [Required(ErrorMessage = "Password is required")]
         [StringLength(Int32.MaxValue, MinimumLength = 8, ErrorMessage = "Password must be min. 8 characters")]
