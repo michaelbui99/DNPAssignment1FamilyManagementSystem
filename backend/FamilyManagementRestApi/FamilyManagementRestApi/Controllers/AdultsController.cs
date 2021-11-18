@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FamilyManagementRestApi.DTOs;
 using FamilyManagementRestApi.Models;
 using FamilyManagementRestApi.Repositories;
+using FamilyManagementRestApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyManagementRestApi.Controllers
@@ -16,20 +17,21 @@ namespace FamilyManagementRestApi.Controllers
     [Route("api/[controller]")]
     public class AdultsController : ControllerBase
     {
-        private IFamiliesRepository _familiesRepository;
-        private IAdultsRepository _adultsRepository;
 
-        public AdultsController(IFamiliesRepository familiesRepository, IAdultsRepository adultsRepository)
+        private readonly IAdultsService _adultsService;
+        private readonly IFamiliesService  _familiesService; 
+
+        public AdultsController(IAdultsService adultsService, IFamiliesService familiesService)
         {
-            _familiesRepository = familiesRepository;
-            _adultsRepository = adultsRepository;
+            _adultsService = adultsService;
+            _familiesService = familiesService;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Adult>>> GetAdults([FromQuery(Name = "firstname")] string firstName,
             [FromQuery(Name = "lastname")] string lastName)
         {
-            IEnumerable<Adult> adults = await _adultsRepository.GetAdultsAsync();
+            IEnumerable<Adult> adults = await _adultsService.GetAdultsAsync();
             if (firstName != null)
             {
                 adults = adults.Where(a => a.FirstName.ToLower().Contains(firstName.ToLower())).ToList();
@@ -46,13 +48,15 @@ namespace FamilyManagementRestApi.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Adult>> GetAdult([FromRoute] int id)
         {
-            Adult adultToReturn = await _adultsRepository.GetAdultAsync(id);
-            if (adultToReturn == null)
+            try
             {
-                return NotFound();
+                Adult existingAdult = await _adultsService.GetAdultAsync(id);
+                return Ok(existingAdult);
             }
-
-            return Ok(adultToReturn);
+            catch (KeyNotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
         }
 
         /// <summary>
@@ -70,23 +74,37 @@ namespace FamilyManagementRestApi.Controllers
                 return BadRequest();
             }
 
-            Family family =
-                await _familiesRepository.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
-            if (family == null)
+            Family family = null;
+
+            try
             {
-                return NotFound("Family does not exist"); 
+                family = await _familiesService.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return NotFound(e.Message); 
             }
             
-            Adult adultToAdd = new Adult()
+            Adult adultToAdd = new()
             {
                 FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
                 Height = adultDto.Height,
                 EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
                 HairColor = adultDto.HairColor, Job = adultDto.JobTitle
             };
-
-
-            Adult newAdult = await _adultsRepository.AddAdultToFamilyAsync(family, adultToAdd);
+            Adult newAdult = null;
+            try
+            {
+                newAdult = await _adultsService.AddAdultToFamilyAsync(family, adultToAdd);
+            }
+            catch (ArgumentException e)
+            {
+                BadRequest(e.Message); 
+            }
 
             return CreatedAtAction(nameof(GetAdult), new {id = newAdult.Id}, newAdult);
         }
@@ -94,19 +112,22 @@ namespace FamilyManagementRestApi.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<Adult>> DeleteAdult([FromRoute] int id)
         {
-
-            if (id < 0)
+            
+            Adult deletedAdult = null;
+            try
             {
-                return BadRequest("Id cannot be negative"); 
+                deletedAdult = await _adultsService.DeleteAdultAsync(id);
+            }
+            catch (KeyNotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+            catch (ArgumentException e)
+            {
+                return BadRequest(e.Message); 
             }
 
-            Adult removedAdult = await _adultsRepository.RemoveAdultAsync(id);
-            if (removedAdult == null)
-            {
-                return NotFound("Adult does not exist"); 
-            }
-
-            return Ok(removedAdult); 
+            return Ok(deletedAdult);
         }
     }
 }
