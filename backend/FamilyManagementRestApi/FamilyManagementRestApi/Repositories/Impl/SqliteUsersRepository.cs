@@ -27,7 +27,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
         public async Task<User> GetUserAsync(string username)
         {
-            return await _ctx.Users.FirstAsync(u => u.Username == username);
+            return await _ctx.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public Task<User> ValidateUserAsync(string username, string password)

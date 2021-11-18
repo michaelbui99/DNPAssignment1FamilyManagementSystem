@@ -93,7 +93,7 @@ namespace FamilyManagementRestApi.Controllers
                 FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
                 Height = adultDto.Height,
                 EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
-                HairColor = adultDto.HairColor, Job = adultDto.JobTitle
+                HairColor = adultDto.HairColor, Job = adultDto.Job
             };
             Adult newAdult = null;
             try

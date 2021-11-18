@@ -13,12 +13,6 @@ namespace FamilyManagementRestApi.Services.Impl
         public UsersService(IUsersRepository usersRepository)
         {
             _usersRepository = usersRepository;
-
-            var guestUser = _usersRepository.GetUserAsync("Guest").Result;
-            if (guestUser == null)
-            {
-                CreateGuestUser();
-            }
         }
 
         public async Task<User> CreateUserAsync(User user)
@@ -29,8 +23,9 @@ namespace FamilyManagementRestApi.Services.Impl
             }
 
             User existingUser = await _usersRepository.GetUserAsync(user.Username);
-            if (user != null)
+            if (existingUser != null)
             {
+                Console.WriteLine($"Throw exception: User: {existingUser.Username} already exist");
                 throw new ArgumentException("User already exists");
             }
 
@@ -52,15 +47,6 @@ namespace FamilyManagementRestApi.Services.Impl
 
             return userToValidate; 
         }
-
-        private async void CreateGuestUser()
-        {
-            User guestUser = new User()
-            {
-                Username = "Guest", Password = "Guest123", Role = "Guest"
-            };
-            Console.WriteLine($"{this} creating user...");
-            await CreateUserAsync(guestUser);
-        }
+        
     }
 }
