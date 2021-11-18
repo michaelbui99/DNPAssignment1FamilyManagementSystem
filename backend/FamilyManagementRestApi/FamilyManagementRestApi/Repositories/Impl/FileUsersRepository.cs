@@ -47,7 +47,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
         }
 
 
-        public async Task CreateUserAsync(User user)
+        public async Task<User> CreateUserAsync(User user)
         {
             if (user == null)
             {
@@ -61,6 +61,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
             Users.Add(user);
             WriteUsersToFile();
+            return user; 
         }
 
         public async Task RemoveUserAsync(User user)
