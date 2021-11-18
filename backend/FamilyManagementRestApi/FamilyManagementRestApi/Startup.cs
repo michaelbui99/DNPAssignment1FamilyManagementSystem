@@ -38,6 +38,7 @@ namespace FamilyManagementRestApi
             });
             services.AddScoped<FileContext>();
             services.AddScoped<FamilyDbContext>();
+            services.AddScoped<UserDbContext>();
             services.AddScoped<IFamiliesRepository, SqliteFamiliesRepository>();
             services.AddScoped<IAdultsRepository, SqliteAdultRepository>();
             services.AddScoped<IUsersRepository, FileUsersRepository>();
