@@ -64,6 +64,10 @@ namespace FamilyManagementRestApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Family>> CreateFamily([FromBody] Family family)
         {
+            if (family == null)
+            {
+                return BadRequest(); 
+            }
             try
             {
                 Family createdFamily = await _familiesService.CreateFamilyAsync(family);
