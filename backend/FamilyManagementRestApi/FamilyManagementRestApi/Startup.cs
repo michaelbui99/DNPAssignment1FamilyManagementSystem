@@ -41,9 +41,10 @@ namespace FamilyManagementRestApi
             services.AddScoped<UserDbContext>();
             services.AddScoped<IFamiliesRepository, SqliteFamiliesRepository>();
             services.AddScoped<IAdultsRepository, SqliteAdultRepository>();
-            services.AddScoped<IUsersRepository, FileUsersRepository>();
+            services.AddScoped<IUsersRepository, SqliteUsersRepository>();
             services.AddScoped<IFamiliesService, FamiliesService>();
-            services.AddScoped<IAdultsService, AdultsService>(); 
+            services.AddScoped<IAdultsService, AdultsService>();
+            services.AddScoped<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
