@@ -6,9 +6,8 @@ namespace FamilyManagementRestApi.Repositories
 {
     public interface IUsersRepository
     {
-        Task CreateUserAsync(User user);
+        Task<User> CreateUserAsync(User user);
         Task RemoveUserAsync(User user);
         Task<User> GetUserAsync(string username); 
-        Task<User> ValidateUserAsync(string username, string password); 
     }
 }

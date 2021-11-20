@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FamilyManagementRestApi.Models {
 public class Family {
     
     public int Id { get; set; }
-    [Required]
+    [Required] 
     public string StreetName { get; set; }
     [Required, Range(1, Int32.MaxValue, ErrorMessage = "Value must be greater than 0")]
     public int HouseNumber{ get; set; }

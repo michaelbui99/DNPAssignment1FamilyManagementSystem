@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using FamilyManagementRestApi.Persistence;
 using FamilyManagementRestApi.Repositories;
 using FamilyManagementRestApi.Repositories.Impl;
+using FamilyManagementRestApi.Services;
+using FamilyManagementRestApi.Services.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,9 +37,14 @@ namespace FamilyManagementRestApi
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "FamilyManagementRestApi", Version = "v1"});
             });
             services.AddScoped<FileContext>();
-            services.AddScoped<IFamiliesRepository, FileFamiliesRepository>();
-            services.AddScoped<IAdultsRepository, FileAdultRepository>();
-            services.AddScoped<IUsersRepository, FileUsersRepository>();
+            services.AddScoped<FamilyDbContext>();
+            services.AddScoped<UserDbContext>();
+            services.AddScoped<IFamiliesRepository, SqliteFamiliesRepository>();
+            services.AddScoped<IAdultsRepository, SqliteAdultRepository>();
+            services.AddScoped<IUsersRepository, SqliteUsersRepository>();
+            services.AddScoped<IFamiliesService, FamiliesService>();
+            services.AddScoped<IAdultsService, AdultsService>();
+            services.AddScoped<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
