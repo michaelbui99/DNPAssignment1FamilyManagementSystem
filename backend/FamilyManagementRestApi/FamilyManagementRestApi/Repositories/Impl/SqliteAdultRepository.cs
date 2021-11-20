@@ -19,14 +19,14 @@ namespace FamilyManagementRestApi.Repositories.Impl
             public async Task<IEnumerable<Adult>> GetAdultsAsync()
         {
            
-                return ctx.Families.SelectMany(f => f.Adults).AsEnumerable(); 
+                return ctx.Families.SelectMany(f => f.Adults).Include(a => a.Job).AsEnumerable(); 
             
         }
 
         public async Task<Adult> GetAdultAsync(int id)
         {
             
-                return await ctx.Families.SelectMany(f => f.Adults).FirstOrDefaultAsync(a => a.Id == id); 
+                return await ctx.Families.SelectMany(f => f.Adults).Include(a => a.Job).FirstOrDefaultAsync(a => a.Id == id); 
             
         }
 

@@ -8,6 +8,7 @@ namespace FamilyManagementRestApi.Persistence
         public DbSet<Family> Families { get; set; }
         public DbSet<Adult> Adults { get; set; }
 
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data source = FamilyManagementFamilies.db");

@@ -18,12 +18,14 @@ namespace FamilyManagementRestApi.Repositories.Impl
 
         public async Task<IEnumerable<Family>> GetFamiliesAsync()
         {
-            return await _ctx.Families.ToListAsync();
+            return await _ctx.Families.Include(f => f.Adults).ThenInclude(a => a.Job).Include(f => f.Children)
+                .ThenInclude(c => c.Interests).Include(f => f.Pets).ToListAsync();
         }
 
         public async Task<Family> GetFamilyAsync(string streetName, int houseNumber)
         {
-            return await _ctx.Families.FirstOrDefaultAsync(f =>
+            return await _ctx.Families.Include(f => f.Adults).ThenInclude(a => a.Job).Include(f => f.Children)
+                .ThenInclude(c => c.Interests).Include(f => f.Pets).FirstOrDefaultAsync(f =>
                 f.StreetName == streetName && f.HouseNumber == houseNumber);
         }
 
@@ -31,9 +33,9 @@ namespace FamilyManagementRestApi.Repositories.Impl
         {
             Family existingFamily = await _ctx.Families.FirstOrDefaultAsync(f =>
                 f.StreetName == family.StreetName && f.HouseNumber == family.HouseNumber);
-           _ctx.Entry(existingFamily).CurrentValues.SetValues(family);
-           await _ctx.SaveChangesAsync(); 
-           return family; 
+            _ctx.Entry(existingFamily).CurrentValues.SetValues(family);
+            await _ctx.SaveChangesAsync();
+            return family;
         }
 
         public async Task<Family> DeleteFamilyAsync(string streetName, int houseNumber)
@@ -41,26 +43,27 @@ namespace FamilyManagementRestApi.Repositories.Impl
             Family familyToBeDeleted = await GetFamilyAsync(streetName, houseNumber);
             _ctx.Families.Remove(familyToBeDeleted);
             await _ctx.SaveChangesAsync();
-            return familyToBeDeleted; 
+            return familyToBeDeleted;
         }
 
         public async Task<Family> CreateFamilyAsync(Family family)
         {
             await _ctx.Families.AddAsync(family);
             await _ctx.SaveChangesAsync();
-            return family; 
+            return family;
         }
 
         public bool FamilyExists(string streetName, int houseNumber)
         {
             Family existingFamily =
-                _ctx.Families.FirstOrDefault(f => f.StreetName == streetName && f.HouseNumber == houseNumber);
+                _ctx.Families.FirstOrDefault(f =>
+                        f.StreetName == streetName && f.HouseNumber == houseNumber);
             if (existingFamily == null)
             {
-                return false; 
+                return false;
             }
 
-            return true; 
+            return true;
         }
     }
 }
