@@ -97,7 +97,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                 FamilyStreetName = family.StreetName, FamilyHouseNumber = family.HouseNumber,
                 FirstName = adult.FirstName, LastName = adult.LastName, HairColor = adult.HairColor, Age = adult.Age,
                 Height = adult.Height, Sex = adult.Sex, Weight = adult.Weight, EyeColor = adult.EyeColor,
-                JobTitle = adult.JobTitle
+                Job = adult.Job
             };
             string addAdultDtoAsJson = JsonSerializer.Serialize(addAdultDto, new JsonSerializerOptions()
             {

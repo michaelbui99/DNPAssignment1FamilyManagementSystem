@@ -21,6 +21,6 @@ namespace DNPAssignment1FamilyManagementSystem.Dtos
 
         [Required] public string Sex { get; set; }
 
-        public Job JobTitle { get; set; }
+        public Job Job { get; set; }
     }
 }

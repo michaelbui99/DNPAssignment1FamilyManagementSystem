@@ -195,7 +195,7 @@ using Microsoft.AspNetCore.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 238 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Families.razor"
+#line 241 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\Families.razor"
        
     private IList<Family> _familiesToShow;
     private IList<Family> _allFamilies;

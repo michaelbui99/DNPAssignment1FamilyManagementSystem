@@ -176,24 +176,24 @@ using DNPAssignment1FamilyManagementSystem.Models;
 #nullable restore
 #line 45 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Components\ExpandableFamilyTableRow.razor"
        
-    private string iconClass = "oi oi-collapse-down";
+    private string _iconClass = "oi oi-collapse-down";
     private bool _isCollapsed = true;
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     [Parameter]
     public Family Family { get; set; }
 
-    public void ExpandView()
+    private void ExpandView()
     {
         if (_isCollapsed)
         {
             _isCollapsed = false;
-            iconClass = "oi oi-collapse-up";
+            _iconClass = "oi oi-collapse-up";
         }
         else
         {
             _isCollapsed = true;
-            iconClass = "oi oi-collapse-down"; 
+            _iconClass = "oi oi-collapse-down"; 
         }
     }
 

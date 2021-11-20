@@ -165,6 +165,13 @@ using Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\AddAdult.razor"
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/AddAdult/{StreetName}/{HouseNumber:int}")]
     public partial class AddAdult : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -174,7 +181,7 @@ using Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 114 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\AddAdult.razor"
+#line 115 "C:\Users\Shark\Documents\Coding\WebDev\FamilyManagementSystem\frontend\Pages\AddAdult.razor"
        
 
     [Parameter]
@@ -183,7 +190,7 @@ using Models;
     [Parameter]
     public int HouseNumber { get; set; }
 
-    private Adult _newAdult = new Adult() {JobTitle = new Job()};
+    private Adult _newAdult = new Adult() {Job = new Job()};
 
     private string _selectedSex = "M";
 
@@ -206,6 +213,7 @@ using Models;
         Task<Family> fetchFamilyOfAdult = FamilyService.GetFamilyAsync(StreetName, HouseNumber); 
         _newAdult.Sex = _selectedSex;
         await FamilyService.AddAdultToFamilyAsync(await fetchFamilyOfAdult, _newAdult);
+        Console.WriteLine(JsonSerializer.Serialize(_newAdult));
         NavigationManager.NavigateTo("/Families");
     }
 

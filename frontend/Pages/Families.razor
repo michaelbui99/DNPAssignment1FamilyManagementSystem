@@ -84,8 +84,11 @@
                                         @foreach (var a in f.Adults)
                                         {
                                             <PersonInfomation Person=@a Family="f" DeleteStrategy="new DeleteAdultStrategy(FamilyService)"/>
-                                            <p>Job: @a.JobTitle.JobTitle</p>
-                                            <p>Salary: @a.JobTitle.Salary</p>
+                                           @if (a.Job != null)
+                                           {
+                                            <p>Job: @a.Job.JobTitle</p>
+                                            <p>Salary: @a.Job.Salary</p>
+                                           }
                                             <br/>
                                         }
                                     </div>
@@ -184,8 +187,8 @@
                                         @foreach (var a in f.Adults)
                                         {
                                             <PersonInfomation Person=@a Family="f"/>
-                                            <p>Job: @a.JobTitle.JobTitle</p>
-                                            <p>Salary: @a.JobTitle.Salary</p>
+                                            <p>Job: @a.Job.JobTitle</p>
+                                            <p>Salary: @a.Job.Salary</p>
                                             <br/>
                                         }
                                     </div>

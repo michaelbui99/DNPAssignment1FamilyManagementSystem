@@ -27,7 +27,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
                     throw new ArgumentException("User Already exists");
                 }
 
-                throw new Exception($"Error: {responseMessage.StatusCode}, {responseMessage.ReasonPhrase}");
+                throw new Exception(await responseMessage.Content.ReadAsStringAsync());
             }
         }
 

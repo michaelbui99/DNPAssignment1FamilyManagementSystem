@@ -17,6 +17,7 @@ namespace FamilyManagementRestApi.Repositories.Impl
         public async Task<User> CreateUserAsync(User user)
         {
             await _ctx.Users.AddAsync(user);
+            await _ctx.SaveChangesAsync();
             return user; 
         }
 
