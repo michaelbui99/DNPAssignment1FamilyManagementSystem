@@ -55,7 +55,7 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             foreach (var family in allFamilies)
             {
                 decimal familySalary = 0;
-                family.Adults.ForEach(a => familySalary+= a.JobTitle.Salary);
+                family.Adults.ForEach(a => familySalary+= a.Job.Salary);
                 salaryDistributionDataSet.Add($"{family.StreetName} {family.HouseNumber}", familySalary);
             }
             
@@ -125,9 +125,9 @@ namespace DNPAssignment1FamilyManagementSystem.Data.Impl
             {
                 family.Adults.ForEach(a =>
                 {
-                    if (a.JobTitle != null)
+                    if (a.Job != null)
                     {
-                        totalSalary += a.JobTitle.Salary;
+                        totalSalary += a.Job.Salary;
                     }
                 });
             }

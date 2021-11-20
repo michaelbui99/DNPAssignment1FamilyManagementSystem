@@ -2,6 +2,7 @@
 @using DNPAssignment1FamilyManagementSystem.Data
 @using Microsoft.AspNetCore.Components
 @using Models
+@using System.Text.Json
 @inject IFamilyService FamilyService
 @inject NavigationManager NavigationManager
 
@@ -88,14 +89,14 @@
                     <div class="col">
                         <div class="form-group">
                             <label >Job Title</label>
-                            <input type="text" placeholder="Job Title" @bind-value="_newAdult.JobTitle.JobTitle" class="form-control">
+                            <input type="text" placeholder="Job Title" @bind-value="_newAdult.Job.JobTitle" class="form-control">
                         </div>
 
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label >Salary</label>
-                            <input type="number" placeholder="Salary" @bind-value="_newAdult.JobTitle.Salary" class="form-control">
+                            <input type="number" placeholder="Salary" @bind-value="_newAdult.Job.Salary" class="form-control">
                         </div>
 
                     </div>
@@ -119,7 +120,7 @@
     [Parameter]
     public int HouseNumber { get; set; }
 
-    private Adult _newAdult = new Adult() {JobTitle = new Job()};
+    private Adult _newAdult = new Adult() {Job = new Job()};
 
     private string _selectedSex = "M";
 
@@ -142,6 +143,7 @@
         Task<Family> fetchFamilyOfAdult = FamilyService.GetFamilyAsync(StreetName, HouseNumber); 
         _newAdult.Sex = _selectedSex;
         await FamilyService.AddAdultToFamilyAsync(await fetchFamilyOfAdult, _newAdult);
+        Console.WriteLine(JsonSerializer.Serialize(_newAdult));
         NavigationManager.NavigateTo("/Families");
     }
 

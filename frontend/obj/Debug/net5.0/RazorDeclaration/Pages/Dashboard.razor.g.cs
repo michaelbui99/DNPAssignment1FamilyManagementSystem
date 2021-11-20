@@ -221,7 +221,7 @@ using ChartJs.Blazor.BarChart.Axes;
     private int _totalAmountOfPets;
     private decimal _averageChildrenPerFamily;
     private decimal _averageSalaryPerFamily;
-    private bool sideEffectsAreDone = false; 
+    private bool _sideEffectsAreDone = false; 
     
     protected override async Task OnInitializedAsync()
     {
@@ -234,14 +234,14 @@ using ChartJs.Blazor.BarChart.Axes;
         _averageSalaryPerFamily = await FamilyStatisticsService.GetAverageSalaryPerFamilyAsync();
         _eyeColorDistributionData = await FamilyStatisticsService.GetEyeColorDistributionAsync();
 
-         await InitEyeColorDistributionEyeChart();
+         await InitEyeColorDistributionPieChart();
          await InitSalaryPieChart();
-        sideEffectsAreDone = true; 
+        _sideEffectsAreDone = true; 
         StateHasChanged();
     }
     
 
-    private async Task InitEyeColorDistributionEyeChart()
+    private async Task InitEyeColorDistributionPieChart()
     {
     //Creating a new PieConfig
         _eyeColorPieConfig = new PieConfig()

@@ -160,7 +160,7 @@ using ChartJs.Blazor.Interop;
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
 
-    string _username;
+    private string _username;
 
     protected async override Task OnInitializedAsync()
     {

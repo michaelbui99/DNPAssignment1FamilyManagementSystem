@@ -171,7 +171,7 @@ using DNPAssignment1FamilyManagementSystem.Authentication;
         collapseNavMenu = !collapseNavMenu;
     }
 
-    public void PerformLogout()
+    private void PerformLogout()
     {
         ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
         NavigationManager.NavigateTo("/Login");

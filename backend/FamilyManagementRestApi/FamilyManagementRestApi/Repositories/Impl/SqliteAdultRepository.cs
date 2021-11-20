@@ -33,7 +33,8 @@ namespace FamilyManagementRestApi.Repositories.Impl
         public async Task<Adult> AddAdultToFamilyAsync(Family family, Adult adult)
         {
             
-                Family existingFamily = await ctx.Families.FirstOrDefaultAsync(f => f.StreetName == family.StreetName && f.HouseNumber == family.HouseNumber);
+                Family existingFamily = await ctx.Families.Include(f => f.Adults).ThenInclude(a => a.Job).Include(f => f.Children)
+                                                                           .ThenInclude(c => c.Interests).Include(f => f.Pets).FirstOrDefaultAsync(f => f.StreetName == family.StreetName && f.HouseNumber == family.HouseNumber);
                 existingFamily.Adults.Add(adult);
                 await ctx.SaveChangesAsync(); 
                 return adult;
