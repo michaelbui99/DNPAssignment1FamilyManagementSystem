@@ -1,6 +1,7 @@
 # FamilyManagementSystem
 This system is an Family Management SPA created using Blazor (Server).
 Styling is done with combination of Bootstrap and custom styling in SCSS. 
+Backend is a RESTful API written with ASP.NET Core and Entity Framework Core
 
 ## Features
 *   Account Creation
