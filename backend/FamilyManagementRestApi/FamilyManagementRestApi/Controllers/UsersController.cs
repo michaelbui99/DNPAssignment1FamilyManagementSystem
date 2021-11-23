@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyManagementRestApi.Controllers
 {
-    //TODO: Move input validation from repository to controller 
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
@@ -38,7 +37,7 @@ namespace FamilyManagementRestApi.Controllers
             }
         }
 
-        
-     
+
+
     }
 }

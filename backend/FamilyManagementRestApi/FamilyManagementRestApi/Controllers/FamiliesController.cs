@@ -14,11 +14,11 @@ namespace FamilyManagementRestApi.Controllers
     [Route("api/[controller]")]
     public class FamiliesController : ControllerBase
     {
-        private readonly IFamiliesService _familiesService; 
+        private readonly IFamiliesService _familiesService;
 
         public FamiliesController(IFamiliesService familiesService)
         {
-            _familiesService = familiesService; 
+            _familiesService = familiesService;
         }
 
         [HttpGet]
@@ -28,12 +28,12 @@ namespace FamilyManagementRestApi.Controllers
             var families = await _familiesService.GetFamiliesAsync();
             if (streetName != null)
             {
-                families = families.Where(f => f.StreetName.ToLower().Contains(streetName.ToLower())); 
+                families = families.Where(f => f.StreetName.ToLower().Contains(streetName.ToLower()));
             }
 
             if (houseNumber != null)
             {
-                families = families.Where((f => f.HouseNumber == houseNumber)); 
+                families = families.Where((f => f.HouseNumber == houseNumber));
             }
             return Ok(families);
         }
@@ -55,23 +55,23 @@ namespace FamilyManagementRestApi.Controllers
             }
             catch (ArgumentException e)
             {
-                return BadRequest(e.Message); 
+                return BadRequest(e.Message);
             }
         }
 
-   
+
         [HttpPost]
         public async Task<ActionResult<Family>> CreateFamily([FromBody] Family family)
         {
             if (family == null)
             {
-                return BadRequest(); 
+                return BadRequest();
             }
             try
             {
                 Family createdFamily = await _familiesService.CreateFamilyAsync(family);
                 return CreatedAtAction(nameof(GetFamily),
-                    new {streetName = createdFamily.StreetName, houseNumber = createdFamily.HouseNumber},
+                    new { streetName = createdFamily.StreetName, houseNumber = createdFamily.HouseNumber },
                     createdFamily);
             }
             catch (ArgumentException e)
@@ -100,6 +100,6 @@ namespace FamilyManagementRestApi.Controllers
         }
 
 
-       
+
     }
 }

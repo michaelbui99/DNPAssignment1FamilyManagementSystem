@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FamilyManagementRestApi.Controllers
 {
-    //TODO: Move input validation from repository to controller 
     [ApiController]
     [Route("api/[controller]")]
     public class LoginController : ControllerBase
@@ -26,7 +25,7 @@ namespace FamilyManagementRestApi.Controllers
         {
             if (user == null)
             {
-                return BadRequest(); 
+                return BadRequest();
             }
             Console.WriteLine($"Request for {nameof(LoginUser)}");
 
@@ -34,6 +33,9 @@ namespace FamilyManagementRestApi.Controllers
             try
             {
                 userToValidate = await _usersService.ValidateUserAsync(user.Username, user.Password);
+                Console.WriteLine($"Request for {nameof(LoginUser)} was OK.");
+                Console.WriteLine($"Returning user: {userToValidate.Username}");
+                return Ok(userToValidate);
             }
             catch (ArgumentException e)
             {
@@ -45,10 +47,7 @@ namespace FamilyManagementRestApi.Controllers
                 return NotFound(e.Message);
             }
 
-            Console.WriteLine($"Request for {nameof(LoginUser)} was OK.");
-            Console.WriteLine($"Returning user: {userToValidate.Username}");
-            return Ok(userToValidate);
         }
-        
+
     }
 }
