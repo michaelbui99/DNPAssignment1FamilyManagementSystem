@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CF4Pf4eHfOjwU/uGU/aJyfsyLkeSc497zsgRFhKZmhhO+X4HncNrQpZfZ/MewXLaMyxWYI8yR/0mepo9roB+jg==",
+  "dgSpecHash": "KkODBkmpzfTlU95udkOfoudvmOSAMqUiLC7yS5lu9zYJCzZbNE7UtT1HOKr7nRPhK4mH/R9Amjsob7UgE+BpwQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Shark\\Documents\\Coding\\WebDev\\FamilyManagementSystem\\backend\\FamilyManagementRestApi\\FamilyManagementRestApi\\FamilyManagementRestApi.csproj",
+  "projectFilePath": "c:\\Users\\Shark\\Documents\\Coding\\WebDev\\FamilyManagementSystem\\backend\\FamilyManagementRestApi\\FamilyManagementRestApi\\FamilyManagementRestApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shark\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Shark\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

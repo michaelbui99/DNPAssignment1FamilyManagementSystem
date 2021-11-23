@@ -47,6 +47,10 @@ namespace FamilyManagementRestApi.Services.Impl
                 throw new ArgumentException(); 
             }
 
+            if (family.Adults.Count >= 2){
+                throw new ArgumentException("Max 2 adults is allowed per family"); 
+            }
+
             try
             {
              await _familiesService.GetFamilyAsync(family.StreetName, family.HouseNumber); 

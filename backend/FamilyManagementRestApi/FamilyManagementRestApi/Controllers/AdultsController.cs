@@ -18,7 +18,7 @@ namespace FamilyManagementRestApi.Controllers
     {
 
         private readonly IAdultsService _adultsService;
-        private readonly IFamiliesService  _familiesService; 
+        private readonly IFamiliesService _familiesService;
 
         public AdultsController(IAdultsService adultsService, IFamiliesService familiesService)
         {
@@ -78,6 +78,21 @@ namespace FamilyManagementRestApi.Controllers
             try
             {
                 family = await _familiesService.GetFamilyAsync(adultDto.FamilyStreetName, adultDto.FamilyHouseNumber);
+                Adult adultToAdd = new()
+                {
+                    FirstName = adultDto.FirstName,
+                    LastName = adultDto.LastName,
+                    Age = adultDto.Age,
+                    Height = adultDto.Height,
+                    EyeColor = adultDto.EyeColor,
+                    Sex = adultDto.Sex,
+                    Weight = adultDto.Weight,
+                    HairColor = adultDto.HairColor,
+                    Job = adultDto.Job
+                };
+                Adult newAdult = await _adultsService.AddAdultToFamilyAsync(family, adultToAdd);
+
+                return CreatedAtAction(nameof(GetAdult), new { id = newAdult.Id }, newAdult);
             }
             catch (ArgumentException e)
             {
@@ -85,37 +100,21 @@ namespace FamilyManagementRestApi.Controllers
             }
             catch (KeyNotFoundException e)
             {
-                return NotFound(e.Message); 
-            }
-            
-            Adult adultToAdd = new()
-            {
-                FirstName = adultDto.FirstName, LastName = adultDto.LastName, Age = adultDto.Age,
-                Height = adultDto.Height,
-                EyeColor = adultDto.EyeColor, Sex = adultDto.Sex, Weight = adultDto.Weight,
-                HairColor = adultDto.HairColor, Job = adultDto.Job
-            };
-            Adult newAdult = null;
-            try
-            {
-                newAdult = await _adultsService.AddAdultToFamilyAsync(family, adultToAdd);
-            }
-            catch (ArgumentException e)
-            {
-                BadRequest(e.Message); 
+                return NotFound(e.Message);
             }
 
-            return CreatedAtAction(nameof(GetAdult), new {id = newAdult.Id}, newAdult);
+
         }
 
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<Adult>> DeleteAdult([FromRoute] int id)
         {
-            
+
             Adult deletedAdult = null;
             try
             {
                 deletedAdult = await _adultsService.DeleteAdultAsync(id);
+                return Ok(deletedAdult);
             }
             catch (KeyNotFoundException e)
             {
@@ -123,10 +122,9 @@ namespace FamilyManagementRestApi.Controllers
             }
             catch (ArgumentException e)
             {
-                return BadRequest(e.Message); 
+                return BadRequest(e.Message);
             }
 
-            return Ok(deletedAdult);
         }
     }
 }
